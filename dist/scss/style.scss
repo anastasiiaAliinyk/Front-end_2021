@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+*:focus {
+  outline: none;
+}
