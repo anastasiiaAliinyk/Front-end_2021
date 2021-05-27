@@ -9,7 +9,18 @@ btnMenu.addEventListener('click', () => {
 const buttonsSelectPlus = document.querySelectorAll('.item__select');
 
 buttonsSelectPlus.forEach(buttonSelectPlus => {
-  buttonSelectPlus.addEventListener('click', () => {
+  buttonSelectPlus.addEventListener('click', (e) => {
     buttonSelectPlus.classList.toggle('active');
+
+    let hiddenContent = e.target.previousElementSibling;
+    let itemNumber = hiddenContent.previousElementSibling;
+
+      if (hiddenContent.style.display === "block") {
+        hiddenContent.style.display = "none";
+        itemNumber.style.display = "flex";
+      } else {
+        hiddenContent.style.display = "block";
+        itemNumber.style.display = "none";
+      }
   });
 });

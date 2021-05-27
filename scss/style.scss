@@ -572,6 +572,10 @@ body {
   padding-top: 11px;
   border-top: 1px solid $c-gray;
 
+  &__item {
+    align-items: top;
+  }
+
   &__title {
     margin-bottom: 24px;
   }
@@ -587,29 +591,52 @@ body {
     }
   }
 }
+
+.hidden-tips-content {
+  width: 100%;
+  display: none;
+
+  & .item__wrap-number {
+    width: 95%;
+  }
+
+  & .item__wrap-number:first-of-type {
+    margin-bottom: 17px;
+
+    @media(min-width: $breakpoint-tablet) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+//FOR TIPS AND FAQS
 .item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 30px 0;
 
   font-size: 16px;
   line-height: 24px;
   color: #191919;
 
+  &__heading-text {
+    font-size: 14px;
+  }
+
   &__wrap-number {
     width: 80%;
     display: flex;
-    align-items: center;
   }
 
   &__hidden-content {
+    width: 90%;
     display: none;
   }
 
   &__number {
     display: block;
     margin-right: 35px;
+    width: 20px;
 
     font-family: 'Actor', sans-serif;
     font-size: 40px;
@@ -625,6 +652,11 @@ body {
   
       cursor: pointer;
       background: no-repeat url("../images/check.png")
+    }
+
+    &.active.item__select--check {
+      cursor: pointer;
+      background: no-repeat url("../images/check-up.png")
     }
 
     &.active.item__select--plus {
@@ -677,6 +709,70 @@ body {
         background-color: $c-green;
         transform: rotate(90deg);
       }
+    }
+  }
+}
+
+//FAQS HIDDEN CONTENT
+.hidden-content {
+  font-size: 14px;
+  line-height: 24px;
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__wraper {
+    width: 110%;
+
+    @media(min-width: $breakpoint-tablet) {
+      display: flex;
+      margin-top: 30px;
+    }  
+
+    img {
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      object-position: center;
+
+      @media(min-width: $breakpoint-tablet) {
+        height: 370px;
+        margin: 0 10% 0 0;
+      } 
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    @media(min-width: $breakpoint-tablet) {
+      max-width: 464px;
+    } 
+
+    &:first-of-type {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+
+    @media(min-width: $breakpoint-tablet) {
+      justify-content: start;
+      margin-top: 100px;
+    } 
+   
+    img {
+      width: 30px;
+      height: 30px;
+      margin: 0 20px 0 0;
+    }
+
+    p {
+      font-size: 12px;
+      color: $c-dark-gray;
     }
   }
 }
