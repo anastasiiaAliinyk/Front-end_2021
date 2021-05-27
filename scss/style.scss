@@ -827,3 +827,57 @@ body {
     }
   }
 }
+
+//GLOSSARY
+.glossary {
+  padding-bottom: 20px;
+
+  & > .l-container {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-top: 1px solid $c-gray;
+  }
+}
+
+.glossary-main-content {
+  padding: 32px 15px 0;
+  background: no-repeat url("../images/scout-bc.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &__wraper {
+    @media(min-width: $breakpoint-desktop) {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      } 
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    font-family: 'Actor', sans-serif;
+    font-size: 32px;
+  }
+
+  &__text {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+
+    @media(min-width: $breakpoint-desktop) {
+      max-width: 462px;
+    } 
+
+    &::before {
+      position: absolute;
+      left: -35px;
+      top: 24px;
+      height: 1.5px;
+      width: 48px;
+      content: "";
+      background-color: $c-green;
+      transform: rotate(90deg);
+    }
+  }
+}

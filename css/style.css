@@ -574,3 +574,42 @@ body {
     .hidden-content__info p {
       font-size: 12px;
       color: #7f7f7f; }
+
+.glossary {
+  padding-bottom: 20px; }
+  .glossary > .l-container {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-top: 1px solid #f2f2f2; }
+
+.glossary-main-content {
+  padding: 32px 15px 0;
+  background: no-repeat url("../images/scout-bc.jpg");
+  background-size: cover;
+  background-position: center; }
+  @media (min-width: 992px) {
+    .glossary-main-content__wraper {
+      align-self: center;
+      display: flex;
+      flex-direction: column; } }
+  .glossary-main-content__title {
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    font-family: 'Actor', sans-serif;
+    font-size: 32px; }
+  .glossary-main-content__text {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px; }
+    @media (min-width: 992px) {
+      .glossary-main-content__text {
+        max-width: 462px; } }
+    .glossary-main-content__text::before {
+      position: absolute;
+      left: -35px;
+      top: 24px;
+      height: 1.5px;
+      width: 48px;
+      content: "";
+      background-color: #22bf95;
+      transform: rotate(90deg); }
