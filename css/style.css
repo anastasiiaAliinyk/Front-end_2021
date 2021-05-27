@@ -588,22 +588,32 @@ body {
   background-size: cover;
   background-position: center; }
   @media (min-width: 992px) {
+    .glossary-main-content > .l-container {
+      display: flex; } }
+  @media (min-width: 992px) {
     .glossary-main-content__wraper {
-      align-self: center;
       display: flex;
-      flex-direction: column; } }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; } }
   .glossary-main-content__title {
     margin-bottom: 24px;
     text-transform: uppercase;
     font-family: 'Actor', sans-serif;
     font-size: 32px; }
+    @media (min-width: 992px) {
+      .glossary-main-content__title {
+        margin-bottom: 73px;
+        font-size: 90px; } }
   .glossary-main-content__text {
     position: relative;
     font-size: 16px;
     line-height: 24px; }
     @media (min-width: 992px) {
       .glossary-main-content__text {
-        max-width: 462px; } }
+        max-width: 462px;
+        font-size: 24px;
+        line-height: 36px; } }
     .glossary-main-content__text::before {
       position: absolute;
       left: -35px;
@@ -613,3 +623,34 @@ body {
       content: "";
       background-color: #22bf95;
       transform: rotate(90deg); }
+
+.glossary-slider {
+  position: relative;
+  max-width: 422px;
+  margin-bottom: 32px;
+  padding: 32px 32px 41px 62px;
+  font-size: 16px;
+  color: #7f7f7f;
+  background-color: #fff; }
+  @media (min-width: 992px) {
+    .glossary-slider {
+      margin-right: 130px; } }
+  .glossary-slider__item {
+    margin-bottom: 15px; }
+  .glossary-slider__arrow {
+    position: absolute;
+    top: 32px;
+    right: 32px; }
+  .glossary-slider__arrow-right {
+    display: block;
+    margin-bottom: 16px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background: no-repeat url("../images/right.png"); }
+  .glossary-slider__arrow-left {
+    display: block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background: no-repeat url("../images/left.png"); }

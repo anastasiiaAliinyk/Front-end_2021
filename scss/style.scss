@@ -1,7 +1,5 @@
 @import "fonts";
-
 @import "variables";
-@import "mixins";
 
 //RESET 
 html, body, div, span, applet, object, iframe,
@@ -845,12 +843,19 @@ body {
   background-size: cover;
   background-position: center;
 
+  & > .l-container {
+    @media(min-width: $breakpoint-desktop) {
+      display: flex;
+    } 
+  }
+
   &__wraper {
     @media(min-width: $breakpoint-desktop) {
-      align-self: center;
       display: flex;
       flex-direction: column;
-      } 
+      justify-content: center;
+      align-items: center;
+    } 
   }
 
   &__title {
@@ -858,6 +863,11 @@ body {
     text-transform: uppercase;
     font-family: 'Actor', sans-serif;
     font-size: 32px;
+
+    @media(min-width: $breakpoint-desktop) {
+      margin-bottom: 73px;
+      font-size: 90px;
+    } 
   }
 
   &__text {
@@ -867,6 +877,8 @@ body {
 
     @media(min-width: $breakpoint-desktop) {
       max-width: 462px;
+      font-size: 24px;
+      line-height: 36px;
     } 
 
     &::before {
@@ -879,5 +891,49 @@ body {
       background-color: $c-green;
       transform: rotate(90deg);
     }
+  }
+}
+
+.glossary-slider {
+  position: relative;
+  max-width: 422px;
+  margin-bottom: 32px;
+  padding: 32px 32px 41px 62px;
+
+  font-size: 16px;
+  color: $c-dark-gray;
+  background-color: $c-white;
+
+  @media(min-width: $breakpoint-desktop) {
+    margin-right: 130px;
+  } 
+
+  &__item {
+    margin-bottom: 15px;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+  }
+
+  &__arrow-right {
+    display: block;
+    margin-bottom: 16px;
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+    background: no-repeat url("../images/right.png")
+  }
+
+  &__arrow-left {
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+    background: no-repeat url("../images/left.png")
   }
 }
