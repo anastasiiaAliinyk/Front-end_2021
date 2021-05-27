@@ -374,8 +374,7 @@ body {
         font-size: 16px; } }
   .item__wrap-number {
     width: 80%;
-    display: flex;
-    align-items: center; }
+    display: flex; }
   .item__hidden-content {
     width: 90%;
     display: none; }
