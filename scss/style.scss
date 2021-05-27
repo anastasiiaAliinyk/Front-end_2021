@@ -597,7 +597,13 @@ body {
   display: none;
 
   & .item__wrap-number {
-    width: 95%;
+    &:first-child {
+      width: 85%;
+    }
+
+    &:nth-child(2) {
+      width: 95%;
+    }
   }
 
   & .item__wrap-number:first-of-type {

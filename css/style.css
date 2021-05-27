@@ -422,7 +422,9 @@ body {
 .hidden-tips-content {
   width: 100%;
   display: none; }
-  .hidden-tips-content .item__wrap-number {
+  .hidden-tips-content .item__wrap-number:first-child {
+    width: 85%; }
+  .hidden-tips-content .item__wrap-number:nth-child(2) {
     width: 95%; }
   .hidden-tips-content .item__wrap-number:first-of-type {
     margin-bottom: 17px; }
