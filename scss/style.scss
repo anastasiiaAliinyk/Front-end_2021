@@ -164,6 +164,10 @@ body {
 
 .l-main{
   padding: 52px 0 24px;
+
+  @media(min-width: $breakpoint-tablet) {
+    padding-top: 138px;
+  }
 }
 
 .l-footer {
@@ -206,7 +210,7 @@ body {
   }
 
   @media(min-width: $breakpoint-tablet) {
-    margin: 102px auto 188px;
+    margin: 120px auto 188px;
     font-size: 110px;
   }
 }
@@ -565,6 +569,34 @@ body {
   }
 }
 
+
+.hidden-tips-content {
+  width: 100%;
+  display: none;
+
+  & .item__wrap-number {
+    &:first-child {
+      width: 85%;
+    }
+
+    &:nth-child(2) {
+      width: 95%;
+    }
+  }
+
+  & .item__wrap-number:first-of-type {
+    margin-bottom: 17px;
+
+    @media(min-width: $breakpoint-tablet) {
+      margin-bottom: 40px;
+    }
+
+    @media(min-width: $breakpoint-desktop) {
+      margin-bottom: 100px;
+    }
+  }
+}
+
 //FAQS
 .faqs {
   display: flex;
@@ -592,46 +624,38 @@ body {
   }
 }
 
-.hidden-tips-content {
-  width: 100%;
-  display: none;
-
-  & .item__wrap-number {
-    &:first-child {
-      width: 85%;
-    }
-
-    &:nth-child(2) {
-      width: 95%;
-    }
-  }
-
-  & .item__wrap-number:first-of-type {
-    margin-bottom: 17px;
-
-    @media(min-width: $breakpoint-tablet) {
-      margin-bottom: 40px;
-    }
-  }
-}
-
 //FOR TIPS AND FAQS
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 30px 0;
+  padding: 15px 0;
 
   font-size: 16px;
   line-height: 24px;
   color: #191919;
 
+  @media(min-width: $breakpoint-tablet) {
+    padding: 56px 0;
+  }
+
+  &__heading {
+    @media(min-width: $breakpoint-desktop) {
+      font-size: 24px;
+    }
+  }
+
   &__heading-text {
     font-size: 14px;
+
+    @media(min-width: $breakpoint-desktop) {
+      font-size: 16px;
+    }
   }
 
   &__wrap-number {
     width: 80%;
     display: flex;
+    align-items: center;
   }
 
   &__hidden-content {
@@ -647,6 +671,11 @@ body {
     font-family: 'Actor', sans-serif;
     font-size: 40px;
     color: $c-gray;
+
+    @media(min-width: $breakpoint-desktop) {
+      margin-right: 113px;
+      font-size: 110px;
+    }
   }
 
   &__select {
@@ -681,6 +710,11 @@ body {
       border: 1px solid $c-green;
       box-shadow: 0px 3px 6px rgba(127, 127, 127, 0.3);
 
+      @media(min-width: $breakpoint-desktop) {
+        width: 35px;
+        height: 35px;
+      }
+
       &:hover {
         border:1px solid rgb(113, 236, 236)
       }
@@ -698,6 +732,11 @@ body {
 
         content: "";
         background-color: $c-green;
+
+        @media(min-width: $breakpoint-desktop) {
+          width: 2px;
+          height: 18px;
+        }
       }
 
       &::after {
@@ -714,6 +753,11 @@ body {
         content: "";
         background-color: $c-green;
         transform: rotate(90deg);
+
+        @media(min-width: $breakpoint-desktop) {
+          width: 2px;
+          height: 18px;
+        }
       }
     }
   }
