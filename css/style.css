@@ -467,6 +467,7 @@ body {
     display: block;
     margin-right: 35px;
     width: 20px;
+    min-height: 100%;
     font-family: 'Actor', sans-serif;
     font-size: 40px;
     color: #f2f2f2; }
