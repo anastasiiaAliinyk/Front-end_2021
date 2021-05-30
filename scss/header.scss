@@ -106,6 +106,22 @@
     border-radius: 0;
     z-index: 3;
 
+    &.active {
+      &::before {
+        transform: rotate(45deg);
+        top: 18px;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        bottom: 18px;
+      }
+
+      span {
+        transform: scale(0);
+      }
+    }
+
     span {
       top: 18px;
       content: '';
@@ -125,6 +141,7 @@
       margin: 0 auto;
 
       background-color: $c-white;
+      transition: all 0.3s ease 0s;
     }
 
     &::before {

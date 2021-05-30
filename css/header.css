@@ -212,6 +212,14 @@
     border: none;
     border-radius: 0;
     z-index: 3; }
+    .header__burger.active::before {
+      transform: rotate(45deg);
+      top: 18px; }
+    .header__burger.active::after {
+      transform: rotate(-45deg);
+      bottom: 18px; }
+    .header__burger.active span {
+      transform: scale(0); }
     .header__burger span {
       top: 18px;
       content: '';
@@ -224,7 +232,8 @@
       left: 0;
       right: 0;
       margin: 0 auto;
-      background-color: #fff; }
+      background-color: #fff;
+      transition: all 0.3s ease 0s; }
     .header__burger::before {
       top: 10px; }
     .header__burger::after {
