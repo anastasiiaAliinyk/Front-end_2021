@@ -8,127 +8,84 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="l-header">
-    <div class="l-header-container">
-      <nav class="l-header-top-menu">
-        <a href="#">
-          <img src="images/logo.png" alt="Skout">
-        </a>
-        <nav class="header-menu-nav">
-          <ul class="header-menu-nav-list">
-            <li class="header-menu-nav-item">
-              <a href="#" class="header-menu-nav-link">
-                Why Skout 
-              </a>
-            </li>
-            <li class="header-menu-nav-item">
-              <a href="#" class="header-menu-nav-link">
-                Products
-              </a>
-            </li>
-            <li class="header-menu-nav-item">
-              <a href="#" class="header-menu-nav-link">
-                Partners
-              </a>
-            </li>
-            <li class="header-menu-nav-item">
-              <a href="#" class="header-menu-nav-link">
-                Company 
-              </a>
-            </li>
-            <li class="header-menu-nav-item is-active">
-              <a href="#" class="header-menu-nav-link">
-                Tips & Tools
-              </a>
-            </li>
-            <li class="header-menu-nav-item">
-              <a href="#" class="header-menu-nav-link">
-                Blog
-              </a>
-            </li>
-            <li class="header-menu-nav-item loging">
-              <a href="#" class="header-menu-nav-link">
+  <header class="header">
+    <div class="header-top">
+      <div class="header-container">
+        <div id="menu" class="header__top-nav">
+          <a href="#" class="header__logo">
+            SKOUT
+          </a>
+          <button type="button" class="header__burger">
+            <span></span>
+          </button>
+          <nav class="header__menu menu">
+            <ul class="menu__list">
+              <li>
+                <a href="#" class="menu__link">
+                  Why Skout 
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu__link">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu__link">
+                  Partners
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu__link">
+                  Company 
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu__link menu__link--active">
+                  Tips & Tools 
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu__link">
+                  Blog 
+                </a>
+              </li>
+            </ul>
+            <div class="menu__loging">
+              <button class="menu__loging-btn" type="button">
                 Get Skout
-              </a>
-            </li>
-            <li class="header-menu-nav-item loging">
-              <a href="#" class="header-menu-nav-link">
+              </button>
+              <button 
+                class="menu__loging-btn menu__loging-btn--small-padding" 
+                type="button"
+              >
                 Log In
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <button class="btn-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-      <nav class="l-burger-menu_nav">
-        <ul class="burger-menu-nav-list">
-          <li class="burger-menu-nav-item">
-            <a href="#" class="burger-menu-nav-link">
-              Why Skout 
-            </a>
-          </li>
-          <li class="burger-menu-nav-item">
-            <a href="#" class="burger-menu-nav-link">
-              Products
-            </a>
-          </li>
-          <li class="burger-menu-nav-item">
-            <a href="#" class="burger-menu-nav-link">
-              Partners
-            </a>
-          </li>
-          <li class="burger-menu-nav-item">
-            <a href="#" class="burger-menu-nav-link">
-              Company 
-            </a>
-          </li>
-          <li class="burger-menu-nav-item is-active">
-            <a href="#" class="burger-menu-nav-link">
-              Tips & Tools
-            </a>
-          </li>
-          <li class="burger-menu-nav-item">
-            <a href="#" class="burger-menu-nav-link">
-              Blog
-            </a>
-          </li>
-          <li class="burger-menu-nav-item loging">
-            <a href="#" class="burger-menu-nav-link">
-              Get Skout
-            </a>
-          </li>
-          <li class="burger-menu-nav-item loging">
-            <a href="#" class="burger-menu-nav-link">
-              Log In
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <h1 class="header-title">
-        Tips & Tools
-      </h1>
-      <nav class="l-header-sticky-menu">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#tips" class="nav-link is-active">
-              Tips
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#glossary" class="nav-link">Glossary</a>
-          </li>
-          <li class="nav-item">
-            <a href="#faqs" class="nav-link">FAQs</a>
-          </li>
-        </ul>
-      </nav>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
     </div>
+    <h1 class="main-title">
+      Tips & Tools
+    </h1>
+    <nav class="header__tabs-menu tabs-menu">
+      <ul class="tabs-menu__list">
+        <li class="tabs-menu__item">
+          <a href="#tips" class="tabs-menu__link tabs-menu__link--active">
+            Tips
+          </a>
+        </li>
+        <li class="tabs-menu__item">
+          <a href="#glossary" class="tabs-menu__link">Glossary</a>
+        </li>
+        <li class="tabs-menu__item">
+          <a href="#faqs" class="tabs-menu__link">FAQs</a>
+        </li>
+      </ul>
+    </nav>
   </header>
+
   <main class="l-main">
     <section class="tips l-container" id="tips">
       <picture>
@@ -474,6 +431,7 @@
       <a href="#" class="faqs__link">MORE QUESTIONS</a>
     </section>
   </main>
+  
   <footer class="l-footer">
     <div class="l-container">
       <div class="l-footer-main-content">
@@ -586,6 +544,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
