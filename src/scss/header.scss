@@ -78,6 +78,7 @@
 
       .menu__loging-btn {
         border: 1px solid $c-dark-gray;
+        transition: border $animation-time ease-in;
 
         &:hover {
           border: 1px solid $c-green;
@@ -92,6 +93,7 @@
     font-size: 20px;
     font-weight: bold;
     z-index: 3;
+    transition: color $animation-time ease-in;
   }
 
   &__burger {
@@ -124,14 +126,12 @@
 
     span {
       top: 18px;
-      content: '';
       background-color: $c-white;
     }
 
     span,
     &::before,
     &:after {
-      content: '';
       width: calc(100% - 20px);
       height: 2px;
 
@@ -141,14 +141,16 @@
       margin: 0 auto;
 
       background-color: $c-white;
-      transition: all 0.3s ease 0s;
+      transition: all $animation-time ease 0s;
     }
 
     &::before {
+      content: '';
       top: 10px;
     }
 
     &::after {
+      content: '';
       bottom: 10px;
     }
   }
@@ -179,7 +181,7 @@
     padding: 182px 0 188px;
 
     &__tabs-menu {
-      bottom: -40px;
+      bottom: -45px;
     }
   }
 

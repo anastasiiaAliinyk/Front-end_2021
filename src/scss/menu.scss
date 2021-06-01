@@ -25,6 +25,7 @@
     padding: 8px;
     line-height: 2;
     color: $c-green;
+    transition: color $animation-time ease-in;
 
     &:hover {
       color: $c-green;
@@ -68,6 +69,7 @@
     border: 1px solid $c-green;
     border-radius: 20px;
     background-color: transparent;
+    transition: border $animation-time ease-in;
 
     &:hover {
       border: 1px solid $c-dark-gray;
@@ -97,7 +99,7 @@
       display: flex;
       margin-right: 48px; 
   
-      > li {
+      li {
         margin-left: 30px;
   
         &:first-of-type {
@@ -121,6 +123,7 @@
     &__loging-btn {
       color: $c-white;
       border: 1px solid $c-white;
+      transition: border $animation-time ease-in;
 
       &:hover {
         border: 1px solid $c-green;
