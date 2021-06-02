@@ -38,7 +38,8 @@
       display: none; }
   .tabs-menu__link {
     padding: 8px;
-    color: #7f7f7f; }
+    color: #7f7f7f;
+    transition: color 0.3s ease-in; }
     .tabs-menu__link--active {
       color: #22bf95; }
     .tabs-menu__link:hover {

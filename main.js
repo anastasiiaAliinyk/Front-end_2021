@@ -34,25 +34,22 @@ btnMenu.addEventListener('click', () => {
   menu.classList.toggle('active');
 });
 
+//Accordion logic
+const buttonsSelectPlus = document.querySelectorAll('.item__select');
 
+buttonsSelectPlus.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    btn.classList.toggle('active');
 
+    const hiddenContent = e.target.previousElementSibling;
+    const itemNumber = hiddenContent.previousElementSibling;
 
-
-// const buttonsSelectPlus = document.querySelectorAll('.item__select');
-
-// buttonsSelectPlus.forEach(buttonSelectPlus => {
-//   buttonSelectPlus.addEventListener('click', (e) => {
-//     buttonSelectPlus.classList.toggle('active');
-
-//     let hiddenContent = e.target.previousElementSibling;
-//     let itemNumber = hiddenContent.previousElementSibling;
-
-//       if (hiddenContent.style.display === "block") {
-//         hiddenContent.style.display = "none";
-//         itemNumber.style.display = "flex";
-//       } else {
-//         hiddenContent.style.display = "block";
-//         itemNumber.style.display = "none";
-//       }
-//   });
-// });
+      if (hiddenContent.style.display === 'block') {
+        hiddenContent.style.display = 'none';
+        itemNumber.style.display = 'flex';
+      } else {
+        hiddenContent.style.display = 'block';
+        itemNumber.style.display = 'none';
+      }
+  });
+});

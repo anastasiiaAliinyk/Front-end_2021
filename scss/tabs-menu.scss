@@ -57,6 +57,8 @@
   &__link {
     padding: 8px;
     color: $c-dark-gray;
+    transition: color $animation-time ease-in;
+
     &--active {
       color: $c-green;
     }
