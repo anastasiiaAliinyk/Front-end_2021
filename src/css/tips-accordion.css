@@ -1,4 +1,5 @@
 .tips-accordion {
+  position: relative;
   width: 100%;
   overflow: hidden;
   counter-increment: section; }
@@ -8,7 +9,8 @@
     z-index: -1; }
   .tips-accordion input:checked ~
 .tips-accordion-content-wraper {
-    max-height: 100%; }
+    position: static;
+    transform: translateX(0); }
   .tips-accordion input:checked +
 .tips-accordion-label {
     padding: 24px 0 21px 0;
@@ -65,8 +67,9 @@
       box-shadow: 0px 3px 6px rgba(127, 127, 127, 0.3); }
   .tips-accordion-content-wraper {
     overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.1s  ease-in; }
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform 0.5s; }
   .tips-accordion-content {
     display: flex;
     flex-direction: column;
