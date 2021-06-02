@@ -158,12 +158,14 @@
   counter-reset: section; }
   .tips .container {
     padding-top: 10px;
+    padding-bottom: 24px;
     border-top: 1px solid #b2b2b2; }
   .tips-title {
     margin-bottom: 24px; }
 
 @media (min-width: 768px) {
   .tips .container {
-    padding-top: 19px; }
+    padding-top: 19px;
+    padding-bottom: 160px; }
   .tips-title {
     margin-bottom: 100px; } }
