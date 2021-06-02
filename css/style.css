@@ -558,7 +558,7 @@ html {
       line-height: 48px;
       color: #f2f2f2; }
 
-@media (min-width: 1120px) {
+@media (min-width: 768px) {
   .faqs-accordion-label {
     padding: 70px 230px 70px 230px;
     font-size: 24px;
@@ -801,3 +801,43 @@ html {
   @media (min-width: 768px) {
     .main {
       padding: 138px 0 102px; } }
+
+.slider {
+  position: relative;
+  padding: 40px 60px 40px 62px; }
+  .slider a {
+    color: #7f7f7f;
+    transition: color 0.3s ease-in; }
+    .slider a:hover {
+      color: #22bf95; }
+  .slider-item {
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in; }
+    .slider-item:hover {
+      cursor: pointer;
+      color: #22bf95; }
+    .slider-item.slick-active {
+      background-color: green; }
+  .slider .slick-arrow {
+    position: absolute;
+    right: 32px;
+    font-size: 0;
+    height: 16px;
+    width: 16px;
+    border: 0;
+    cursor: pointer;
+    z-index: 20; }
+    .slider .slick-arrow.slick-disabled {
+      opacity: 0.5; }
+  .slider .slick-arrow.slick-prev {
+    top: 64px;
+    background: url("../images/previous.svg") 0 0/100% no-repeat; }
+  .slider .slick-arrow.slick-next {
+    top: 32px;
+    background: url("../images/next.svg") 0 0/100% no-repeat; }
+
+.slick-list {
+  overflow: hidden; }
+
+.slick-track {
+  display: flex; }
