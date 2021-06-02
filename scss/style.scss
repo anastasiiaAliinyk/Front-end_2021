@@ -6,32 +6,8 @@
 @import './header';
 @import './tips';
 @import './faqs';
+@import './footer';
 
-
-.l-footer {
-  padding: 24px 0;
-  background-color: $c-gray;
-
-  @media(min-width: $breakpoint-tablet) {
-    padding: 78px 0 68px;
-  }
-}
-
-.l-footer-main-content {
-  color: $c-dark-gray;
-
-  @media(min-width: $breakpoint-desktop) {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.l-footer-nav {
-  padding-bottom: 20px;
-  font-family: 'Acme', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
 
 //GLOSSARY
 .glossary {
@@ -169,125 +145,6 @@
 }
 
 //FOOTER
-.footer-nav {
-  &-item:not(:last-of-type) {
-    margin-bottom: 12px;
-
-    @media(min-width: $breakpoint-desktop) {
-      margin-bottom: 30px;
-    }
-  }
-
-  &-link {
-    display: block;
-    width: max-content;
-    transition: 0.5s;
-
-    &:hover {
-      color: $c-green;
-      transform: translate(5px, 0);
-    }
-  }
-
-  &-link-phone {
-    font-family: 'Aclonica', sans-serif;
-    font-size: 16px;
-
-    &:hover {
-      color: $c-green;
-    }
-  }
-}
-
-.footer-contacts {
-  &-item {
-    padding: 8px 0;
-    border-top: 2px solid $c-green;
-    line-height: 20px;
-
-    @media(min-width: $breakpoint-desktop) {
-      display: flex;
-      justify-content: space-between;
-      font-size: 16px;
-      padding-bottom: 51px;
-    }
-  }
-
-  &-item-title {
-    font-size: 16px;
-    line-height: 36px;
-
-    @media(min-width: $breakpoint-desktop) {
-      margin-right: 30px;
-      font-size: 24px;
-      width: 300px;
-    }
-  }
-
-  &-item-phone {
-    font-size: 16px;
-
-    @media(min-width: $breakpoint-desktop) {
-       margin-right: 30px;
-    }
-
-    &:hover {
-      color: $c-green;
-    }
-  }
-
-  &-item-text {
-    @media(min-width: $breakpoint-desktop) {
-      width: 270px;
-   }
-  }
-
-  &-item-map {
-    color: $c-green!important;
-
-    @media(min-width: $breakpoint-desktop) {
-      margin: 0 0 0 30px;
-    }
-
-    &:hover {
-      color: $c-dark-gray!important;
-    }
-  }
-}
-
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-top: 20px;
-  border-top: 1px solid $c-dark-gray;
-
-  @media(min-width: $breakpoint-desktop) {
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 28px;
- }
-}
-
-.footer-social-list {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.social-list-item {
-  margin-right: 53px;
-
-  transition: 0.5s;
-
-    &:hover {
-      transform: scale(1.2);
-    }
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-}
 
 
 .container {
