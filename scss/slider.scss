@@ -45,7 +45,7 @@
 
   .slick-arrow {
     position: absolute;
-    right: 32px;
+    right: 24px;
     font-size: 0;
     height: 16px;
     width: 16px;
@@ -72,12 +72,12 @@
 
 @media(min-width: $breakpoint-desktop) {
   .slider {
-    left: -150px;
+    left: -135px;
     max-width: 422px;
     padding: 60px 55px 28px 0;
 
     &-item {
-      margin-left: 150px;
+      margin-left: 135px;
     }
 
     &-link.active {  
