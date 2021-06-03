@@ -91,7 +91,7 @@
       display: block;
       height: 28px;
       width: 28px;
-      background: no-repeat url("../images/info.png");
+      background: no-repeat url("../images/info.svg");
       background-position: center;
       background-size: contain; }
     .tips-accordion-info p {

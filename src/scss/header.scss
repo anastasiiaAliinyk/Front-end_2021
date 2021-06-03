@@ -15,7 +15,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 20;
+  z-index: 1001;
 }
 
 .main-title {
@@ -53,7 +53,7 @@
       height: 100%;
 
       background: linear-gradient(to left, rgba(0,244,115,1) 15%, rgba(34,198,212,1) 80%, rgba(23,195,225,1));
-      z-index: 2;
+      z-index: 1001;
     }
 
     &.scroll-styles {
@@ -92,7 +92,7 @@
     font-family: 'Actor', sans-serif;
     font-size: 20px;
     font-weight: bold;
-    z-index: 3;
+    z-index: 1001;
     transition: color $animation-time ease-in;
   }
 
@@ -106,7 +106,7 @@
     background-color: transparent;
     border: none;
     border-radius: 0;
-    z-index: 3;
+    z-index: 1001;
 
     &.active {
       &::before {
@@ -166,7 +166,7 @@
     bottom: -30px;
     height: max-content;
     margin: auto;
-    z-index: 3;
+    z-index: 1000;
 
     &.active {
       position: fixed;

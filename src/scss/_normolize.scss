@@ -4,3 +4,11 @@ html {
   font-size: 16px;
   font-weight: 400;
 }
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track{
+  display: flex;
+}
