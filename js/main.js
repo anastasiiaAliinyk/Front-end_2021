@@ -45,12 +45,14 @@ $(document).ready(function() {
     rows: 5,
     focusOnSelect: true,
     mobileFirst: true,
+    fade: true,
 
     responsive: [
       {
-        breakpoint: 1015,
+        breakpoint: 1120,
         settings: {
-          rows: 9,
+          initialSlide: 0,
+          rows: 10,
         }
       },
     ]
@@ -61,21 +63,13 @@ $(document).ready(function() {
     fade: true,
   });
 
+
   $('.slider-item').click(function(e) {
-    // clickedIndex = $('.slick-current').attr('data-slick-index');
-   
-    // clickedIndex = $('.slider-item .slick-active');
+
+    // e.target.classList.add('active');
 
     clickedIndex = $(this).data("slick-index");
 
-    console.log(clickedIndex)
-
-    // $('.slider-item').addClass('active');
-
     $('.slider-big').slick('slickGoTo', clickedIndex, true);
-
-
-    // console.log(clickedIndex)
   });
-
 });

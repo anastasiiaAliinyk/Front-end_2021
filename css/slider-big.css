@@ -1,0 +1,33 @@
+.slider-big {
+  padding: 32px 0 24px 16px; }
+  .slider-big-item {
+    line-height: 24px; }
+  .slider-big-title {
+    margin-bottom: 24px;
+    font-family: 'Actor', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase; }
+
+@media (min-width: 1120px) {
+  .slider-big {
+    padding: 130px 0 0 0;
+    min-width: 0; }
+    .slider-big-item {
+      font-size: 24px;
+      line-height: 36px; }
+    .slider-big-title {
+      margin-bottom: 72px;
+      font-size: 90px;
+      line-height: 120px; }
+    .slider-big p {
+      position: relative;
+      padding: 0 100px; }
+      .slider-big p::before {
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 45px;
+        width: 1.5px;
+        height: 70px;
+        background-color: #22bf95; } }
