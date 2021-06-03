@@ -30,7 +30,7 @@
       background-color: #22bf95; }
   .slider .slick-arrow {
     position: absolute;
-    right: 32px;
+    right: 24px;
     font-size: 0;
     height: 16px;
     width: 16px;
@@ -48,11 +48,11 @@
 
 @media (min-width: 1120px) {
   .slider {
-    left: -150px;
+    left: -135px;
     max-width: 422px;
     padding: 60px 55px 28px 0; }
     .slider-item {
-      margin-left: 150px; }
+      margin-left: 135px; }
     .slider-link.active::before {
       left: -120px;
       width: 105px; } }
