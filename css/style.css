@@ -45,6 +45,12 @@ html {
 .slick-track {
   display: flex; }
 
+.container {
+  position: relative;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 21px; }
+
 .menu {
   position: fixed;
   top: 0;
@@ -326,6 +332,12 @@ html {
     font-size: 110px;
     line-height: 130px; } }
 
+.main {
+  padding: 52px 0 24px; }
+  @media (min-width: 768px) {
+    .main {
+      padding: 138px 0 102px; } }
+
 .tips-accordion {
   position: relative;
   width: 100%;
@@ -419,7 +431,7 @@ html {
       display: block;
       height: 28px;
       width: 28px;
-      background: no-repeat url("../images/info.png");
+      background: no-repeat url("../images/info.svg");
       background-position: center;
       background-size: contain; }
     .tips-accordion-info p {
@@ -814,15 +826,3 @@ html {
     flex-direction: row;
     justify-content: space-between;
     padding-top: 28px; } }
-
-.container {
-  position: relative;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 21px; }
-
-.main {
-  padding: 52px 0 24px; }
-  @media (min-width: 768px) {
-    .main {
-      padding: 138px 0 102px; } }

@@ -1,0 +1,7 @@
+@import 'variables';
+.container {
+  position: relative;
+  max-width: $max-width-container;
+  margin: 0 auto;
+  padding: 0 $horizontal-padding-container;
+}

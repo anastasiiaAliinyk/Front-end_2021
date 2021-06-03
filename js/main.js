@@ -40,7 +40,7 @@ $(document).ready(function() {
   $('.slider').slick({
     slidesToScroll: 1,
     infinite: false,
-    initialSlide: 1,
+    initialSlide: 0,
     slidesPerRow: 1,
     rows: 5,
     focusOnSelect: true,
@@ -51,7 +51,6 @@ $(document).ready(function() {
       {
         breakpoint: 1120,
         settings: {
-          initialSlide: 0,
           rows: 10,
         }
       },

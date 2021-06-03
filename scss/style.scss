@@ -3,33 +3,10 @@
 @import 'reset';
 @import 'normolize';
 
+@import './container';
 @import './header';
+@import './main';
 @import './tips';
 @import './glossary';
 @import './faqs';
 @import './footer';
-
-
-//GLOSSARY
-
-.container {
-  position: relative;
-  max-width: $max-width-container;
-  margin: 0 auto;
-  padding: 0 $horizontal-padding-container;
-}
-
-.main{
-  padding: 52px 0 24px;
-
-  @media(min-width: $breakpoint-tablet) {
-    padding: 138px 0 102px;
-  }
-}
-
-
-
-
-
-
-//
