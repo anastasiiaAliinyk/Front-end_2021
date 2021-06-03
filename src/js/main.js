@@ -3,11 +3,14 @@ const topMenu = document.querySelector('#menu');
 const topMenuContainer = document.querySelector('.header-top');
 const tabsMenu = document.querySelector('.tabs-menu');
 
+//ACTIVE SLIDER
 let prevActive = document.querySelector('.slider-link');
 prevActive.classList.add('active');
 
 document.querySelector('.slider').addEventListener('click', (e) => {
   if (e.target.classList.contains('slider-link')) {
+    e.preventDefault();
+
     prevActive.classList.remove('active');
     e.target.classList.add('active');
     prevActive = e.target;
@@ -82,9 +85,5 @@ $(document).ready(function() {
     clickedIndex = $(this).data("slick-index");
 
     $('.slider-big').slick('slickGoTo', clickedIndex, true);
-  });
-
-  $('.slider-link').click(function(e) {
-    e.preventDefault();
   });
 });
