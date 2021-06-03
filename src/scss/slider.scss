@@ -9,32 +9,37 @@
   border-radius: 5px;
 
   &-item {
-    color: $c-dark-gray;
     margin-left: 60px;
     line-height: 36px;
     max-width: max-content;
+  }
+
+  &-link {
+    display: block;
+    padding: 8px 0;
+    color: $c-dark-gray;
     transition: color $animation-time ease-in;
 
     &:hover {
       cursor: pointer;
       color: $c-green;
     }
+  }
 
-    &.active {
-      position: relative;
+  &-link.active {
+    position: relative;
 
-      &::before {
-        position: absolute;
-        left: -50px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+    &::before {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
 
-        content: '';
-        height: 1px;
-        width: 45px;
-        background-color: $c-green;
-      }
+      content: '';
+      height: 1px;
+      width: 45px;
+      background-color: $c-green;
     }
   }
 
@@ -73,12 +78,12 @@
 
     &-item {
       margin-left: 150px;
+    }
 
-      &.active {
-        &::before {
-          left: -120px;
-          width: 105px;
-        }
+    &-link.active {  
+      &::before {
+        left: -120px;
+        width: 105px;
       }
     }
   }

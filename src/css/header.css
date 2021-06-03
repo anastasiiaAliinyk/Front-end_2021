@@ -257,7 +257,8 @@
     .header__tabs-menu.active {
       position: fixed;
       top: 90px;
-      bottom: unset; }
+      bottom: unset;
+      box-shadow: none; }
 
 @media (min-width: 768px) {
   .header {
