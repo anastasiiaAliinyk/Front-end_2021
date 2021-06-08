@@ -86,8 +86,9 @@
       color: $c-gray;
     }
 
-    .menu-link.active {
+    .menu-link {
       &::after {
+        display: none;
         right: unset;
         left: -5px;
         top: 0;
@@ -96,12 +97,20 @@
         height: 23px;
         background-color: $c-link;
       }
+
+      &.active {
+        display: block;
+      }
     }
 
     .menu-loging {
       text-align: center;
   
       .btn-header {
+        width: 182px;
+        padding: 8px 0;
+
+        text-align: center;
         border: 1px solid $c-gray;
         color: $c-gray;
       }
