@@ -1,0 +1,11 @@
+@mixin screen-tablet {
+  @media screen and (min-width: #{$scr-tablet}) {
+    @content;
+  }
+}
+
+@mixin screen-desktop {
+  @media screen and (min-width: #{$scr-desktop}) {
+    @content;
+  }
+}

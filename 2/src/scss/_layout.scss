@@ -1,0 +1,15 @@
+.container-fluid {
+  width: 100%;
+}
+
+.container {
+  max-width: $max-width-container;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+.header-container {
+  max-width: $max-width-header-container;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
