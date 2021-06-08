@@ -97,6 +97,7 @@ body {
   padding: 7px 21px; }
 
 .btn-primary, .btn-secondary {
+  display: block;
   padding: 8px 60px;
   cursor: pointer;
   font-family: "Acme", sans-serif;
@@ -375,3 +376,68 @@ body {
       @media screen and (min-width: 768px) {
         .about-buttons button:first-of-type {
           margin: 0 5px 0 0; } }
+
+.essentials {
+  padding-top: 80px;
+  margin-bottom: 80px; }
+  .essentials .subtitle {
+    margin-bottom: 36px; }
+    @media screen and (min-width: 1120px) {
+      .essentials .subtitle {
+        margin-bottom: 82px; } }
+  .essentials .btn-secondary {
+    width: 230px;
+    padding: 8px 0;
+    text-align: center;
+    margin: 0 auto; }
+  .essentials .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px; }
+    @media screen and (min-width: 768px) {
+      .essentials .wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 50px; } }
+    .essentials .wrapper .item {
+      display: flex;
+      width: 100%;
+      max-width: 400px;
+      min-height: 200px;
+      margin-bottom: 10px;
+      padding: 0 30px 0 30px;
+      cursor: pointer;
+      box-shadow: 0px 2px 4px rgba(127, 127, 127, 0.3);
+      border-left: 5px solid #22bf95;
+      border-radius: 5px;
+      transition: box-shadow 0.3s ease-in; }
+      @media screen and (min-width: 1120px) {
+        .essentials .wrapper .item {
+          max-width: 500px; } }
+      .essentials .wrapper .item:hover {
+        box-shadow: 0px 10px 18px rgba(127, 127, 127, 0.5); }
+      @media screen and (min-width: 1120px) {
+        .essentials .wrapper .item {
+          margin: 0 30px 30px 0; } }
+      .essentials .wrapper .item .text-wrapper {
+        margin: 30px 25px 0 0; }
+      .essentials .wrapper .item h4 {
+        margin-bottom: 22px; }
+        @media screen and (min-width: 1120px) {
+          .essentials .wrapper .item h4 {
+            font-size: 24px;
+            line-height: 36px; } }
+      .essentials .wrapper .item p {
+        font-size: 10px;
+        line-height: 18px; }
+        @media screen and (min-width: 1120px) {
+          .essentials .wrapper .item p {
+            font-size: 13px;
+            line-height: 24px; } }
+      .essentials .wrapper .item img {
+        width: 58px; }
+        @media screen and (min-width: 1120px) {
+          .essentials .wrapper .item img {
+            width: 90px; } }
