@@ -1,0 +1,90 @@
+.about {
+  padding-top: 60px;
+  display: grid;
+  grid-template-areas: 
+    "txt"
+    "img"
+    "btn";
+  grid-row-gap: 20px;
+
+  @include screen-tablet {
+    grid-template-areas:
+    "img ."
+    "img txt"
+    "img txt"
+    "img txt"
+    "img btn"
+    "img .";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 40px;
+    padding-top: 20px;
+  }
+
+  @include screen-desktop {
+    grid-column-gap: 90px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 450px;
+    grid-area: img;
+    margin: 0 auto 30px;
+
+    @include screen-tablet {
+      min-height: 450px;
+      margin: 0;
+    }
+
+    @include screen-desktop {
+      width: 600px;
+      height: 650px;
+      max-width: 600px;
+    }
+  }
+
+  .wraper {
+    grid-area: txt;
+
+    .subtitle {
+      margin-bottom: 20px;
+
+      @include screen-desktop {
+        margin-bottom: 43px;
+      }
+    }
+  }
+
+  &-buttons {
+    grid-area: btn;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    text-align: center;
+
+    @include screen-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      max-width: 200px;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .btn-primary {
+      border: 1px solid $c-link;
+    }
+
+    button:first-of-type {
+      margin-bottom: 30px;
+
+      @include screen-tablet {
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+}
