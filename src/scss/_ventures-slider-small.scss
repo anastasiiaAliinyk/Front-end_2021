@@ -1,0 +1,25 @@
+.ventures-slider-small {
+  .img-wraper {
+    min-width: 47px;
+    opacity: 0.5;
+
+    &.slick-current {
+      border-bottom: 2px solid $c-link;
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .slick-list {
+    width: 100%;
+  }
+  .slick-slide {
+    cursor: pointer;
+    img {
+      margin: 0 auto;
+    }
+  }
+}

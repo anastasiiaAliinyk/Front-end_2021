@@ -35,12 +35,18 @@ a:hover {
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Aclonica', sans-serif;
+  font-family: "Aclonica", sans-serif;
   font-size: 16px;
   font-weight: 400; }
 
 body {
   box-sizing: border-box; }
+
+.slick-list {
+  overflow: hidden; }
+
+.slick-track {
+  display: flex; }
 
 .title {
   padding: 0 5px;
@@ -69,11 +75,11 @@ body {
       font-size: 42px;
       line-height: 54px; } }
 
-.text {
+.txt {
   font-size: 13px;
   line-height: 24px; }
   @media screen and (min-width: 1120px) {
-    .text {
+    .txt {
       font-size: 16px; } }
 
 .btn-header {
@@ -102,7 +108,7 @@ body {
   cursor: pointer;
   font-family: "Acme", sans-serif;
   font-size: 12px;
-  line-height: 2;
+  line-height: 24px;
   text-transform: uppercase;
   color: #22bf95;
   letter-spacing: 2px;
@@ -136,6 +142,18 @@ body {
   @media screen and (min-width: 1120px) {
     .menu {
       display: flex; } }
+  .menu.scroll-styles .menu-link {
+    color: #7f7f7f; }
+    .menu.scroll-styles .menu-link:hover {
+      color: #22bf95; }
+    .menu.scroll-styles .menu-link::after {
+      background-color: #7f7f7f; }
+  .menu.scroll-styles .menu-loging .btn-header {
+    color: #7f7f7f;
+    border: 1px solid #7f7f7f; }
+    .menu.scroll-styles .menu-loging .btn-header:hover {
+      color: #22bf95;
+      border: 1px solid #22bf95; }
   .menu-list {
     display: flex;
     margin-right: 18px;
@@ -214,7 +232,13 @@ body {
   right: 0;
   left: 0;
   background-color: transparant;
-  z-index: 10; }
+  z-index: 1000; }
+  .header.scroll-styles .header-logo {
+    color: #7f7f7f; }
+    .header.scroll-styles .header-logo:hover {
+      color: #22bf95; }
+  .header.scroll-styles .header-burger span, .header.scroll-styles .header-burger::before, .header.scroll-styles .header-burger::after {
+    background-color: #7f7f7f; }
   .header-nav {
     display: flex;
     justify-content: space-between;
@@ -420,7 +444,7 @@ body {
         box-shadow: 0px 10px 18px rgba(127, 127, 127, 0.5); }
       @media screen and (min-width: 768px) {
         .essentials .wrapper .item {
-          margin: 0 30px 30px 0; } }
+          margin: 0 15px 30px; } }
       .essentials .wrapper .item .text-wrapper {
         margin: 30px 25px 0 0; }
       .essentials .wrapper .item h4 {
@@ -441,3 +465,76 @@ body {
         @media screen and (min-width: 1120px) {
           .essentials .wrapper .item img {
             width: 90px; } }
+
+.ventures-slider {
+  margin-bottom: 48px; }
+  .ventures-slider .item {
+    line-height: 24px;
+    color: #7f7f7f;
+    text-align: center; }
+  .ventures-slider .img-wraper {
+    display: flex;
+    align-items: center;
+    min-height: 160px;
+    width: 207px;
+    margin: 0 auto; }
+    .ventures-slider .img-wraper > img {
+      width: 100%; }
+  .ventures-slider .author {
+    font-size: 10px;
+    text-transform: uppercase; }
+
+.ventures-slider-small .img-wraper {
+  min-width: 47px;
+  opacity: 0.5; }
+  .ventures-slider-small .img-wraper.slick-current {
+    border-bottom: 2px solid #22bf95;
+    opacity: 1; }
+  .ventures-slider-small .img-wraper img {
+    width: 100%; }
+
+.ventures-slider-small .slick-list {
+  width: 100%; }
+
+.ventures-slider-small .slick-slide {
+  cursor: pointer; }
+  .ventures-slider-small .slick-slide img {
+    margin: 0 auto; }
+
+.ventures {
+  margin-bottom: 150px; }
+
+.plans-slider {
+  padding-left: 13px; }
+  @media screen and (min-width: 1120px) {
+    .plans-slider {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 0; } }
+
+.card {
+  width: 260px;
+  height: max-content;
+  margin: 8px 0 8px 13px;
+  padding: 35px 24px 54px;
+  color: #7f7f7f;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: white;
+  box-shadow: 0 6px 6px rgba(127, 127, 127, 0.3);
+  border-radius: 5px; }
+  .card-title {
+    margin-bottom: 30px;
+    color: #22bf95;
+    text-transform: uppercase;
+    text-align: center; }
+  .card-list {
+    margin-bottom: 50px; }
+    .card-list li {
+      margin-left: 50px; }
+  .card button {
+    width: 211px;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 10px;
+    border: 1px solid #22bf95; }
