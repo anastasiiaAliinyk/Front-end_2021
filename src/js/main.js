@@ -25,8 +25,8 @@ window.addEventListener("scroll", function(e) {
 jQuery(function() {
   $(".ventures-slider").slick({
     speed: 300,
-    // autoplay: true,
-    // autoplaySpeed: 1500,
+    autoplay: true,
+    autoplaySpeed: 1500,
     arrows: false,
     infinite: true,
     fade: true,
@@ -49,8 +49,8 @@ jQuery(function() {
       arrows: false,
       speed: 300,
       slidesToShow: 1,
-      // autoplay: true,
-      // autoplaySpeed: 1500,
+      autoplay: true,
+      autoplaySpeed: 1500,
       variableWidth: true,
     });
   }
