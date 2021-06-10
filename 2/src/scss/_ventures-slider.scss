@@ -1,0 +1,34 @@
+.ventures-slider {
+  margin-bottom: 48px;
+
+  .item {
+    line-height: 24px;
+    color: $c-gray;
+    text-align: center;
+  }
+
+  .text-wraper {
+    @include screen-desktop {
+      display: flex;
+   }
+  }
+
+  .img-wraper {
+    display: flex;
+    align-items: center;
+
+    min-height: 160px;
+    width: 207px;
+    margin: 0 auto;
+    // max-width: 300px;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .author {
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+}

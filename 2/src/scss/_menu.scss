@@ -5,6 +5,32 @@
     display: flex;
   }
 
+  &.scroll-styles {
+    .menu-link {
+      color: $c-gray;
+
+      &:hover {
+        color: $c-link;
+      }
+
+      &::after {
+        background-color: $c-gray;
+      }
+    }
+
+    .menu-loging {
+      .btn-header {
+        color: $c-gray;
+        border: 1px solid $c-gray;
+
+        &:hover {
+          color: $c-link;
+          border: 1px solid $c-link;
+        }
+      }
+    }
+  }
+
   &-list {
     display: flex;
     margin-right: 18px;

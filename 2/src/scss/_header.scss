@@ -7,7 +7,29 @@
   left: 0;
 
   background-color: transparant;
-  z-index: 10;
+  z-index: 1000;
+
+  &.scroll-styles {
+    background-color: white;
+    
+    .header-logo {
+      color: $c-gray;
+
+      @include screen-desktop {
+        &:hover {
+          color: $c-link;
+        }
+      }
+    }
+
+    .header-burger {
+      span,
+      &::before,
+      &::after {
+        background-color: $c-gray;
+      }
+    }
+  }
 
   &-nav {
     display: flex;
@@ -23,8 +45,10 @@
     font-weight: bold;
     transition: color $animation-time ease-in;
 
-    &:hover {
-      color: $c-gray;
+    @include screen-desktop {
+      &:hover {
+        color: $c-gray;
+      }
     }
   }
 
