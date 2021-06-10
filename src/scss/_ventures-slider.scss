@@ -7,6 +7,12 @@
     text-align: center;
   }
 
+  .text-wraper {
+    @include screen-desktop {
+      display: flex;
+   }
+  }
+
   .img-wraper {
     display: flex;
     align-items: center;

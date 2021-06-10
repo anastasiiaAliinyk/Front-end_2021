@@ -1,0 +1,11 @@
+@import "card";
+
+.plans-slider {
+  padding-left: 13px;
+
+  @include screen-desktop {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+ }
+}

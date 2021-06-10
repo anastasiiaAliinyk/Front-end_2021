@@ -1,9 +1,10 @@
-.plans-slider {
-  padding-left: 13px;
+@import "plans-slider";
 
-  @include screen-desktop {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 0;
- }
+.plans {
+  margin: -200px 0 90px;
+
+  .subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+  }
 }

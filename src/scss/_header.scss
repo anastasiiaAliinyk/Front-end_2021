@@ -10,11 +10,15 @@
   z-index: 1000;
 
   &.scroll-styles {
+    background-color: white;
+    
     .header-logo {
       color: $c-gray;
 
-      &:hover {
-        color: $c-link;
+      @include screen-desktop {
+        &:hover {
+          color: $c-link;
+        }
       }
     }
 
@@ -41,8 +45,10 @@
     font-weight: bold;
     transition: color $animation-time ease-in;
 
-    &:hover {
-      color: $c-gray;
+    @include screen-desktop {
+      &:hover {
+        color: $c-gray;
+      }
     }
   }
 
