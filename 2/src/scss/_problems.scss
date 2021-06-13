@@ -1,0 +1,126 @@
+.problems {
+  padding: 36px 0 365px;
+  background: linear-gradient(to bottom, rgb(235, 250, 245) 0%, rgb(226, 227, 226) 100%);
+
+  .problems-slider {
+    position: relative;
+  }
+
+  .slick-dots {
+    position: absolute;
+
+    top: -40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+
+    @include screen-desktop {
+      right: 0;
+      left: unset;
+      top: 40px;
+      
+      flex-direction: column;
+      z-index: 999;
+    }
+  
+    .slick-active button {
+        box-shadow: 0 0 0 6px white, 0 0 0 8px $c-link,
+    }
+
+    li {
+      margin-right: 18px;
+
+      @include screen-desktop {
+        margin: 0 0 10px 0;
+       }
+    }
+
+    button {
+      width: 6px;
+      height: 6px;
+      padding: 0px;
+
+      cursor: pointer;
+      font-size: 0;
+      border: unset;
+      border-radius: 50%;
+      background-color: $c-link;
+    }
+  }
+
+  @include screen-desktop {
+    padding: 120px 0 550px;
+  }
+
+  .subtitle {
+    margin-bottom: 80px;
+
+    @include screen-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  .problems-item {
+    @include screen-desktop {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .problems-content {
+    @include screen-desktop {
+      margin-top: 83px;
+      order: 1;
+    }
+  }
+
+  .problems-image {
+    max-width: 470px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+
+    @include screen-desktop {
+      margin: unset;
+      order: 2;
+      width: 470px;
+    }
+  }
+
+  .problems-title {
+    margin-bottom: 10px;
+    font-family: "Acme", sans-serif;
+    line-height: 24px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $c-main-text;
+
+    @include screen-desktop {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+  }
+
+  .problems-text {
+    color: $c-main-text;
+
+    @include screen-desktop {
+      max-width: 401px;
+      margin-right: 100px;
+    }
+  }
+
+  .btn-secondary {
+    min-width: 230px;
+    padding: 8px 0;
+    text-align: center;
+    margin: 25px auto 0;
+
+    @include screen-desktop {
+      margin: 60px 0 0;
+    }
+  }
+}
