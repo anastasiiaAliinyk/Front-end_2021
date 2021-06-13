@@ -7,28 +7,50 @@
     text-align: center;
   }
 
-  .text-wraper {
-    @include screen-desktop {
-      display: flex;
-   }
-  }
-
-  .img-wraper {
+  .text-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
 
-    min-height: 160px;
+    @include screen-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 10% 0 5%;
+    }
+  }
+
+  .img-wrapper {
     width: 207px;
-    margin: 0 auto;
-    // max-width: 300px;
+
+    @include screen-desktop {
+      width: 340px;
+      align-self: center;
+    }
 
     > img {
       width: 100%;
     }
   }
 
+  .venture-content {
+    margin-top: 30px;
+
+    @include screen-desktop {
+      margin-top: 0;
+      max-width: 570px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
   .author {
+    margin-top: 30px;
     font-size: 10px;
     text-transform: uppercase;
+
+    @include screen-desktop {
+      text-align: right;
+      padding: 0 10% 0 5%;
+    }
   }
 }

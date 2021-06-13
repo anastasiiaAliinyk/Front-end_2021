@@ -1,14 +1,15 @@
 .ventures-slider-small {
   box-shadow: 0 -2px 0 $c-light-gray inset;
 
-  .img-wraper {
+  .img-wrapper {
     padding-bottom: 10px;
     opacity: 0.5;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     img {
-      width: 70%;
-      object-fit: cover;
+      width: 60%;
+      object-fit: contain;
 
       &:hover {
         cursor: pointer;
