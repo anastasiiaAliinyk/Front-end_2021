@@ -25,8 +25,8 @@ window.addEventListener("scroll", function(e) {
 jQuery(function() {
   $(".ventures-slider").slick({
     speed: 300,
-    autoplay: true,
-    autoplaySpeed: 1500,
+    // autoplay: true,
+    // autoplaySpeed: 1500,
     arrows: false,
     infinite: true,
     fade: true,
@@ -42,6 +42,16 @@ jQuery(function() {
     asNavFor: '.ventures-slider',
   });
 
+  $(".problems-slider").slick({
+    arrows: false,
+    dots: true,
+    speed: 300,
+    infinite: true,
+    fade: true,
+    cssEase: 'linear',
+    autoplay: true,
+    autoplaySpeed: 1500,
+  });
 
   if (window.matchMedia("(max-width: 1150px)").matches) {
     $(".plans-slider").slick({
@@ -49,8 +59,8 @@ jQuery(function() {
       arrows: false,
       speed: 300,
       slidesToShow: 1,
-      autoplay: true,
-      autoplaySpeed: 1500,
+      // autoplay: true,
+      // autoplaySpeed: 1500,
       variableWidth: true,
     });
   }

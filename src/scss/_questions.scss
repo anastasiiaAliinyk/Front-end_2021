@@ -1,0 +1,84 @@
+.questions {
+  padding: 101px 0 50px;
+
+  @include screen-desktop {
+    padding: 141px 0 100px;
+  }
+
+  .questions-info {
+    @include screen-desktop {
+      display: flex;
+    }
+  }
+
+  .container {
+    @include screen-desktop {
+      order: 2;
+      padding: 0 130px;
+      align-self: center;
+    }
+  }
+
+  .questions-text {
+    margin-top: 10px;
+    color: $c-main-text;
+
+    @include screen-desktop {
+      margin-top: 40px;
+    }
+  }
+
+  .questions-image {
+    width: 100%;
+    margin-top: 30px;
+
+    @include screen-desktop {
+      order: 1;
+      max-width: 705px;
+    }
+  }
+
+  .options {
+    position: relative;
+    margin-top: -65px;
+    background: $gradient;
+    padding: 20px 25px;
+    border-radius: 5px;
+
+    @include screen-desktop {
+      display: flex;
+      justify-content: space-between;
+      margin-top: -35px;
+    }
+
+    .option {
+      @include screen-desktop {
+        width: 40%;
+      }
+
+      h4 {
+        font-family: "Acme", sans-serif;
+        font-size: 10px;
+        text-transform: uppercase;
+        line-height: 24px;
+        color: white;
+
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+      }
+
+      button {
+        height: 60px;
+        width: 100%;
+        border: none;
+        display: block;
+        cursor: pointer;
+        background: url("../src/images/questions-arrow-right.png") no-repeat right;
+        background-size: 25px;
+        font-family: 'Aclonica', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: white;
+      }
+    }
+  }
+}

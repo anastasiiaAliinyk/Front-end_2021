@@ -512,7 +512,7 @@ body {
 .card {
   width: 260px;
   height: max-content;
-  margin: 35px 13px 35px 0;
+  margin: 0 13px 35px 0;
   padding: 35px 24px 54px;
   font-family: "Acme", sans-serif;
   color: #7f7f7f;
@@ -597,10 +597,163 @@ body {
       padding-left: 0; } }
 
 .plans {
-  margin: -200px 0 90px; }
+  margin: -258px 0 90px; }
+  @media screen and (min-width: 1120px) {
+    .plans {
+      margin-top: -365px; } }
   .plans .subtitle {
     margin-bottom: 30px;
     text-align: center; }
+    @media screen and (min-width: 1120px) {
+      .plans .subtitle {
+        margin-bottom: 70px; } }
+
+.problems {
+  padding: 36px 0 365px;
+  background: linear-gradient(to bottom, #ebfaf5 0%, #e2e3e2 100%); }
+  .problems .problems-slider {
+    position: relative; }
+  .problems .slick-dots {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex; }
+    @media screen and (min-width: 1120px) {
+      .problems .slick-dots {
+        right: 0;
+        left: unset;
+        top: 40px;
+        flex-direction: column;
+        z-index: 999; } }
+    .problems .slick-dots .slick-active button {
+      box-shadow: 0 0 0 6px white, 0 0 0 8px #22bf95; }
+    .problems .slick-dots li {
+      margin-right: 18px; }
+      @media screen and (min-width: 1120px) {
+        .problems .slick-dots li {
+          margin: 0 0 10px 0; } }
+    .problems .slick-dots button {
+      width: 6px;
+      height: 6px;
+      padding: 0px;
+      cursor: pointer;
+      font-size: 0;
+      border: unset;
+      border-radius: 50%;
+      background-color: #22bf95; }
+  @media screen and (min-width: 1120px) {
+    .problems {
+      padding: 120px 0 550px; } }
+  .problems .subtitle {
+    margin-bottom: 80px; }
+    @media screen and (min-width: 1120px) {
+      .problems .subtitle {
+        margin-bottom: 0; } }
+  @media screen and (min-width: 1120px) {
+    .problems .problems-item {
+      display: flex;
+      justify-content: center; } }
+  @media screen and (min-width: 1120px) {
+    .problems .problems-content {
+      margin-top: 83px;
+      order: 1; } }
+  .problems .problems-image {
+    max-width: 470px;
+    margin: 0 auto; }
+    .problems .problems-image img {
+      width: 100%; }
+    @media screen and (min-width: 1120px) {
+      .problems .problems-image {
+        margin: unset;
+        order: 2;
+        width: 470px; } }
+  .problems .problems-title {
+    margin-bottom: 10px;
+    font-family: "Acme", sans-serif;
+    line-height: 24px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #191919; }
+    @media screen and (min-width: 1120px) {
+      .problems .problems-title {
+        font-size: 18px;
+        margin-bottom: 18px; } }
+  .problems .problems-text {
+    color: #191919; }
+    @media screen and (min-width: 1120px) {
+      .problems .problems-text {
+        max-width: 401px;
+        margin-right: 100px; } }
+  .problems .btn-secondary {
+    min-width: 230px;
+    padding: 8px 0;
+    text-align: center;
+    margin: 25px auto 0; }
+    @media screen and (min-width: 1120px) {
+      .problems .btn-secondary {
+        margin: 60px 0 0; } }
+
+.questions {
+  padding: 101px 0 50px; }
+  @media screen and (min-width: 1120px) {
+    .questions {
+      padding: 141px 0 100px; } }
+  @media screen and (min-width: 1120px) {
+    .questions .questions-info {
+      display: flex; } }
+  @media screen and (min-width: 1120px) {
+    .questions .container {
+      order: 2;
+      padding: 0 130px;
+      align-self: center; } }
+  .questions .questions-text {
+    margin-top: 10px;
+    color: #191919; }
+    @media screen and (min-width: 1120px) {
+      .questions .questions-text {
+        margin-top: 40px; } }
+  .questions .questions-image {
+    width: 100%;
+    margin-top: 30px; }
+    @media screen and (min-width: 1120px) {
+      .questions .questions-image {
+        order: 1;
+        max-width: 705px; } }
+  .questions .options {
+    position: relative;
+    margin-top: -65px;
+    background: linear-gradient(to left, #00f473 15%, #22c6d4 80%, #17c3e1);
+    padding: 20px 25px;
+    border-radius: 5px; }
+    @media screen and (min-width: 1120px) {
+      .questions .options {
+        display: flex;
+        justify-content: space-between;
+        margin-top: -35px; } }
+    @media screen and (min-width: 1120px) {
+      .questions .options .option {
+        width: 40%; } }
+    .questions .options .option h4 {
+      font-family: "Acme", sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      line-height: 24px;
+      color: white;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.5); }
+    .questions .options .option button {
+      height: 60px;
+      width: 100%;
+      border: none;
+      display: block;
+      cursor: pointer;
+      background: url("../src/images/questions-arrow-right.png") no-repeat right;
+      background-size: 25px;
+      font-family: 'Aclonica', sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: white; }
 
 .footer {
   padding: 24px 0;
