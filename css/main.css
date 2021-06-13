@@ -532,8 +532,11 @@ body {
     opacity: 0.5;
     display: flex;
     justify-content: center; }
+    .ventures-slider-small .img-wrapper:focus {
+      outline: none; }
     .ventures-slider-small .img-wrapper img {
       width: 60%;
+      height: 80px;
       object-fit: contain; }
       .ventures-slider-small .img-wrapper img:hover {
         cursor: pointer; }
