@@ -770,9 +770,11 @@ body {
     border-radius: 5px; }
     @media screen and (min-width: 1120px) {
       .questions .options {
+        max-width: 1030px;
         display: flex;
         justify-content: space-between;
-        margin-top: -35px; } }
+        margin: -35px auto 0;
+        padding: 30px 69px 45px; } }
     @media screen and (min-width: 1120px) {
       .questions .options .option {
         width: 40%; } }
@@ -783,6 +785,10 @@ body {
       line-height: 24px;
       color: white;
       border-bottom: 1.5px solid rgba(255, 255, 255, 0.5); }
+      @media screen and (min-width: 1120px) {
+        .questions .options .option h4 {
+          font-size: 12px;
+          padding-bottom: 9px; } }
     .questions .options .option button {
       height: 60px;
       width: 100%;
@@ -795,6 +801,11 @@ body {
       font-size: 16px;
       line-height: 24px;
       color: white; }
+      @media screen and (min-width: 1120px) {
+        .questions .options .option button {
+          margin-top: 35px;
+          font-size: 24px;
+          background-size: 35px; } }
 
 .footer {
   padding: 24px 0;

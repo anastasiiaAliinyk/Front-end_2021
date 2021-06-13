@@ -55,9 +55,11 @@
     border-radius: 5px;
 
     @include screen-desktop {
+      max-width: 1030px;
       display: flex;
       justify-content: space-between;
-      margin-top: -35px;
+      margin: -35px auto 0;
+      padding: 30px 69px 45px;
     }
 
     .option {
@@ -73,6 +75,11 @@
         color: white;
 
         border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+
+        @include screen-desktop {
+          font-size: 12px;
+          padding-bottom: 9px;
+        }
       }
 
       button {
@@ -87,6 +94,12 @@
         font-size: 16px;
         line-height: 24px;
         color: white;
+
+        @include screen-desktop {
+          margin-top: 35px;
+          font-size: 24px;
+          background-size: 35px;
+        }
       }
     }
   }
