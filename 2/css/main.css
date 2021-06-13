@@ -792,15 +792,15 @@ body {
     .questions .options .option button {
       height: 60px;
       width: 100%;
-      border: none;
       display: block;
-      cursor: pointer;
-      background: url("../src/images/questions-arrow-right.png") no-repeat right;
-      background-size: 25px;
       font-family: "Aclonica", sans-serif;
       font-size: 16px;
       line-height: 24px;
-      color: white; }
+      color: white;
+      border: none;
+      cursor: pointer;
+      background: url("../src/images/questions-arrow-right.png") no-repeat right;
+      background-size: 25px; }
       @media screen and (min-width: 1120px) {
         .questions .options .option button {
           margin-top: 35px;
