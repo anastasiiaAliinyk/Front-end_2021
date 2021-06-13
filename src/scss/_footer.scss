@@ -8,27 +8,10 @@
 
   &-nav {
     padding-bottom: 20px;
-    font-family: 'Acme', sans-serif;
+    font-family: "Acme", sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
-
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-
-      @include screen-desktop {
-        flex-direction: column;
-      }
-    }
-
-    &-item {
-      flex: 0 0 50%;
-
-      @include screen-desktop {
-        //flex: none;
-      }
-    }
 
     &-item:not(:last-of-type) {
       margin-bottom: 12px;
@@ -40,19 +23,19 @@
       width: max-content;
       color: $c-gray;
       transition: color $animation-time, transform $animation-time;
-
+  
       &:hover {
         color: $c-link;
         transform: translate(5px, 0);
       }
     }
-
+  
     &-link-phone {
-      font-family: 'Aclonica', sans-serif;
+      font-family: "Aclonica", sans-serif;
       font-size: 16px;
       color: $c-gray;
       transition: all $animation-time ease-in;
-
+  
       &:hover {
         color: $c-link;
       }
@@ -75,16 +58,16 @@
       font-size: 16px;
       color: $c-gray;
       transition: color $animation-time ease-in;
-
+  
       &:hover {
         color: $c-link;
       }
     }
-
+    
     &-item-map {
       color: $c-link;
       transition: color $animation-time ease-in;
-
+  
       &:hover {
         color: $c-gray;
       }
@@ -120,13 +103,13 @@
   }
 }
 
-@media(min-width: 768px) {
+@include screen-tablet {
   .footer {
     padding: 78px 0 68px;
   }
 }
 
-@media(min-width: 1150px) {
+@include screen-desktop {
   .footer {
     &-main-content {
       display: flex;
