@@ -1,0 +1,90 @@
+@import 'variables';
+
+.slider {
+  position: relative;
+  padding: 40px 70px 40px 0;
+
+  background-color: $c-white;
+  box-shadow: 0px 12px 24px #e5e5e5;
+  border-radius: 5px;
+
+  &-item {
+    margin-left: 60px;
+    line-height: 36px;
+    max-width: max-content;
+  }
+
+  &-link {
+    display: block;
+    padding: 8px 0;
+    color: $c-dark-gray;
+    transition: color $animation-time ease-in;
+
+    &:hover {
+      cursor: pointer;
+      color: $c-green;
+    }
+  }
+
+  &-link.active {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+
+      content: '';
+      height: 1px;
+      width: 45px;
+      background-color: $c-green;
+    }
+  }
+
+  .slick-arrow {
+    position: absolute;
+    right: 24px;
+    font-size: 0;
+    height: 16px;
+    width: 16px;
+    border: 0;
+
+    cursor: pointer;
+    z-index: 3;
+
+    &.slick-disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .slick-arrow.slick-prev {
+    top: 64px;
+    background: url('../images/previous.svg') 0 0 / 100% no-repeat;
+  }
+
+  .slick-arrow.slick-next {
+    top: 32px;
+    background: url('../images/next.svg')  0 0 / 100% no-repeat;
+  }
+}
+
+@media(min-width: $breakpoint-desktop) {
+  .slider {
+    left: -135px;
+    max-width: 422px;
+    padding: 60px 55px 28px 0;
+
+    &-item {
+      margin-left: 135px;
+    }
+
+    &-link.active {  
+      &::before {
+        left: -120px;
+        width: 105px;
+      }
+    }
+  }
+}

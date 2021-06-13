@@ -1,0 +1,235 @@
+@import './variables';
+
+.tips-accordion {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  counter-increment: section;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  input:checked ~ 
+  .tips-accordion-content-wraper {
+    position: static;
+    transform: translateX(0);
+  }
+
+  input:checked + 
+  .tips-accordion-label {
+    padding: 24px 0 21px 0;
+    font-size: 24px;
+    line-height: 32px;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  input:checked + 
+  .tips-accordion-label::before {
+    transform: translateX(-100%);
+  }
+
+  input:checked + 
+  .tips-accordion-label::after {
+    font-size: 14px;
+    content: '-';
+  }
+
+  &-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px 35px 15px 45px;
+
+    line-height: 24px;
+    cursor: pointer;
+    border-top: 1px solid $c-green;
+
+    transition: border $animation-time ease-in;
+
+    &--last {
+      border-bottom: 1px solid $c-green;
+    }
+
+    &:hover {
+      border-top: 1px solid greenyellow;
+      border-bottom: 1px solid greenyellow;
+    }
+
+    &::before {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+
+      content: counter(section);
+      font-family: 'Actor', sans-serif;
+      font-size: 40px;
+      line-height: 48px;
+      color: $c-gray;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+
+      margin: auto;
+      width: 15px;
+      height: 15px;
+
+      text-align: center;
+      line-height: 15px;
+      border-radius: 50%;
+
+      color: $c-green;
+      content: '+';
+      border: 1px solid $c-green;
+      box-shadow: 0px 3px 6px rgba(127, 127, 127, 0.3);
+    }
+  }
+
+  &-content-wraper {
+    overflow: hidden;
+    position: absolute;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 23px;
+
+    font-size: 14px;
+    line-height: 24px;
+    border-bottom: 1px solid $c-green;
+
+    img {
+      align-self: center;
+      width: 117px;
+      height: 117px;
+      margin-bottom: 21px;
+    }
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 11px;
+
+    span {
+      display: block;
+      height: 28px;
+      width: 28px;
+      background: no-repeat url('../images/info.svg');
+      background-position: center;
+      background-size: contain;
+    }
+
+    p {
+      margin-left: 20px;
+      font-size: 12px;
+      color: $c-dark-gray;
+    }
+  }
+}
+
+@media(min-width: $breakpoint-tablet) {
+  .tips-accordion {
+    input:checked + 
+    .tips-accordion-label {
+      padding: 50px 0 0 0;
+      font-size: 42px;
+      line-height: 54px;
+      border-bottom: none;
+      box-shadow: none;
+    }
+
+    input:checked + 
+    .tips-accordion-label::before {
+      transform: translateX(-100%);
+      left: unset;
+    }
+
+    input:checked + 
+    .tips-accordion-label::after {
+      font-size: 30px;
+      content: '-';
+    }
+    
+    &-label {
+      font-size: 24px;
+      line-height: 36px;
+      padding: 56px 0 56px 200px;
+
+      &::before {
+        left: 40px;
+        font-size: 110px;
+        line-height: 130px;
+      }
+
+      &::after {
+        width: 35px;
+        height: 35px;
+        right: 40px;
+
+        font-size: 30px;
+        line-height: 35px;
+      }
+    }
+
+    &-content {
+      flex-direction: row;
+      padding-bottom: 40px;
+
+      > img {
+        display: block;
+        width: 250px;
+        height: 250px;
+        margin-top: 42px;
+        margin-bottom: 0;
+      }
+    }
+
+    &-text-wraper {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 40px 70px 0 70px;
+    }
+
+    &-info {
+      justify-content: start;
+      margin-top: 60px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media(min-width: $breakpoint-desktop) {
+  .tips-accordion {
+    input:checked + 
+    .tips-accordion-label {
+     padding-right: 800px;
+    }
+
+    &-content {
+      > img {
+        width: 370px;
+        height: 370px;
+      }
+    }
+
+    &-text-wraper {
+      margin: 0 165px 0 135px;
+      
+    }
+  }
+}

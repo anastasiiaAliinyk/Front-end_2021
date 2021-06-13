@@ -1,0 +1,50 @@
+@import 'variables';
+
+.slider-big {
+  padding: 32px 0 24px 16px;
+
+  &-item {
+    line-height: 24px;
+  }
+
+  &-title {
+    margin-bottom: 24px;
+    font-family: 'Actor', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+  }
+}
+
+@media(min-width: $breakpoint-desktop) {
+  .slider-big {
+    padding: 130px 0 0 0;
+    min-width: 0;
+
+    &-item {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    &-title {
+      margin-bottom: 72px;
+      font-size: 90px;
+      line-height: 120px;
+    }
+
+    p {
+      position: relative;
+      padding: 0 100px;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 45px;
+        width: 1.5px;
+        height: 70px;
+        background-color: $c-green;
+      }
+    }
+  }
+}
