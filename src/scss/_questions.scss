@@ -7,14 +7,21 @@
 
   .questions-info {
     @include screen-desktop {
+      max-width: $max-width-container;
       display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      padding: 0 $container-padding;
     }
   }
 
-  .container {
+  .questions-content {
+    padding: 0 $container-padding;
+
     @include screen-desktop {
+      max-width: 470px;
+      padding: 0;
       order: 2;
-      padding: 0 130px;
       align-self: center;
     }
   }
@@ -30,10 +37,12 @@
 
   .questions-image {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
 
     @include screen-desktop {
       order: 1;
+      margin-top: 0;
+      margin-left: -135px;
       max-width: 705px;
     }
   }
@@ -74,7 +83,7 @@
         cursor: pointer;
         background: url("../src/images/questions-arrow-right.png") no-repeat right;
         background-size: 25px;
-        font-family: 'Aclonica', sans-serif;
+        font-family: "Aclonica", sans-serif;
         font-size: 16px;
         line-height: 24px;
         color: white;

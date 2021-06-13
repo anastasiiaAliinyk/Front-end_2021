@@ -8,11 +8,10 @@
 
   .slick-dots {
     position: absolute;
-
     top: -40px;
     left: 50%;
-    transform: translate(-50%, 0);
     display: flex;
+    transform: translate(-50%, 0);
 
     @include screen-desktop {
       right: 0;
@@ -108,7 +107,7 @@
     color: $c-main-text;
 
     @include screen-desktop {
-      max-width: 401px;
+      max-width: 400px;
       margin-right: 100px;
     }
   }

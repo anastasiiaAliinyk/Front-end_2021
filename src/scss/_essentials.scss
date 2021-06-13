@@ -4,6 +4,7 @@
 
   .subtitle {
     margin-bottom: 36px;
+    margin-left: 10px;
 
     @include screen-desktop {
       margin-bottom: 82px;
@@ -11,7 +12,7 @@
   }
 
   .btn-secondary {
-    width: 230px;
+    min-width: 230px;
     padding: 8px 0;
     text-align: center;
     margin: 0 auto;
@@ -32,12 +33,13 @@
 
     .item {
       display: flex;
+      position: relative;
       width: 100%;
       max-width: 400px;
       min-height: 200px;
 
       margin-bottom: 10px;
-      padding: 0 30px 0 30px;
+      padding: 0 30px;
 
       cursor: pointer;
       box-shadow: $shadow-text;
@@ -85,6 +87,22 @@
 
         @include screen-desktop {
           width: 90px;
+        }
+      }
+
+      .essential-info {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 19px;
+        height: 19px;
+
+        background: url("../src/images/info.png") no-repeat;
+        background-size: 19px;
+        
+        @include screen-desktop {
+          bottom: 15px;
+          right: 15px;
         }
       }
     }

@@ -26,6 +26,7 @@ body {
   text-align: center;
   color: white;
   text-transform: uppercase;
+  letter-spacing: 1px;
 
   @include screen-tablet {
     margin-bottom: 90px;
