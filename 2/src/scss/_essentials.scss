@@ -63,26 +63,26 @@
         margin: 30px 25px 0 0;
       }
 
-      h4 {
+      &-heading {
         margin-bottom: 22px;
 
         @include screen-desktop {
-          font-size: 24px;
+          font-size: $fs-big;
           line-height: 36px;
         }
       }
 
-      p {
-        font-size: 10px;
+      &-text {
+        font-size: $fs-micro;
         line-height: 18px;
 
         @include screen-desktop {
-          font-size: 13px;
+          font-size: $fs-mini;
           line-height: 24px;
         }
       }
 
-      img {
+      &-img {
         width: 58px;
 
         @include screen-desktop {

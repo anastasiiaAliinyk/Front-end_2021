@@ -9,7 +9,7 @@
   &-nav {
     padding-bottom: 20px;
     font-family: "Acme", sans-serif;
-    font-size: 12px;
+    font-size: $fs-milli;
     text-transform: uppercase;
     letter-spacing: 2px;
 
@@ -32,7 +32,7 @@
   
     &-link-phone {
       font-family: "Aclonica", sans-serif;
-      font-size: 16px;
+      font-size: $fs-base;
       color: $c-gray;
       transition: all $animation-time ease-in;
   
@@ -50,12 +50,12 @@
     }
 
     &-item-title {
-      font-size: 16px;
+      font-size: $fs-base;
       line-height: 36px;
     }
 
     &-item-phone {
-      font-size: 16px;
+      font-size: $fs-base;
       color: $c-gray;
       transition: color $animation-time ease-in;
   
@@ -128,13 +128,13 @@
       &-item {
         display: flex;
         justify-content: start;
-        font-size: 16px;
+        font-size: $fs-base;
         padding-bottom: 51px;
       }
 
       &-item-title {
         margin-right: 30px;
-        font-size: 24px;
+        font-size: $fs-big;
         width: 25%;
       }
 

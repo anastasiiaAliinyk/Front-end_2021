@@ -7,9 +7,9 @@
 
   font-family: "Acme", sans-serif;
   color: $c-gray;
-  font-size: 12px;
+  font-size: $fs-milli;
   line-height: 24px;
-  background-color: white;
+  background-color: #fff;
 
   box-shadow: 0 6px 6px rgba(127, 127, 127, 0.3);
   border-radius: 5px;
@@ -21,23 +21,23 @@
 
   @include screen-desktop {
     width: 300px;
-    font-size: 13px;
+    font-size: $fs-mini;
     padding: 42px 55px 38px;
     
     &:hover {
       cursor: pointer;
       background: $gradient;
-      color: white;
+      color: #fff;
       transform: scale(1.1);
 
       .card-title {
-        color: white;
+        color: #fff;
       }
 
       .card-item {
         &::before {
-          color: white;
-          border: 1px solid white;
+          color: #fff;
+          border: 1px solid #fff;
         }
       }
     }
@@ -61,7 +61,7 @@
   &-item {
     position: relative;
     padding: 12px 0 12px 50px;
-    border-top: 1px solid #F2F2F2;
+    border-top: 1px solid #f2f2f2;
 
     @include screen-desktop {
       padding: 18px 0 18px 55px;
@@ -80,7 +80,7 @@
 
       text-align: center;
       color: $c-link;
-      font-size: 12px;
+      font-size: $fs-milli;
       border: 1px solid $c-link;
       border-radius: 50%;
 
@@ -107,7 +107,7 @@
     padding: 8px 0;
 
     text-align: center;
-    font-size: 10px;
+    font-size: $fs-micro;
     border: 1px solid $c-link;
   }
 }

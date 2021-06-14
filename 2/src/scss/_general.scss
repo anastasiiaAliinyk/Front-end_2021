@@ -1,7 +1,7 @@
 html {
   scroll-behavior: smooth;
   font-family: "Aclonica", sans-serif;
-  font-size: 16px;
+  font-size: $fs-base;
   font-weight: 400;
 }
 
@@ -21,10 +21,10 @@ body {
   padding: 0 5px;
   margin-bottom: 32px;
   font-family: "Actor", sans-serif;
-  font-size: 60px;
+  font-size: $fs-mega;
   line-height: 70px;
   text-align: center;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
 
@@ -34,28 +34,28 @@ body {
 
   @include screen-desktop {
     margin-bottom: 120px;
-    font-size: 110px;
+    font-size: $fs-giga;
     line-height: 130px;
   }
 }
 
 .subtitle {
-  font-size: 24px;
+  font-size: $fs-big;
   line-height: 36px;
   color: $c-main-text;
 
   @include screen-desktop {
-    font-size: 42px;
+    font-size: $fs-kilo;
     line-height: 54px;
   }
 }
 
 .txt {
-  font-size: 13px;
+  font-size: $fs-mini;
   line-height: 24px;
 
   @include screen-desktop {
-    font-size: 16px;
+    font-size: $fs-base;
   }
 }
 
@@ -64,13 +64,13 @@ body {
   cursor: pointer;
 
   font-family: "Acme", sans-serif;
-  font-size: 12px;
-  line-height: 2;
+  font-size: $fs-milli;
+  line-height: 24px;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
   letter-spacing: 2px;
   
-  border: 1px solid white;
+  border: 1px solid #fff;
   border-radius: 20px;
   background-color: transparent;
   transition: border $animation-time ease-in, color $animation-time ease-in;
@@ -91,7 +91,7 @@ body {
   cursor: pointer;
 
   font-family: "Acme", sans-serif;
-  font-size: 12px;
+  font-size: $fs-milli;
   line-height: 24px;
   text-transform: uppercase;
   color: $c-link;
@@ -99,7 +99,7 @@ body {
   
   border: none;
   border-radius: 20px;
-  background-color: white;
+  background-color: #fff;
   box-shadow: $shadow-btn;
   transition: box-shadow $animation-time ease-in;
 
@@ -109,6 +109,6 @@ body {
 }
 
 .btn-secondary {
-  color: white;
+  color: #fff;
   background-color: $c-link;
 }
