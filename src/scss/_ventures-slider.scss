@@ -38,14 +38,14 @@
     @include screen-desktop {
       margin-top: 0;
       max-width: 570px;
-      font-size: 24px;
+      font-size: $fs-big;
       line-height: 36px;
     }
   }
 
   .author {
     margin-top: 30px;
-    font-size: 10px;
+    font-size: $fs-micro;
     text-transform: uppercase;
 
     @include screen-desktop {

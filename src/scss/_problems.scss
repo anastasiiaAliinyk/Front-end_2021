@@ -2,6 +2,10 @@
   padding: 36px 0 365px;
   background: linear-gradient(to bottom, rgb(235, 250, 245) 0%, rgb(226, 227, 226) 100%);
 
+  @include screen-desktop {
+    padding: 120px 0 550px;
+  }
+
   .problems-slider {
     position: relative;
   }
@@ -23,7 +27,7 @@
     }
   
     .slick-active button {
-        box-shadow: 0 0 0 6px white, 0 0 0 8px $c-link,
+        box-shadow: 0 0 0 6px #fff, 0 0 0 8px $c-link,
     }
 
     li {
@@ -45,10 +49,6 @@
       border-radius: 50%;
       background-color: $c-link;
     }
-  }
-
-  @include screen-desktop {
-    padding: 120px 0 550px;
   }
 
   .subtitle {
@@ -92,7 +92,7 @@
     margin-bottom: 10px;
     font-family: "Acme", sans-serif;
     line-height: 24px;
-    font-size: 12px;
+    font-size: $fs-milli;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: $c-main-text;

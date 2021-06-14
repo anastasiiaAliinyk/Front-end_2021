@@ -55,7 +55,7 @@ body {
   font-size: 60px;
   line-height: 70px;
   text-align: center;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px; }
   @media screen and (min-width: 768px) {
@@ -78,7 +78,7 @@ body {
 
 .txt {
   font-size: 13px;
-  line-height: 24px; }
+  line-height: 42px; }
   @media screen and (min-width: 1120px) {
     .txt {
       font-size: 16px; } }
@@ -88,11 +88,11 @@ body {
   cursor: pointer;
   font-family: "Acme", sans-serif;
   font-size: 12px;
-  line-height: 2;
+  line-height: 24px;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
   letter-spacing: 2px;
-  border: 1px solid white;
+  border: 1px solid #fff;
   border-radius: 20px;
   background-color: transparent;
   transition: border 0.3s ease-in, color 0.3s ease-in; }
@@ -115,14 +115,14 @@ body {
   letter-spacing: 2px;
   border: none;
   border-radius: 20px;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0px 6px 12px rgba(127, 127, 127, 0.3);
   transition: box-shadow 0.3s ease-in; }
   .btn-primary:hover, .btn-secondary:hover {
     box-shadow: 0px 10px 18px rgba(127, 127, 127, 0.5); }
 
 .btn-secondary {
-  color: white;
+  color: #fff;
   background-color: #22bf95; }
 
 .container-fluid {
@@ -165,9 +165,9 @@ body {
     position: relative;
     display: block;
     padding: 10px;
-    color: white;
+    color: #fff;
     font-size: 12px;
-    line-height: 2;
+    line-height: 24px;
     text-transform: uppercase;
     transition: color 0.3s ease-in; }
     .menu-link::after {
@@ -180,13 +180,13 @@ body {
       height: 1px;
       margin: auto;
       content: "";
-      background-color: white; }
+      background-color: #fff; }
     .menu-link:hover {
       color: #7f7f7f; }
   .menu-link.active::after {
     display: block; }
-  .menu-loging .btn-header:first-of-type {
-    margin-right: 20px; }
+  .menu-loging .btn-header + .btn-header {
+    margin-left: 20px; }
   .menu.active {
     position: fixed;
     top: 0;
@@ -195,7 +195,7 @@ body {
     height: 100%;
     width: 239px;
     padding: 131px 0 112px;
-    background-color: white;
+    background-color: #fff;
     box-shadow: 0px 0px 24px #7f7f7f; }
     .menu.active .menu-list {
       flex-direction: column;
@@ -224,8 +224,8 @@ body {
         text-align: center;
         border: 1px solid #7f7f7f;
         color: #7f7f7f; }
-      .menu.active .menu-loging .btn-header:first-of-type {
-        margin: 0 0 10px 0; }
+      .menu.active .menu-loging .btn-header + .btn-header {
+        margin: 10px 0 0 0; }
 
 .header {
   position: fixed;
@@ -235,7 +235,7 @@ body {
   background-color: transparent;
   z-index: 1001; }
   .header.scroll-styles {
-    background-color: white; }
+    background-color: #fff; }
     .header.scroll-styles .header-logo {
       color: #7f7f7f; }
       @media screen and (min-width: 1120px) {
@@ -249,7 +249,7 @@ body {
     align-items: center;
     padding: 20px 30px; }
   .header-logo {
-    color: white;
+    color: #fff;
     font-family: "Actor", sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -279,7 +279,7 @@ body {
       left: 0;
       right: 0;
       margin: 0 auto;
-      background-color: white;
+      background-color: #fff;
       transition: all 0.3s ease 0s; }
     .header-burger::before {
       content: "";
@@ -302,7 +302,7 @@ body {
 
 .heading {
   padding: 80px 0 50px;
-  color: white;
+  color: #fff;
   background: linear-gradient(to left, #00f473 15%, #22c6d4 80%, #17c3e1); }
   @media screen and (min-width: 768px) {
     .heading {
@@ -342,7 +342,7 @@ body {
         width: 2px;
         height: 145px;
         content: "";
-        background-color: white; }
+        background-color: #fff; }
         @media screen and (min-width: 768px) {
           .heading-text .text::before {
             height: 105px; } }
@@ -362,20 +362,20 @@ body {
   @media screen and (min-width: 1120px) {
     .about {
       grid-column-gap: 90px; } }
-  .about img {
+  .about-img {
     width: 100%;
     max-width: 450px;
     grid-area: img;
     margin: 0 auto 30px; }
     @media screen and (min-width: 768px) {
-      .about img {
+      .about-img {
         min-height: 450px;
         margin: 0; } }
     @media screen and (min-width: 1120px) {
-      .about img {
+      .about-img {
         width: 600px;
         height: 650px;
-        max-width: 600px; } }
+        max-width: 100%; } }
   .about .wrapper {
     grid-area: txt; }
     .about .wrapper .subtitle {
@@ -400,11 +400,11 @@ body {
       text-align: center; }
     .about-buttons .btn-primary {
       border: 1px solid #22bf95; }
-    .about-buttons button:first-of-type {
-      margin-bottom: 30px; }
+    .about-buttons button + button {
+      margin-top: 30px; }
       @media screen and (min-width: 768px) {
-        .about-buttons button:first-of-type {
-          margin: 0 5px 0 0; } }
+        .about-buttons button + button {
+          margin: 0 0 0 5px; } }
 
 .essentials {
   padding-top: 80px;
@@ -454,23 +454,23 @@ body {
           margin: 0 15px 30px; } }
       .essentials .wrapper .item .text-wrapper {
         margin: 30px 25px 0 0; }
-      .essentials .wrapper .item h4 {
+      .essentials .wrapper .item-heading {
         margin-bottom: 22px; }
         @media screen and (min-width: 1120px) {
-          .essentials .wrapper .item h4 {
+          .essentials .wrapper .item-heading {
             font-size: 24px;
             line-height: 36px; } }
-      .essentials .wrapper .item p {
+      .essentials .wrapper .item-text {
         font-size: 10px;
         line-height: 18px; }
         @media screen and (min-width: 1120px) {
-          .essentials .wrapper .item p {
+          .essentials .wrapper .item-text {
             font-size: 13px;
             line-height: 24px; } }
-      .essentials .wrapper .item img {
+      .essentials .wrapper .item-img {
         width: 58px; }
         @media screen and (min-width: 1120px) {
-          .essentials .wrapper .item img {
+          .essentials .wrapper .item-img {
             width: 90px; } }
       .essentials .wrapper .item .essential-info {
         position: absolute;
@@ -528,10 +528,12 @@ body {
 .ventures-slider-small {
   box-shadow: 0 -2px 0 #e5e5e5 inset; }
   .ventures-slider-small .img-wrapper {
+    display: flex;
+    justify-content: center;
     padding-bottom: 10px;
     opacity: 0.5;
-    display: flex;
-    justify-content: center; }
+    border: none;
+    background-color: transparent; }
     .ventures-slider-small .img-wrapper:focus {
       outline: none; }
     .ventures-slider-small .img-wrapper img {
@@ -553,7 +555,7 @@ body {
   color: #7f7f7f;
   font-size: 12px;
   line-height: 24px;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 6px 6px rgba(127, 127, 127, 0.3);
   border-radius: 5px;
   transition: transform 0.3s ease-in, background 0.3s ease-in; }
@@ -567,13 +569,13 @@ body {
       .card:hover {
         cursor: pointer;
         background: linear-gradient(to left, #00f473 15%, #22c6d4 80%, #17c3e1);
-        color: white;
+        color: #fff;
         transform: scale(1.1); }
         .card:hover .card-title {
-          color: white; }
+          color: #fff; }
         .card:hover .card-item::before {
-          color: white;
-          border: 1px solid white; } }
+          color: #fff;
+          border: 1px solid #fff; } }
   .card-title {
     margin-bottom: 30px;
     color: #22bf95;
@@ -616,7 +618,7 @@ body {
         border: 1px solid #e5e5e5;
         content: "\2212";
         color: #e5e5e5; }
-  .card button {
+  .card .btn-primary {
     width: 211px;
     padding: 8px 0;
     text-align: center;
@@ -646,6 +648,9 @@ body {
 .problems {
   padding: 36px 0 365px;
   background: linear-gradient(to bottom, #ebfaf5 0%, #e2e3e2 100%); }
+  @media screen and (min-width: 1120px) {
+    .problems {
+      padding: 120px 0 550px; } }
   .problems .problems-slider {
     position: relative; }
   .problems .slick-dots {
@@ -662,7 +667,7 @@ body {
         flex-direction: column;
         z-index: 999; } }
     .problems .slick-dots .slick-active button {
-      box-shadow: 0 0 0 6px white, 0 0 0 8px #22bf95; }
+      box-shadow: 0 0 0 6px #fff, 0 0 0 8px #22bf95; }
     .problems .slick-dots li {
       margin-right: 18px; }
       @media screen and (min-width: 1120px) {
@@ -677,9 +682,6 @@ body {
       border: unset;
       border-radius: 50%;
       background-color: #22bf95; }
-  @media screen and (min-width: 1120px) {
-    .problems {
-      padding: 120px 0 550px; } }
   .problems .subtitle {
     margin-bottom: 80px; }
     @media screen and (min-width: 1120px) {
@@ -781,31 +783,31 @@ body {
     @media screen and (min-width: 1120px) {
       .questions .options .option {
         width: 40%; } }
-    .questions .options .option h4 {
+    .questions .options .option-heading {
       font-family: "Acme", sans-serif;
       font-size: 10px;
       text-transform: uppercase;
       line-height: 24px;
-      color: white;
+      color: #fff;
       border-bottom: 1.5px solid rgba(255, 255, 255, 0.5); }
       @media screen and (min-width: 1120px) {
-        .questions .options .option h4 {
+        .questions .options .option-heading {
           font-size: 12px;
           padding-bottom: 9px; } }
-    .questions .options .option button {
+    .questions .options .option-btn {
       height: 60px;
       width: 100%;
       display: block;
       font-family: "Aclonica", sans-serif;
       font-size: 16px;
       line-height: 24px;
-      color: white;
+      color: #fff;
       border: none;
       cursor: pointer;
       background: url("../src/images/questions-arrow-right.png") no-repeat right;
       background-size: 25px; }
       @media screen and (min-width: 1120px) {
-        .questions .options .option button {
+        .questions .options .option-btn {
           margin-top: 35px;
           font-size: 24px;
           background-size: 35px; } }

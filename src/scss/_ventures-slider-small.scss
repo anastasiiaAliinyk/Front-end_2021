@@ -2,10 +2,13 @@
   box-shadow: 0 -2px 0 $c-light-gray inset;
 
   .img-wrapper {
-    padding-bottom: 10px;
-    opacity: 0.5;
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
+
+    opacity: 0.5;
+    border: none;
+    background-color: transparent;
 
     &:focus {
       outline: none;

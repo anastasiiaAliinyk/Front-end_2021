@@ -67,30 +67,30 @@
         width: 40%;
       }
 
-      h4 {
+      &-heading {
         font-family: "Acme", sans-serif;
-        font-size: 10px;
+        font-size: $fs-micro;
         text-transform: uppercase;
         line-height: 24px;
-        color: white;
+        color: #fff;
 
         border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
 
         @include screen-desktop {
-          font-size: 12px;
+          font-size: $fs-milli;
           padding-bottom: 9px;
         }
       }
 
-      button {
+      &-btn {
         height: 60px;
         width: 100%;
         display: block;
 
         font-family: "Aclonica", sans-serif;
-        font-size: 16px;
+        font-size: $fs-base;
         line-height: 24px;
-        color: white;
+        color: #fff;
         
         border: none;
         cursor: pointer;
@@ -99,7 +99,7 @@
 
         @include screen-desktop {
           margin-top: 35px;
-          font-size: 24px;
+          font-size: $fs-big;
           background-size: 35px;
         }
       }
