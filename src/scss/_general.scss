@@ -52,7 +52,7 @@ body {
 
 .txt {
   font-size: $fs-mini;
-  line-height: $fs-kilo;
+  line-height: 24px;
 
   @include screen-desktop {
     font-size: $fs-base;

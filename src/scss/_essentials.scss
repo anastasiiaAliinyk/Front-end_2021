@@ -84,6 +84,7 @@
 
       &-img {
         width: 58px;
+        object-fit: contain;
 
         @include screen-desktop {
           width: 90px;

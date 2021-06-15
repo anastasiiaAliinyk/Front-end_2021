@@ -40,10 +40,10 @@
     margin-top: 10px;
 
     @include screen-desktop {
-      order: 1;
+      max-width: 705px;
       margin-top: 0;
       margin-left: -135px;
-      max-width: 705px;
+      order: 1;
     }
   }
 

@@ -36,8 +36,8 @@
     margin-top: 30px;
 
     @include screen-desktop {
-      margin-top: 0;
       max-width: 570px;
+      margin-top: 0;
       font-size: $fs-big;
       line-height: 36px;
     }
