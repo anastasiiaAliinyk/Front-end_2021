@@ -88,4 +88,5 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 
+src/css
 2/css
