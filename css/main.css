@@ -564,7 +564,7 @@ body {
     margin-right: 0; }
   @media screen and (min-width: 1120px) {
     .card {
-      width: 300px;
+      width: 330px;
       font-size: 13px;
       padding: 42px 55px 38px; }
       .card:hover {
@@ -619,8 +619,9 @@ body {
         border: 1px solid #e5e5e5;
         content: "\2212";
         color: #e5e5e5; }
-  .card button {
-    width: 211px;
+  .card .btn-primary {
+    min-width: 211px;
+    margin: 0 auto;
     padding: 8px 0;
     text-align: center;
     font-size: 10px;

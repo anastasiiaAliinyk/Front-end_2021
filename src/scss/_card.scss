@@ -20,7 +20,7 @@
   }
 
   @include screen-desktop {
-    width: 300px;
+    width: 330px;
     font-size: $fs-mini;
     padding: 42px 55px 38px;
     
@@ -102,8 +102,9 @@
     }
   }
 
-  button {
-    width: 211px;
+  .btn-primary {
+    min-width: 211px;
+    margin: 0 auto;
     padding: 8px 0;
 
     text-align: center;
