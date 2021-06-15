@@ -14,11 +14,11 @@ burgerBtn.addEventListener('click', () => {
 
 window.addEventListener('resize', function () {
   if (document.querySelector(PLANS_SLIDER_SELECTOR).classList.contains('slick-initialized')) {
-    if (!window.matchMedia('(max-width: 1240px)').matches) {
+    if (!window.matchMedia('(max-width: 1330px)').matches) {
       unSlickPlansSlider();
     }
   } else {
-    if (window.matchMedia('(max-width: 1240px)').matches) {
+    if (window.matchMedia('(max-width: 1330px)').matches) {
       slickPlansSlider();
     }
   }
@@ -70,7 +70,7 @@ jQuery(function () {
     autoplaySpeed: 1500
   });
 
-  if (window.matchMedia('(max-width: 1240px)').matches) {
+  if (window.matchMedia('(max-width: 1330px)').matches) {
     slickPlansSlider();
   }
 });
