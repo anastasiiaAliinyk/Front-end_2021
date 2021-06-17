@@ -1,0 +1,18 @@
+@import "plans-slider";
+
+.plans {
+  margin: -258px 0 90px;
+
+  @include screen-desktop {
+    margin-top: -365px;
+  }
+
+  .subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @include screen-desktop {
+      margin-bottom: 70px;
+    }
+  }
+}

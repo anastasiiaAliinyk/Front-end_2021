@@ -1,0 +1,56 @@
+.ventures-slider {
+  margin-bottom: 48px;
+
+  .item {
+    line-height: 24px;
+    color: $c-gray;
+    text-align: center;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include screen-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 10% 0 5%;
+    }
+  }
+
+  .img-wrapper {
+    width: 207px;
+
+    @include screen-desktop {
+      width: 340px;
+      align-self: center;
+    }
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .venture-content {
+    margin-top: 30px;
+
+    @include screen-desktop {
+      max-width: 570px;
+      margin-top: 0;
+      font-size: $fs-big;
+      line-height: 36px;
+    }
+  }
+
+  .author {
+    margin-top: 30px;
+    font-size: $fs-micro;
+    text-transform: uppercase;
+
+    @include screen-desktop {
+      text-align: right;
+      padding: 0 10% 0 5%;
+    }
+  }
+}

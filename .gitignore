@@ -87,3 +87,6 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+src/css
+2/css

@@ -1,0 +1,108 @@
+.questions {
+  padding: 101px 0 50px;
+
+  @include screen-desktop {
+    padding: 141px 0 100px;
+  }
+
+  .questions-info {
+    @include screen-desktop {
+      max-width: $max-width-container;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      padding: 0 $container-padding;
+    }
+  }
+
+  .questions-content {
+    padding: 0 $container-padding;
+
+    @include screen-desktop {
+      max-width: 470px;
+      padding: 0;
+      order: 2;
+      align-self: center;
+    }
+  }
+
+  .questions-text {
+    margin-top: 10px;
+    color: $c-main-text;
+
+    @include screen-desktop {
+      margin-top: 40px;
+    }
+  }
+
+  .questions-image {
+    width: 100%;
+    margin-top: 10px;
+
+    @include screen-desktop {
+      max-width: 705px;
+      margin-top: 0;
+      margin-left: -135px;
+      order: 1;
+    }
+  }
+
+  .options {
+    position: relative;
+    margin-top: -65px;
+    background: $gradient;
+    padding: 20px 25px;
+    border-radius: 5px;
+
+    @include screen-desktop {
+      max-width: 1030px;
+      display: flex;
+      justify-content: space-between;
+      margin: -35px auto 0;
+      padding: 30px 69px 45px;
+    }
+
+    .option {
+      @include screen-desktop {
+        width: 40%;
+      }
+
+      &-heading {
+        font-family: "Acme", sans-serif;
+        font-size: $fs-micro;
+        text-transform: uppercase;
+        line-height: 24px;
+        color: #fff;
+
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+
+        @include screen-desktop {
+          font-size: $fs-milli;
+          padding-bottom: 9px;
+        }
+      }
+
+      &-btn {
+        height: 60px;
+        width: 100%;
+        display: block;
+
+        font-family: "Aclonica", sans-serif;
+        font-size: $fs-base;
+        line-height: 24px;
+        color: #fff;
+        
+        border: none;
+        cursor: pointer;
+        background: url("../src/images/questions-arrow-right.png") no-repeat right;
+        background-size: 25px;
+
+        @include screen-desktop {
+          margin-top: 35px;
+          font-size: $fs-big;
+          background-size: 35px;
+        }
+      }
+    }
+  }
+}

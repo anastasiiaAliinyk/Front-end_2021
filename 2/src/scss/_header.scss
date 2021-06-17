@@ -1,0 +1,124 @@
+@import "menu";
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  background-color: transparent;
+  z-index: 1001;
+
+  &.scroll-styles {
+    background-color: #fff;
+    
+    .header-logo {
+      color: $c-gray;
+
+      @include screen-desktop {
+        &:hover {
+          color: $c-link;
+        }
+      }
+    }
+
+    .header-burger {
+      span,
+      &::before,
+      &::after {
+        background-color: $c-gray;
+      }
+    }
+  }
+
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px $container-padding;
+  }
+
+  &-logo {
+    color: #fff;
+    font-family: "Actor", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color $animation-time ease-in;
+
+    @include screen-desktop {
+      &:hover {
+        color: $c-gray;
+      }
+    }
+  }
+
+  &-burger {
+    position: relative;
+    width: 44px;
+    height: 38px;
+    padding: 10px;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    z-index: 11;
+
+    @include screen-desktop {
+      display: none;
+    }
+
+    span {
+      top: 18px;
+    }
+
+    span,
+    &::before,
+    &:after {
+      width: calc(100% - 20px);
+      height: 2px;
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+
+      background-color: #fff;
+      transition: all $animation-time ease 0s;
+    }
+
+    &::before {
+      content: "";
+      top: 10px;
+    }
+
+    &::after {
+      content: "";
+      bottom: 10px;
+    }
+
+    &.active {
+      span,
+      &::before,
+      &::after {
+        background-color: $c-link;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+        height: 3px;
+        top: 18px;
+      }
+
+      &::after {
+        height: 3px;
+        transform: rotate(-45deg);
+        bottom: 17px;
+      }
+
+      span {
+        transform: scale(0);
+      }
+    }
+  }
+}

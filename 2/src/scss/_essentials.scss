@@ -1,0 +1,111 @@
+.essentials {
+  padding-top: 80px;
+  margin-bottom: 80px;
+
+  .subtitle {
+    margin-bottom: 36px;
+    margin-left: 10px;
+
+    @include screen-desktop {
+      margin-bottom: 82px;
+    }
+  }
+
+  .btn-secondary {
+    min-width: 230px;
+    padding: 8px 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include screen-tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .item {
+      display: flex;
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      min-height: 200px;
+
+      margin-bottom: 10px;
+      padding: 0 30px;
+
+      cursor: pointer;
+      box-shadow: $shadow-text;
+      border-left: 5px solid $c-link;
+      border-radius: 5px;
+      transition: box-shadow $animation-time ease-in;
+
+      @include screen-desktop {
+        max-width: 500px;
+      }
+
+      &:hover {
+        box-shadow: $shadow-on-hover;
+      }
+
+      @include screen-tablet {
+        margin: 0 15px 30px;
+      }
+
+      .text-wrapper {
+        margin: 30px 25px 0 0;
+      }
+
+      &-heading {
+        margin-bottom: 22px;
+
+        @include screen-desktop {
+          font-size: $fs-big;
+          line-height: 36px;
+        }
+      }
+
+      &-text {
+        font-size: $fs-micro;
+        line-height: 18px;
+
+        @include screen-desktop {
+          font-size: $fs-mini;
+          line-height: 24px;
+        }
+      }
+
+      &-img {
+        width: 58px;
+        object-fit: contain;
+
+        @include screen-desktop {
+          width: 90px;
+        }
+      }
+
+      .essential-info {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 19px;
+        height: 19px;
+
+        background: url("../src/images/info.png") no-repeat;
+        background-size: 19px;
+        
+        @include screen-desktop {
+          bottom: 15px;
+          right: 15px;
+        }
+      }
+    }
+  }
+}

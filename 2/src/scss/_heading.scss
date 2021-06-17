@@ -1,0 +1,64 @@
+.heading {
+  padding: 80px 0 50px;
+
+  color: #fff;
+  background: $gradient;
+
+  @include screen-tablet {
+    padding: 120px 0 100px;
+  }
+
+  @include screen-desktop {
+     padding: 160px 0 100px;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include screen-tablet {
+      flex-direction: row;
+      justify-content: center;
+    }  
+
+    .text {
+      position: relative;
+      margin: 0 0 10px 20px;
+
+      font-size: $fs-mini;
+      line-height: 24px;
+      font-weight: 400;
+
+      text-shadow: $shadow-text;
+
+      @include screen-tablet {
+        margin: 0 60px 0 0;
+        max-width: 400px;
+      }  
+
+      @include screen-desktop {
+        margin: 0 130px 0 0;
+        max-width: 670px;
+
+        font-size: 20px;
+        line-height: 26px;
+      }  
+
+      &::before {
+        position: absolute;
+        left: -20px;
+        top: 0;
+
+        width: 2px;
+        height: 145px;
+        content: "";
+        background-color: #fff;
+
+        @include screen-tablet {
+          height: 105px;
+        }  
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.ventures-slider-small {
+  box-shadow: 0 -2px 0 $c-light-gray inset;
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+
+    opacity: 0.5;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    img {
+      width: 60%;
+      height: 80px;
+      object-fit: contain;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.slick-current {
+      border-bottom: 2px solid $c-link;
+      opacity: 1;
+    }
+  }
+}
