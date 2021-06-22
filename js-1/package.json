@@ -1,0 +1,33 @@
+{
+  "name": "front-end_2021",
+  "version": "1.0.0",
+  "description": "Home works",
+  "main": "index.html",
+  "scripts": {
+    "watch": "gulp sass && gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d . -b gh-pages-js-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anastasiiaAliinyk/Front-end_2021.git"
+  },
+  "keywords": [
+    "AltexSoft",
+    "Lab",
+    "Front-end"
+  ],
+  "author": "Anastasiia Aliinyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anastasiiaAliinyk/Front-end_2021/issues"
+  },
+  "homepage": "https://github.com/anastasiiaAliinyk/Front-end_2021#readme",
+  "dependencies": {
+    "gh-pages": "3.2.0",
+    "gulp": "4.0.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "4.1.0"
+  }
+}
