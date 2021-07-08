@@ -5,18 +5,17 @@ const dominoResultContainer = domino.querySelector(".domino-result");
 
 const generateElement = domino.querySelector('.control-panel button[name="generate"]');
 
+generateElement.addEventListener("click", calculate);
+
 function createRandomArray(length = 6, max = 5) {
     return Array.apply(null, Array(length)).map(function() {
         return Math.round(Math.random() * max + 1);
     });
-};
+}
 
-let tops;
-let bottoms;
-
-generateElement.addEventListener("click", () => {
-    tops = createRandomArray();
-    bottoms = createRandomArray();
+function calculate() {
+    const tops = createRandomArray();
+    const bottoms = createRandomArray();
 
     const originTops = [...tops];
     const originBottoms = [...bottoms];
@@ -29,28 +28,29 @@ generateElement.addEventListener("click", () => {
 
     const allNumbers = [...tops, ...bottoms];
 
-    const result = allNumbers.reduce((result, number) => {
-        result[number] = result[number] ? result[number] + 1 : 1;
-        return result;
-    }, {});
+    let maxCountNumbers = null;
+    let foundNumber = null;
 
-    const maxCountNumbers = Math.max.apply(null, Object.values(result));
+    const result = {};
+    allNumbers.forEach((number) => {
+        result[number] = result[number] ? result[number] + 1 : 1;
+        if (!maxCountNumbers || result[number] > maxCountNumbers) {
+            maxCountNumbers = result[number];
+            foundNumber = number;
+        }
+    });
 
     //Minimal count of numbers we need to complete the row with the same numbers;
     let needCountNumbers = 6;
-    let foundNumber;
-
-    for (let key in result) {
-        if (result[key] === maxCountNumbers) {
-            foundNumber = +key;
-        }
-    };
 
     for (let i = 0; i < 6; i++) {
         if (tops[i] === bottoms[i]) {
             needCountNumbers++;
         }
-    };
+    }
+
+    let topsCount;
+    let bottomsCount;
 
     if (maxCountNumbers === needCountNumbers) {
         topsCount = tops.filter(value => value === foundNumber).length;
@@ -93,4 +93,4 @@ generateElement.addEventListener("click", () => {
     } else {
         dominoResultContainer.textContent = "You lose. Try again! :("
     }
-});
+};
