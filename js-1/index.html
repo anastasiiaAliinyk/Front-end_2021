@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First task JS</title>
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First task JS</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="container">
+  <h1>Home work JS-1</h1>
+  <h3>Task 1 - Pyramide</h3>
+  <div id="pyramid" class="pyramid">
+    <div>Create pyramid</div>
+    <div class="control-panel">
+      <label>
+        <input 
+          class="input"
+          name="number-1" 
+          type="number" 
+          min="0" 
+          max="4500" 
+          placeholder="100"
+        >
+      </label>
+      <div class="error"></div>
+      <button name="create" class="btn">
+        Create
+      </button>
+    </div>
+    <div class="pyramid-output"></div>
+    <div class="pyramid-count"></div>
+  </div>
 
-    <script src="src/js/main.js"></script>
+  <h3>Task 3 - ATM</h3>
+  <div id="atm-1" class="atm">
+    <div class="box">
+      <div class="question">How much money do you want to withdraw?</div>
+      <div class="control-panel">
+        <label>
+          <input 
+            class="input"
+            name="amount" 
+            type="number" 
+            min="0" 
+            max="99999" 
+            placeholder="100"
+          >
+        </label>
+        <div class="error"></div>
+        <button name="withdraw" class="btn">
+          Withdraw
+        </button>
+      </div>
+      <div class="withdraw-info"></div>
+    </div>
+    <div class="banknotes-info"></div>
+  </div>
+  <h3>Task 2 - Dominos</h3>
+  <div id="domino" class="domino">
+    <div class="control-panel">
+      <button name="generate" class="btn">
+        Generate new dominos
+      </button>
+    </div>
+    <div class="domino-tops"></div>
+    <div class="domino-bottoms"></div>
+    <div class="domino-result"></div>
+  </div>
+</div>
+
+<script src="src/js/pyramid.js"></script>
+<script src="src/js/atm.js"></script>
+<script src="src/js/domino.js"></script>
 </body>
 </html>
