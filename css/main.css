@@ -1,0 +1,54 @@
+body {
+  padding: 0;
+  margin: 0; }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+.container {
+  max-width: 1200px;
+  padding: 25px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(187, 187, 214, 0.5);
+  border-radius: 5px; }
+
+.error {
+  color: #ff5854;
+  font-size: 14px; }
+
+.input {
+  margin: 10px 0; }
+  .input:focus {
+    outline: none;
+    border: 2px solid rgba(26, 204, 204, 0.93); }
+
+.btn, .input {
+  min-width: 200px;
+  padding: 5px 7px;
+  border: 1px solid rgba(14, 238, 238, 0.93);
+  border-radius: 2px; }
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgba(14, 238, 238, 0.93); }
+
+.pyramid-output {
+  max-width: max-content;
+  margin: 0 auto;
+  text-align: start; }
+
+.atm {
+  margin: 0 auto;
+  max-width: 650px;
+  display: flex;
+  justify-content: space-between; }
+
+.atm .banknotes-info .banknote-zero {
+  color: #ff5854; }
+
+.atm .banknotes-info .total-sum {
+  margin-top: 7px;
+  color: #0a84e5; }
