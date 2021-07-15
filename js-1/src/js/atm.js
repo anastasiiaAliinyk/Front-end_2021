@@ -14,7 +14,7 @@ function ATM(appContainer) {
 
   function withdraw(amount) {
     if (!amount) {
-      clearWithdrawInfo();
+      showWithdrawInfo([]);
       return;
     }
     const tmpAllowedBanknotes = {...allowedBanknotes};
@@ -31,9 +31,9 @@ function ATM(appContainer) {
       }
       allowedMoney += banknote * tmpAllowedBanknotes[banknote];
 
-      const c = amount / banknote;
-      if (c >= 1) {
-        let numberBanknotes = Math.floor(c);
+      const neededBanknotes = amount / banknote;
+      if (neededBanknotes >= 1) {
+        let numberBanknotes = Math.floor(neededBanknotes);
 
         const leftBanknotes = tmpAllowedBanknotes[banknote] - numberBanknotes;
         if (leftBanknotes < 0) {
@@ -90,24 +90,16 @@ function ATM(appContainer) {
     withdrawInfoElement.innerHTML = info.map((item) => `<div>${item}</div>`).join("");
   }
 
-  function clearWithdrawInfo() {
-    showWithdrawInfo([]);
-  }
-
   function showWithdrawAmountError(error) {
     withdrawAmountErrorElement = withdrawAmountErrorElement || appContainer.querySelector(".control-panel .error");
     withdrawAmountErrorElement.textContent = error;
-  }
-
-  function clearError() {
-    showWithdrawAmountError("");
   }
 
   function validateAmount(amount) {
     const minAllowedWithdrawAmount = +withdrawAmountElement.min;
     const maxAllowedWithdrawAmount = +withdrawAmountElement.max;
 
-    clearError();
+    showWithdrawAmountError("");
 
     if (!amount || amount <= minAllowedWithdrawAmount || amount > maxAllowedWithdrawAmount) {
       showWithdrawAmountError(`Please input an amount > ${minAllowedWithdrawAmount} and <= ${maxAllowedWithdrawAmount}`);

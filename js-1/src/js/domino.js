@@ -61,6 +61,7 @@ function calculate() {
 
     if (completedNumber !== null ) {
         let minCount = 0;
+        const alertMessage = `${JSON.stringify(originTops)} \n ${JSON.stringify(originBottoms)} \n\n\n ${JSON.stringify(tops)} \n ${JSON.stringify(bottoms)} \n\n\n You did it! You need - ${minCount} times`;
 
         if (bottomsCount > topsCount) {
             for (let i = 0; i < 6; i++) {
@@ -71,9 +72,7 @@ function calculate() {
                     minCount++;
                 }
             }
-
-            alert(`${JSON.stringify(originTops)} \n ${JSON.stringify(originBottoms)} \n\n\n ${JSON.stringify(tops)} \n ${JSON.stringify(bottoms)} \n\n\n You did it! You need - ${minCount} times`);
-
+            alert(alertMessage);
             dominoResultContainer.textContent = `You did it! :) ${minCount}`;
             return;
         }
@@ -86,9 +85,7 @@ function calculate() {
                 minCount++;
             }
         }
-
-        alert(`${JSON.stringify(originTops)} \n ${JSON.stringify(originBottoms)} \n\n\n ${JSON.stringify(tops)} \n ${JSON.stringify(bottoms)} \n\n\n You did it! You need - ${minCount} times`);
-
+        alert(alertMessage);
         dominoResultContainer.textContent = `You did it! :) ${minCount}`;
     } else {
         dominoResultContainer.textContent = "You lose. Try again! :("

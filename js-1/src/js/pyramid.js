@@ -38,16 +38,12 @@ function Pyramid (appContainer) {
       pyramidErrorElement = pyramidErrorElement || appContainer.querySelector(".control-panel .error");
       pyramidErrorElement.textContent = error;
   }
-  
-  function clearError() {
-      showPyramidError("");
-  }
 
   function validateNumber(number) {
       const minAllowedNumber = +pyramidNumberElement.min;
       const maxAllowedNumber = +pyramidNumberElement.max;
-  
-      clearError();
+
+      showPyramidError("");
   
       if (!number || number <= minAllowedNumber || number > maxAllowedNumber) {
         showPyramidError(`Please input a number > ${minAllowedNumber} and <= ${maxAllowedNumber}`);
