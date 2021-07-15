@@ -230,11 +230,11 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
                                             <TableCell component="th" id={labelId} scope="row" padding="none">
                                                 {customer.company}
                                             </TableCell>
-                                            <TableCell align="left">{customer.name}</TableCell>
-                                            <TableCell align="left">{customer.address}</TableCell>
-                                            <TableCell align="left">{customer.city}</TableCell>
-                                            <TableCell align="left">{customer.country}</TableCell>
-                                            <TableCell>
+                                            <TableCell>{customer.name}</TableCell>
+                                            <TableCell>{customer.address}</TableCell>
+                                            <TableCell>{customer.city}</TableCell>
+                                            <TableCell>{customer.country}</TableCell>
+                                            <TableCell align="right">
                                                 <div className={classNames('actions', { active: isItemSelected && selected.length === 1})}>
                                                     <EditIcon className='edit-icon' />
                                                     <HighlightOffIcon

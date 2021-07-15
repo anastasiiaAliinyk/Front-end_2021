@@ -25,7 +25,6 @@ import './App.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
-        paddingRight: "60px",
         justifyContent: "space-between",
         alignItems: "center",
     },
