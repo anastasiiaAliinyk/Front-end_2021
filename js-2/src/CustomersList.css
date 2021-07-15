@@ -1,0 +1,17 @@
+.actions {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.actions.active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.edit-icon {
+  margin-right: 30px;
+}
+
+.delete-icon:hover, .edit-icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
