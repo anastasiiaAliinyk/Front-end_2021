@@ -21,3 +21,11 @@ export const saveCustomer = customer => request('/', {
     },
     body: JSON.stringify(customer),
 });
+
+export const updateCustomer = (customerId, updates) => request(`/${customerId}`, {
+    method: 'PATCH',
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(updates),
+});

@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { Navbar } from './Navbar';
-import { Filters } from './Filters';
-import { CustomersList } from './CustomersList';
-import { Loading } from './Loading';
+import { Navbar } from './components/Navbar';
+import { Filters } from './components/Filters';
+import { CustomersList } from './components/CustomersList';
+import { Loading } from './components/Loading';
 
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -19,7 +19,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core/styles';
 
-import {deleteCustomer, getCustomers, saveCustomer} from './api';
+import {deleteCustomer, getCustomers, saveCustomer} from './api/api';
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +53,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function getUniqueString() {
+    const array = new Uint32Array(4);
+    window.crypto.getRandomValues(array);
+    return array.join('');
+}
+
 function App() {
     const [customers, setCustomers] = useState(null);
     const [filterBy, setFilterBy] = useState('');
@@ -70,7 +76,6 @@ function App() {
         if (customers === null) {
             return;
         }
-
         return customers.filter(customer =>
             (!filterBy.name || customer.name.toLowerCase().includes(filterBy.name.toLowerCase()))
             && (!filterBy.address || customer.address.toLowerCase().includes(filterBy.address.toLowerCase()))
@@ -111,12 +116,6 @@ function App() {
         removeCustomer(customers[number]._id);
     }
 
-    const getUniqueString = () => {
-        const array = new Uint32Array(4);
-        window.crypto.getRandomValues(array);
-        return array.join('');
-    }
-
     const onFormSubmit = (e) => {
         e.preventDefault();
 
@@ -148,6 +147,15 @@ function App() {
 
     const deleteOneCustomer = (id) => {
         setCustomers(customers => customers.filter(customer => customer._id !== id));
+    }
+
+    const updateCustomer = (customerId, updates) => {
+        setCustomers(customers => customers.map(customer => {
+            if(customer._id === customerId) {
+                return {...customer, ...updates}
+            }
+            return customer;
+        }))
     }
 
     if (!customers) {
@@ -203,7 +211,8 @@ function App() {
             </div>
             <CustomersList
                 customers={filteredCustomers}
-                deleteItem={deleteOneCustomer}
+                onDeleteCustomer={deleteOneCustomer}
+                onEditCustomer={updateCustomer}
                 setAll={setIsSelectedAll}
             />
         </>

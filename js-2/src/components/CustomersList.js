@@ -1,7 +1,9 @@
-import React from 'react';
+import { useState } from "react";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { CustomerForm } from './CustomerForm';
+import Dialog from "@material-ui/core/Dialog";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,9 +17,9 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import './CustomersList.css';
 import classNames from 'classnames';
-import { deleteCustomer } from './api';
+import { deleteCustomer, updateCustomer } from '../api/api';
+
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -108,7 +110,6 @@ EnhancedTableHead.propTypes = {
     rowCount: PropTypes.number.isRequired,
 };
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -137,11 +138,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const CustomersList = ({customers, deleteItem, setAll}) => {
+export const CustomersList = ({ customers, onDeleteCustomer, onEditCustomer, setAll }) => {
     const classes = useStyles();
-    const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('company');
-    const [selected, setSelected] = React.useState([]);
+    const [order, setOrder] = useState('asc');
+    const [orderBy, setOrderBy] = useState('company');
+    const [selected, setSelected] = useState([]);
+    const [open, setOpen] = useState(false);
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -153,15 +156,16 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
         setAll(event.target.checked);
 
         if (event.target.checked) {
-            const newSelecteds = customers.map((customer) => customer._id);
-            setSelected(newSelecteds);
+            const newSelected = customers.map((customer) => customer._id);
+            setSelected(newSelected);
             return;
         }
         setSelected([]);
     };
 
-    const handleClick = (event, id) => {
+    const handleClick = (event, id, customer) => {
         const selectedIndex = selected.indexOf(id);
+        setSelectedCustomer(customer);
         let newSelected = [];
 
         if (selectedIndex === -1) {
@@ -180,10 +184,23 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
         setSelected(newSelected);
     };
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const handleDeleteCustomer = (id) => {
         deleteCustomer(id)
-            .then(() => deleteItem(id));
+            .then(() => onDeleteCustomer(id));
     };
+
+    const handleEditCustomer = (id, updates) => {
+        updateCustomer(id, updates)
+            .then(onEditCustomer(id, updates))
+    }
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
@@ -214,7 +231,7 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, customer._id)}
+                                            onClick={(event) => handleClick(event, customer._id, customer)}
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
@@ -236,7 +253,10 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
                                             <TableCell>{customer.country}</TableCell>
                                             <TableCell align="right">
                                                 <div className={classNames('actions', { active: isItemSelected && selected.length === 1})}>
-                                                    <EditIcon className='edit-icon' />
+                                                    <EditIcon
+                                                        className='edit-icon'
+                                                        onClick={() => handleClickOpen()}
+                                                    />
                                                     <HighlightOffIcon
                                                         className='delete-icon'
                                                         onClick={() => handleDeleteCustomer(customer._id)}
@@ -249,6 +269,15 @@ export const CustomersList = ({customers, deleteItem, setAll}) => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <CustomerForm
+                        dialogTitle='Edit the Customer'
+                        dialogContent='You can edit the Customer'
+                        customer={selectedCustomer}
+                        onClose={handleClose}
+                        onSave={handleEditCustomer}
+                    />
+                </Dialog>
             </Paper>
         </div>
     );
