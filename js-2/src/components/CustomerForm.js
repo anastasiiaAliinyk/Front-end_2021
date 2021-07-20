@@ -28,30 +28,31 @@ const useStyles = makeStyles((theme) => ({
 export const CustomerForm = ({
     dialogTitle,
     dialogContent,
-    customer,
+    customer= {},
     onClose,
     onSave
 }) => {
     const classes = useStyles();
-    const [contact, setContact] = useState(customer.name || '');
+    const [name, setName] = useState(customer.name || '');
     const [company, setCompany] = useState(customer.company || '');
     const [address, setAddress] = useState(customer.address || '');
     const [country, setCountry] = useState(customer.country || '');
     const [city, setCity] = useState(customer.city || '');
 
     const checkInputs = () => {
-        return contact && company && address && country && city;
+        return name && company && address && country && city;
     }
 
     const handleSave = (id) => {
         const customer = {
-            contact,
+            _id: id,
+            name,
             company,
             address,
             country,
             city
         }
-        onSave(id, customer);
+        onSave(customer);
         onClose();
     };
 
@@ -75,8 +76,8 @@ export const CustomerForm = ({
                             required
                         />
                         <TextField
-                            value={contact}
-                            onChange={(e) => setContact(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             name="name"
                             label="Contact Name"
                             variant="outlined"
