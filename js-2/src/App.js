@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { Navbar } from './Navbar';
 import { Filters } from './Filters';
 import { CustomersList } from './CustomersList';
@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
     const [customers, setCustomers] = useState(null);
+    const [filterBy, setFilterBy] = useState('');
     const [isSelectedAll, setIsSelectedAll] = useState(false);
     const [open, setOpen] = useState(false);
     const formRef = useRef(null);
@@ -64,6 +65,22 @@ function App() {
         getCustomers()
             .then(setCustomers);
     }, []);
+
+    const filterCustomers = () => {
+        if (customers === null) {
+            return;
+        }
+
+        return customers.filter(customer =>
+            (!filterBy.name || customer.name.toLowerCase().includes(filterBy.name.toLowerCase()))
+            && (!filterBy.address || customer.address.toLowerCase().includes(filterBy.address.toLowerCase()))
+            && (!filterBy.company || customer.company.toLowerCase().includes(filterBy.company.toLowerCase()))
+        );
+    }
+
+    const filteredCustomers = useMemo(() => {
+        return filterCustomers();
+    }, [filterBy, customers, filterCustomers])
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -143,7 +160,7 @@ function App() {
        <>
             <Navbar />
             <div className={classes.root}>
-                <Filters />
+                <Filters onFilter={setFilterBy}/>
                 <div className={classes.tooltips}>
                     {isSelectedAll && (
                         <Tooltip title="Delete" onClick={handleDeleteAll}>
@@ -185,7 +202,7 @@ function App() {
                 </div>
             </div>
             <CustomersList
-                customers={customers}
+                customers={filteredCustomers}
                 deleteItem={deleteOneCustomer}
                 setAll={setIsSelectedAll}
             />
