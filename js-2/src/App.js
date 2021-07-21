@@ -44,8 +44,8 @@ function App() {
     const classes = useStyles();
     const [customers, setCustomers] = useState(null);
     const [filterBy, setFilterBy] = useState('');
-    const [isSelectedAll, setIsSelectedAll] = useState(false);
     const [open, setOpen] = useState(false);
+    const [selectedCustomers, setSelectedCustomers] = useState([]);
 
     useEffect(() => {
         getCustomers()
@@ -80,17 +80,18 @@ function App() {
 
         const removeCustomer = (id) => {
             deleteCustomer(id).then(() => {
-                if (number < customers.length - 1) {
+                handleDeleteCustomer(selectedCustomers[number]);
+
+                if (number < selectedCustomers.length - 1) {
                     setTimeout(() => {
-                        removeCustomer(customers[++number]._id)
+                        removeCustomer(selectedCustomers[++number])
                     }, 100);
                 } else {
-                    setCustomers([]);
+                    setSelectedCustomers([]);
                 }
             });
         }
-        removeCustomer(customers[number]._id);
-        setIsSelectedAll(false);
+        removeCustomer(selectedCustomers[number]);
     }
 
     const addCustomer = (customer) => {
@@ -135,7 +136,7 @@ function App() {
             <div className={classes.root}>
                 <Filters onFilter={setFilterBy}/>
                 <div className={classes.tooltips}>
-                    {isSelectedAll && (
+                    {selectedCustomers.length > 0 && (
                         <Tooltip title="Delete" onClick={handleDeleteAll}>
                             <IconButton aria-label="delete">
                                 <DeleteForeverIcon fontSize="large" />
@@ -161,7 +162,7 @@ function App() {
                 customers={filteredCustomers}
                 onDeleteCustomer={handleDeleteCustomer}
                 onEditCustomer={handleUpdateCustomer}
-                setAll={setIsSelectedAll}
+                setAll={setSelectedCustomers}
             />
         </>
     );

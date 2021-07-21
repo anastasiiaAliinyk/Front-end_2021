@@ -10,7 +10,7 @@ export const request = async(url, options) => {
     return response.json();
 };
 
-export const getCustomers = () => request('/').then(costumers => costumers.slice(Math.max(costumers.length - 10, 0)));
+export const getCustomers = () => request('/');
 
 export const deleteCustomer = customerId => request(`/${customerId}`, {method: 'DELETE'});
 
