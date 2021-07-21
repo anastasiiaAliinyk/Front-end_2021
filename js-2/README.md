@@ -1,4 +1,4 @@
-All commands should be executed inside js-2 directory: 
+All commands should be executed inside js-2 directory (cd js-2): 
 1. npm install
 2. npm start
 3. npm run db-start

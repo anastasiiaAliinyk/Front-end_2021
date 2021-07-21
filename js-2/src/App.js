@@ -95,7 +95,7 @@ function App() {
     }
 
     const addCustomer = (customer) => {
-        setCustomers(customers => [...customers, customer]);
+        setCustomers(customers => [customer, ...customers]);
     }
 
     const handleSaveCustomer = (customer) => {

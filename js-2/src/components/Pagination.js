@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import Pagination from '@material-ui/lab/Pagination';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,4 +38,9 @@ export const PaginationCustomers = ({ count, onChange }) => {
             />
         </div>
     );
+}
+
+PaginationCustomers.propTypes = {
+    count: PropTypes.number.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
