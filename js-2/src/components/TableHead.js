@@ -48,3 +48,4 @@ EnhancedTableHead.propTypes = {
     onSelectAllClick: PropTypes.func.isRequired,
     rowCount: PropTypes.number.isRequired,
 };
+

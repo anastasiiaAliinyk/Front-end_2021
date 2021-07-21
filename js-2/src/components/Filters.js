@@ -97,4 +97,4 @@ export const Filters = ({ onFilter }) => {
 
 Filters.propTypes = {
     onFilter: PropTypes.func.isRequired,
-}
+};

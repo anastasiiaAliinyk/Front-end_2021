@@ -17,4 +17,4 @@ export const Loading = () => {
             <CircularProgress />
         </div>
     );
-}
+};

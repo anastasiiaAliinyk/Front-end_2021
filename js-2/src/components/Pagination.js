@@ -44,4 +44,4 @@ export const PaginationCustomers = ({ page, count, onChange }) => {
 PaginationCustomers.propTypes = {
     count: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired,
-}
+};

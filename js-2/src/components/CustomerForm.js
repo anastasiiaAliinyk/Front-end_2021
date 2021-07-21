@@ -132,4 +132,4 @@ CustomerForm.propTypes = {
     customer: PropTypes.object,
     onClose: PropTypes.func.isRequired,
     onSave: PropTypes.func.isRequired,
-}
+};
