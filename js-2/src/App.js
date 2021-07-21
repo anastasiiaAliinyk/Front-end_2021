@@ -45,6 +45,7 @@ function App() {
     const [customers, setCustomers] = useState(null);
     const [filterBy, setFilterBy] = useState('');
     const [open, setOpen] = useState(false);
+    const [page, setPage] = useState(1);
     const [selectedCustomers, setSelectedCustomers] = useState([]);
 
     useEffect(() => {
@@ -66,6 +67,10 @@ function App() {
     const filteredCustomers = useMemo(() => {
         return filterCustomers();
     }, [filterBy, customers, filterCustomers])
+
+    useEffect(() => {
+        setPage(1);
+    }, [filterBy]);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -159,6 +164,8 @@ function App() {
                 </div>
             </div>
             <CustomersList
+                page={page}
+                setPage={setPage}
                 customers={filteredCustomers}
                 onDeleteCustomer={handleDeleteCustomer}
                 onEditCustomer={handleUpdateCustomer}

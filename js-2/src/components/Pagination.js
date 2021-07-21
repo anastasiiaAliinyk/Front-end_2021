@@ -26,13 +26,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const PaginationCustomers = ({ count, onChange }) => {
+export const PaginationCustomers = ({ page, count, onChange }) => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <Pagination
                 variant="outlined"
+                page={page}
                 count={count}
                 onChange={(_, page) => onChange(page)}
             />

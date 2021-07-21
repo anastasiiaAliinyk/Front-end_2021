@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CustomerForm } from './CustomerForm';
 import { PaginationCustomers } from './Pagination';
+import { EnhancedTableHead } from './TableHead';
 
 import Dialog from "@material-ui/core/Dialog";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@material-ui/icons/Edit';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -18,51 +18,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { deleteCustomer, updateCustomer } from '../api/api';
-
-const headCells = [
-    { id: 'company', numeric: false, disablePadding: true, label: 'Company Name' },
-    { id: 'contact', numeric: true, disablePadding: false, label: 'Contact Name' },
-    { id: 'address', numeric: true, disablePadding: false, label: 'Address' },
-    { id: 'city', numeric: true, disablePadding: false, label: 'City' },
-    { id: 'country', numeric: true, disablePadding: false, label: 'Country' },
-    { id: 'settings', numeric: true, disablePadding: false, label: ' ' },
-];
-
-function EnhancedTableHead(props) {
-    const { classes, onSelectAllClick, numSelected, rowCount } = props;
-
-    return (
-        <TableHead>
-            <TableRow>
-                <TableCell padding="checkbox">
-                    <Checkbox
-                        indeterminate={numSelected > 0 && numSelected < rowCount}
-                        checked={rowCount > 0 && numSelected === rowCount}
-                        onChange={onSelectAllClick}
-                        inputProps={{ 'aria-label': 'select all customers' }}
-                    />
-                </TableCell>
-                {headCells.map((headCell) => (
-                    <TableCell
-                        key={headCell.id}
-                        align='left'
-                        padding={headCell.disablePadding ? 'none' : 'normal'}
-                        className={classes.tableCell}
-                    >
-                        {headCell.label}
-                    </TableCell>
-                ))}
-            </TableRow>
-        </TableHead>
-    );
-}
-
-EnhancedTableHead.propTypes = {
-    classes: PropTypes.object.isRequired,
-    numSelected: PropTypes.number.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    rowCount: PropTypes.number.isRequired,
-};
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -81,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const customersPerPage = 7;
+const customersPerPage = 5;
 
-export const CustomersList = ({ customers, onDeleteCustomer, onEditCustomer, setAll }) => {
+export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEditCustomer, setAll }) => {
     const classes = useStyles();
     const [selected, setSelected] = useState([]);
     const [open, setOpen] = useState(false);
@@ -91,13 +46,9 @@ export const CustomersList = ({ customers, onDeleteCustomer, onEditCustomer, set
     const [visibleCustomers, setVisibleCustomers] = useState([]);
 
     useEffect(() => {
-        setVisibleCustomers(customers.slice(0, customersPerPage));
-    }, [customers])
-
-    const handleChangePage = (page) => {
         const pageOffset = (page - 1) * customersPerPage;
         setVisibleCustomers(customers.slice(pageOffset, pageOffset + customersPerPage));
-    }
+    }, [customers, page]);
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
@@ -223,8 +174,16 @@ export const CustomersList = ({ customers, onDeleteCustomer, onEditCustomer, set
                 </Dialog>
             </Paper>
             <PaginationCustomers
+                page={page}
                 count={Math.ceil((customers.length) / customersPerPage)}
-                onChange={handleChangePage} />
+                onChange={setPage} />
         </div>
     );
 }
+
+CustomersList.propTypes = {
+    customers: PropTypes.array.isRequired,
+    onDeleteCustomer: PropTypes.func.isRequired,
+    onEditCustomer: PropTypes.func.isRequired,
+    setAll: PropTypes.func.isRequired,
+};
