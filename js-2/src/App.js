@@ -69,6 +69,7 @@ function App() {
 
     useEffect(() => {
         setPage(1);
+        setSelectedCustomers([]);
     }, [filterBy]);
 
     const handleClickOpen = () => {
