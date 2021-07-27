@@ -1,0 +1,17 @@
+.actions {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.actions.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.edit-icon {
+    margin-right: 40px;
+}
+
+.delete-icon:hover, .edit-icon:hover {
+    cursor: pointer;
+    color: rgb(64, 81, 181);
+}
