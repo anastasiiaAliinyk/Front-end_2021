@@ -69,7 +69,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
         setAll([]);
     };
 
-    const handleClickCustomer = (event, id, customer) => {
+    const handleClickCustomer = (id, customer) => {
         const selectedIndex = selected.indexOf(id);
         let newSelected = [];
         setSelectedCustomer(customer);
@@ -87,6 +87,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
             );
         }
         setSelected(newSelected);
+        setAll(newSelected.length === visibleCustomers.length ? newSelected : []);
     };
 
     const handleClickOpen = () => {
@@ -139,7 +140,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClickCustomer(event, customer._id, customer)}
+                                            onClick={() => handleClickCustomer(customer._id, customer)}
                                             role='checkbox'
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}

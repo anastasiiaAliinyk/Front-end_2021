@@ -1,71 +1,11 @@
 {
   "customers": [
     {
-      "_id": "5bf8de1abd7019acbdc7470c",
-      "name": "Graciela Gaines",
-      "company": "ORBAXTER",
-      "address": "Woodrow Court 455",
-      "city": "Nord, Delaware, 8892",
-      "country": "Guatemala",
-      "email": "gracielagaines@orbaxter.com",
-      "phone": "+1 (931) 477-2157"
-    },
-    {
-      "_id": "5bf8de1af5924ebfd8693710",
-      "name": "Aisha Valentine",
-      "company": "FREAKIN",
-      "address": "Mill Avenue 468",
-      "city": "Harborton, Tennessee, 1573",
-      "country": "Faroe Islands",
-      "email": "aishavalentine@freakin.com",
-      "phone": "+1 (922) 529-3134"
-    },
-    {
-      "_id": "5bf8de1ad6b1491d7dca01da",
-      "name": "Donovan Sanchez",
-      "company": "YURTURE",
-      "address": "Drew Street 491",
-      "city": "Volta, Oregon, 7523",
-      "country": "Senegal",
-      "email": "donovansanchez@yurture.com",
-      "phone": "+1 (914) 455-2753"
-    },
-    {
-      "_id": "5bf8de1a3e3281d85ce33871",
-      "name": "Lauri Gibson",
-      "company": "RENOVIZE",
-      "address": "Murdock Court 415",
-      "city": "Eastmont, Utah, 4331",
-      "country": "Saint Kitts and Nevis",
-      "email": "laurigibson@renovize.com",
-      "phone": "+1 (931) 492-2183"
-    },
-    {
-      "_id": "5bf8de1a48890e63934c3c54",
-      "name": "Maddox Webb",
-      "company": "POLARIA",
-      "address": "Dunne Court 820",
-      "city": "Courtland, Alaska, 379",
-      "country": "Montserrat",
-      "email": "maddoxwebb@polaria.com",
-      "phone": "+1 (929) 580-3905"
-    },
-    {
-      "_id": "5bf8de1a2adfcbc729e0a986",
-      "name": "Nolan Fulton",
-      "company": "BULLJUICE",
-      "address": "Seaview Court 501",
-      "city": "Kansas, Pennsylvania, 8400",
-      "country": "Moldova",
-      "email": "nolanfulton@bulljuice.com",
-      "phone": "+1 (950) 471-2468"
-    },
-    {
       "_id": "5bf8de1a9378147bb0d91754",
-      "name": "Cash Townsend",
-      "company": "BLUPLANET",
-      "address": "Polar Street 398",
-      "city": "Convent, Arkansas, 9750",
+      "name": "Cash Townsend222",
+      "company": "BLUPLANET1111",
+      "address": "33Polar Street 398",
+      "city": "Convent, Arkansas, 9750444",
       "country": "St. Pierre and Miquelon",
       "email": "cashtownsend@bluplanet.com",
       "phone": "+1 (913) 424-2328"

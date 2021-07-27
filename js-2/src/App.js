@@ -55,9 +55,7 @@ function App() {
     }, []);
 
     const filterCustomers = () => {
-        if (customers === null) {
-            return;
-        }
+        if (!customers) return;
         return customers.filter(customer => ['name', 'address', 'company'].every((fieldName) =>
             !filterBy[fieldName] || customer[fieldName].toLowerCase().includes(filterBy[fieldName].toLowerCase())
         ));
