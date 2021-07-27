@@ -107,6 +107,12 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
             .then(onEditCustomer(updates._id, updates))
     }
 
+    const handlePageChange = (page) => {
+        setPage(page);
+        setSelected([]);
+        setAll([]);
+    }
+
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
     return (
@@ -184,7 +190,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
             <PaginationCustomers
                 page={page}
                 count={Math.ceil((customers.length) / CUSTOMERS_PER_PAGE)}
-                onChange={setPage} />
+                onChange={handlePageChange} />
         </div>
     );
 }
