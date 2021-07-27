@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'center',
-
         '& > *': {
             marginTop: theme.spacing(2),
         },
@@ -32,7 +31,7 @@ export const PaginationCustomers = ({ page, count, onChange }) => {
     return (
         <div className={classes.root}>
             <Pagination
-                variant="outlined"
+                variant='outlined'
                 page={page}
                 count={count}
                 onChange={(_, page) => onChange(page)}

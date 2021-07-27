@@ -1,14 +1,15 @@
-import {useEffect, useState} from "react";
+import {
+    useEffect,
+    useState
+} from 'react';
 import PropTypes from 'prop-types';
-
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     form: {
-        width: "max-content",
-
+        width: 'max-content',
         '& > *': {
             margin: theme.spacing(2),
             width: '25ch',
@@ -18,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
         opacity: 0.5,
     },
     btn: {
-        width: "max-content",
-        padding: "15px 30px",
+        width: 'max-content',
+        padding: '15px 30px',
     }
 }));
 
@@ -49,45 +50,45 @@ export const Filters = ({ onFilter }) => {
 
     useEffect(() => {
         onFilter({
-            'company': company,
-            'name': name,
-            'address': address,
+            company,
+            name,
+            address,
         });
     }, [company, name, address, onFilter]);
 
     return (
-        <form className={classes.form} noValidate autoComplete="off">
+        <form className={classes.form} noValidate autoComplete='off'>
             <TextField
                 value={company}
-                name="company"
+                name='company'
                 onChange={handleChange}
                 className={classes.input}
-                label="Company Name"
-                variant="outlined"
+                label='Company Name'
+                variant='outlined'
                 required
             />
             <TextField
                 value={name}
-                name="name"
+                name='name'
                 onChange={handleChange}
                 className={classes.input}
-                label="Contact Name"
-                variant="outlined"
+                label='Contact Name'
+                variant='outlined'
                 required
             />
             <TextField
                 value={address}
-                name="address"
+                name='address'
                 onChange={handleChange}
                 className={classes.input}
-                label="Address"
-                variant="outlined"
+                label='Address'
+                variant='outlined'
                 required
             />
             <Button
                 className={classes.btn}
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
             >
                 Filter
             </Button>

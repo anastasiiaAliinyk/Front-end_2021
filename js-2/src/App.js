@@ -1,4 +1,8 @@
-import { useEffect, useState, useMemo } from 'react';
+import {
+    useEffect,
+    useState,
+    useMemo
+} from 'react';
 import { Navbar } from './components/Navbar';
 import { Filters } from './components/Filters';
 import { CustomersList } from './components/CustomersList';
@@ -9,36 +13,33 @@ import Dialog from '@material-ui/core/Dialog';
 import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from '@material-ui/core/IconButton';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { deleteCustomer, getCustomers, saveCustomer } from './api/api';
+import {
+    deleteCustomer,
+    getCustomers,
+    saveCustomer
+} from './api/api';
+import { getUniqueString } from './helpers';
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     tooltips: {
-        width: "15%",
-        display: "flex",
-        justifyContent: "flex-end",
-
+        width: '15%',
+        display: 'flex',
+        justifyContent: 'flex-end',
         '& > *': {
             margin: theme.spacing(2),
-
         },
     },
 }));
-
-function getUniqueString() {
-    const array = new Uint32Array(4);
-    window.crypto.getRandomValues(array);
-    return array.join('');
-}
 
 function App() {
     const classes = useStyles();
@@ -57,11 +58,9 @@ function App() {
         if (customers === null) {
             return;
         }
-        return customers.filter(customer =>
-            (!filterBy.name || customer.name.toLowerCase().includes(filterBy.name.toLowerCase()))
-            && (!filterBy.address || customer.address.toLowerCase().includes(filterBy.address.toLowerCase()))
-            && (!filterBy.company || customer.company.toLowerCase().includes(filterBy.company.toLowerCase()))
-        );
+        return customers.filter(customer => ['name', 'address', 'company'].every((fieldName) =>
+            !filterBy[fieldName] || customer[fieldName].toLowerCase().includes(filterBy[fieldName].toLowerCase())
+        ));
     }
 
     const filteredCustomers = useMemo(() => {
@@ -76,7 +75,7 @@ function App() {
         setOpen(true);
     };
 
-    const handleClose = () => {
+    const handleClickClose = () => {
         setOpen(false);
     };
 
@@ -107,9 +106,7 @@ function App() {
         const id = getUniqueString();
         const newCustomer = {
             ...customer,
-            _id: id,
-            email: 'forbeshays@xurban.com',
-            phone: '+1 (874) 417-3818'
+            _id: id
         }
         saveCustomer(newCustomer)
             .then(addCustomer)
@@ -142,23 +139,23 @@ function App() {
                 <Filters onFilter={setFilterBy}/>
                 <div className={classes.tooltips}>
                     {selectedCustomers.length > 0 && (
-                        <Tooltip title="Delete" onClick={handleDeleteAll}>
-                            <IconButton aria-label="delete">
-                                <DeleteForeverIcon fontSize="large" />
+                        <Tooltip title='Delete' onClick={handleDeleteAll}>
+                            <IconButton aria-label='delete'>
+                                <DeleteForeverIcon fontSize='large' />
                             </IconButton>
                         </Tooltip>
                     )}
-                    <Tooltip title="Add" aria-label="add" onClick={handleClickOpen}>
-                        <Fab color="secondary">
+                    <Tooltip title='Add' aria-label='add' onClick={handleClickOpen}>
+                        <Fab color='secondary'>
                             <AddIcon />
                         </Fab>
                     </Tooltip>
-                    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <Dialog open={open} onClose={handleClickClose} aria-labelledby='form-dialog-title'>
                         <CustomerForm
                             dialogContent='You need to fill all inputs'
                             dialogTitle='Add new Customer'
                             onSave={handleSaveCustomer}
-                            onClose={handleClose}
+                            onClose={handleClickClose}
                         />
                     </Dialog>
                 </div>

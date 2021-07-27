@@ -22,12 +22,12 @@ export const Navbar = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position='static'>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <GroupRoundedIcon fontSize="large" />
+                    <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
+                        <GroupRoundedIcon fontSize='large' />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
+                    <Typography variant='h6' className={classes.title}>
                         Customers
                     </Typography>
                 </Toolbar>

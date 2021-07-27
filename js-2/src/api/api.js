@@ -1,13 +1,13 @@
-const URL = "http://localhost:3004/customers";
+const URL = 'http://localhost:3004/customers';
 
 export const request = async(url, options) => {
-    const response = await fetch(`${URL}${url}`, options);
-
-    if (!response.ok) {
-        throw new Error("Failed to load data");
+    try {
+        const response = await fetch(`${URL}${url}`, options);
+        return response.json();
+    } catch (error) {
+        console.error(error);
+        throw error;
     }
-
-    return response.json();
 };
 
 export const getCustomers = () => request('/');

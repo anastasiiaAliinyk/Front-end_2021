@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import FormControl from "@material-ui/core/FormControl";
-import TextField from "@material-ui/core/TextField";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         marginTop: theme.spacing(2),
-
         '& > *': {
             marginBottom: '15px',
         },
@@ -58,7 +57,7 @@ export const CustomerForm = ({
 
     return (
         <>
-            <DialogTitle id="form-dialog-title">
+            <DialogTitle id='form-dialog-title'>
                 {dialogTitle}
             </DialogTitle>
             <DialogContent>
@@ -70,41 +69,41 @@ export const CustomerForm = ({
                         <TextField
                             value={company}
                             onChange={(e) => setCompany(e.target.value)}
-                            name="company"
-                            label="Company Name"
-                            variant="outlined"
+                            name='company'
+                            label='Company Name'
+                            variant='outlined'
                             required
                         />
                         <TextField
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            name="name"
-                            label="Contact Name"
-                            variant="outlined"
+                            name='name'
+                            label='Contact Name'
+                            variant='outlined'
                             required
                         />
                         <TextField
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
-                            name="address"
-                            label="Address"
-                            variant="outlined"
+                            name='address'
+                            label='Address'
+                            variant='outlined'
                             required
                         />
                         <TextField
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
-                            name="city"
-                            label="City"
-                            variant="outlined"
+                            name='city'
+                            label='City'
+                            variant='outlined'
                             required
                         />
                         <TextField
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
-                            name="country"
-                            label="Country"
-                            variant="outlined"
+                            name='country'
+                            label='Country'
+                            variant='outlined'
                             required
                         />
                     </FormControl>
@@ -116,7 +115,7 @@ export const CustomerForm = ({
                 </Button>
                 <Button
                     onClick={() => handleSave(customer._id)}
-                    color="primary"
+                    color='primary'
                     disabled={!checkInputs()}
                 >
                     Save

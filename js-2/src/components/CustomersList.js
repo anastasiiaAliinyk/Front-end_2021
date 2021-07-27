@@ -1,11 +1,14 @@
-import {useEffect, useState} from "react";
+import {
+    useEffect,
+    useState
+} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CustomerForm } from './CustomerForm';
 import { PaginationCustomers } from './Pagination';
 import { EnhancedTableHead } from './TableHead';
 
-import Dialog from "@material-ui/core/Dialog";
+import Dialog from '@material-ui/core/Dialog';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,7 +20,11 @@ import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { deleteCustomer, updateCustomer } from '../api/api';
+import {
+    deleteCustomer,
+    updateCustomer
+} from '../api/api';
+import { CUSTOMERS_PER_PAGE } from '../helpers';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,15 +35,13 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(2),
     },
     table: {
-        border: "1px solid lightgray",
+        border: '1px solid lightgray',
         minWidth: 750,
     },
     tableCell: {
         color: 'gray',
     }
 }));
-
-const customersPerPage = 5;
 
 export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEditCustomer, setAll }) => {
     const classes = useStyles();
@@ -46,8 +51,11 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
     const [visibleCustomers, setVisibleCustomers] = useState([]);
 
     useEffect(() => {
-        const pageOffset = (page - 1) * customersPerPage;
-        setVisibleCustomers(customers.slice(pageOffset, pageOffset + customersPerPage));
+        const pageOffset = (page - 1) * CUSTOMERS_PER_PAGE;
+        setVisibleCustomers(customers.slice(pageOffset, pageOffset + CUSTOMERS_PER_PAGE));
+        setSelected((selected) => selected.filter(selectedId =>
+            customers.some(customer => customer._id === selectedId)
+        ));
     }, [customers, page]);
 
     const handleSelectAllClick = (event) => {
@@ -61,7 +69,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
         setAll([]);
     };
 
-    const handleClick = (event, id, customer) => {
+    const handleClickCustomer = (event, id, customer) => {
         const selectedIndex = selected.indexOf(id);
         let newSelected = [];
         setSelectedCustomer(customer);
@@ -85,7 +93,7 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
         setOpen(true);
     };
 
-    const handleClose = () => {
+    const handleClickClose = () => {
         setOpen(false);
     };
 
@@ -107,8 +115,8 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
                 <TableContainer>
                     <Table
                         className={classes.table}
-                        aria-labelledby="tableTitle"
-                        aria-label="enhanced table"
+                        aria-labelledby='tableTitle'
+                        aria-label='enhanced table'
                     >
                         <EnhancedTableHead
                             classes={classes}
@@ -125,27 +133,27 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, customer._id, customer)}
-                                            role="checkbox"
+                                            onClick={(event) => handleClickCustomer(event, customer._id, customer)}
+                                            role='checkbox'
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
                                             key={customer._id}
                                             selected={isItemSelected}
                                         >
-                                            <TableCell padding="checkbox">
+                                            <TableCell padding='checkbox'>
                                                 <Checkbox
                                                     checked={isItemSelected}
                                                     inputProps={{ 'aria-labelledby': labelId }}
                                                 />
                                             </TableCell>
-                                            <TableCell component="th" id={labelId} scope="row" padding="none">
+                                            <TableCell component='th' id={labelId} scope='row' padding='none'>
                                                 {customer.company}
                                             </TableCell>
                                             <TableCell>{customer.name}</TableCell>
                                             <TableCell>{customer.address}</TableCell>
                                             <TableCell>{customer.city}</TableCell>
                                             <TableCell>{customer.country}</TableCell>
-                                            <TableCell align="right">
+                                            <TableCell align='right'>
                                                 <div className={classNames('actions', { active: isItemSelected && selected.length === 1})}>
                                                     <EditIcon
                                                         className='edit-icon'
@@ -163,19 +171,19 @@ export const CustomersList = ({ page, setPage, customers, onDeleteCustomer, onEd
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <Dialog open={open} onClose={handleClickClose} aria-labelledby='form-dialog-title'>
                     <CustomerForm
                         dialogTitle='Edit the Customer'
                         dialogContent='You can edit the Customer'
                         customer={selectedCustomer}
-                        onClose={handleClose}
+                        onClose={handleClickClose}
                         onSave={handleEditCustomer}
                     />
                 </Dialog>
             </Paper>
             <PaginationCustomers
                 page={page}
-                count={Math.ceil((customers.length) / customersPerPage)}
+                count={Math.ceil((customers.length) / CUSTOMERS_PER_PAGE)}
                 onChange={setPage} />
         </div>
     );
