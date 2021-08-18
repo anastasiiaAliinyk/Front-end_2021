@@ -15,48 +15,40 @@ const StyledFormContainer = styled.div`
   width: 100%;
   margin: 50px auto;
   padding: 30px;
-
+  
   line-height: 2rem;
   box-shadow: rgb(203 211 212 / 50%) 0 2px 12px 0;
-
+  
   & > .form-heading {
     margin-bottom: 10px;
     font-size: 22px;
   }
 `
 
-export const SignUp = () => {
-  const [username, setUsername] = useState('');
+export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signUpApi } = useApi();
+  const { loginApi } = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    // signUpApi(email, password, username)
-    //   .then((response) => {
-    //     console.log(response)
-    //   })
+    loginApi(email, password)
+      .then((response) => {
+        setEmail('');
+        setPassword('');
+
+        console.log(response)
+      })
   }
 
   return (
     <Main>
       <StyledFormContainer>
         <h3 className='form-heading'>
-          Sign Up
+          Log in
         </h3>
         <form onSubmit={handleOnSubmit}>
-          <label>
-            Username:
-            <TextField
-              type='text'
-              name='username'
-              value={username}
-              onChange={(e) => {setUsername((e.target as HTMLInputElement).value)}}
-              placeholder='Username:'
-            />
-          </label>
           <label>
             Email:
             <TextField
@@ -77,11 +69,11 @@ export const SignUp = () => {
               placeholder='Password:'
             />
           </label>
-          <SubmitButton label='Sign up' disabled={!email || !password || !username} />
+          <SubmitButton label='Log in' disabled={!email || !password} />
         </form>
         <div>
-          Already a member?
-          <Link to='/login'>Log in</Link>
+          Don’t have an account yet?
+          <Link to='/signup'>Create an account</Link>
         </div>
       </StyledFormContainer>
     </Main>

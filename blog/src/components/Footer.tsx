@@ -3,11 +3,11 @@ import { Container } from './Container';
 import { animationTime } from '../constants';
 
 const StyledFooter = styled.footer`
-  
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 10px 0;
+  height: 54px;
   
   background-color: ${props => props.theme.colors.secondaryBackground};
   border-top: 1px solid rgb(219, 223, 223);

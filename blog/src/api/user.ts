@@ -14,3 +14,14 @@ export const login = (baseUrl: string) => (email: string, password: string): Pro
   })
     .then(response => response.data);
 };
+
+export const signUp = (baseUrl: string) => (email: string, password: string, username: string): Promise<UserResponse> => {
+  return axios.post(`${baseUrl}/api/users`, {
+    user: {
+      email,
+      password,
+      username
+    }
+  })
+    .then(response => response.data);
+};

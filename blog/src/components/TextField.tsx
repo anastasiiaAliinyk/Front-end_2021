@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import React from "react";
 
 const StyledInput = styled.input`
   width: 100%;
@@ -19,7 +20,7 @@ type InputProps = {
   type?: string
   name: string
   value?: string
-  onChange?: () => void
+  onChange?: (e: React.SyntheticEvent) => void
   placeholder?: string
 }
 

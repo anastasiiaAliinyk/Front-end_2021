@@ -11,6 +11,9 @@ import { Post } from '../components/Post';
 import { useApi } from '../hooks/useApi';
 import { Article, Tag } from '../types';
 
+const Main = styled.main`
+  padding-bottom: 54px
+`
 const StyledContainer = styled(Container)`
   display: flex;
   padding: 20px;
@@ -75,7 +78,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <main>
+    <Main>
       <Hero />
       <StyledContainer>
         <MainContent>
@@ -116,6 +119,6 @@ export const Home = () => {
             ))}
         </Aside>
       </StyledContainer>
-    </main>
+    </Main>
   )
 }
