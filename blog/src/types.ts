@@ -5,8 +5,8 @@ export type CustomTheme = {
     primaryBackground: string
     secondaryBackground: string
   }
-  logo: any
-  hero: any
+  logo: string
+  hero: string
 }
 
 export type Article = {

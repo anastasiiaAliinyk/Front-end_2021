@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 
 import { TextField } from '../components/TextField';
 import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {AppContext} from "../ context";
+import {User} from "../types";
+import {CircularProgress} from "@material-ui/core";
 
 const Main = styled.main`
   padding-bottom: 54px;
@@ -24,24 +27,41 @@ const StyledFormContainer = styled.div`
     font-size: 22px;
   }
 `
+type SignUpProps = {
+  onUser: (user: User) => void
+}
 
-export const SignUp = () => {
+export const SignUp = ({ onUser }: SignUpProps) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { authorizedUser } = useContext(AppContext);
   const { signUpApi } = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setLoading(true);
 
-    // signUpApi(email, password, username)
-    //   .then((response) => {
-    //     console.log(response)
-    //   })
+    signUpApi(email, password, username)
+      .then((response) => {
+        window.localStorage.setItem('token', response.user.token);
+        setLoading(false);
+        console.log(response.user);
+        onUser(response.user);
+      })
+      .catch(() => {
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        alert('Problems with server. Try latter')
+        setLoading(false)
+      })
   }
 
   return (
     <Main>
+      {Boolean(authorizedUser) && <Redirect to={'/'}/>}
       <StyledFormContainer>
         <h3 className='form-heading'>
           Sign Up
@@ -77,7 +97,9 @@ export const SignUp = () => {
               placeholder='Password:'
             />
           </label>
-          <SubmitButton label='Sign up' disabled={!email || !password || !username} />
+          <SubmitButton disabled={!email || !password || !username || loading}>
+            {loading ? <CircularProgress size='20px' /> : 'Sign up'}
+          </SubmitButton>
         </form>
         <div>
           Already a member?

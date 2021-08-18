@@ -1,7 +1,8 @@
 import { lightTheme } from './styles/theme/lightTheme';
 import { darkTheme } from './styles/theme/darkTheme';
+import { CustomTheme } from './types';
 
-export const themes = {
+export const themes: Record<string, CustomTheme> = {
     light: lightTheme,
     dark: darkTheme
 };

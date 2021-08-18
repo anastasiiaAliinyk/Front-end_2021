@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Skeleton from 'react-loading-skeleton';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 
 import { Container } from '../components/Container';

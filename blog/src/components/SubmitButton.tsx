@@ -24,10 +24,10 @@ const StyledButton = styled.button`
   }
 `
 type SubmitButtonProps = {
-  label: string
   disabled: boolean
+  children: JSX.Element | string
 }
-export const SubmitButton = ({ label, disabled }: SubmitButtonProps) =>
+export const SubmitButton = ({ disabled, children }: SubmitButtonProps) =>
   <StyledButton type='submit' disabled = {disabled}>
-    {label}
+    {children}
   </StyledButton>

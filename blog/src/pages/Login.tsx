@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { TextField } from '../components/TextField';
 import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
+import { User } from '../types';
+import { AppContext } from '../ context';
 
 const Main = styled.main`
   padding-bottom: 54px;
@@ -24,26 +27,38 @@ const StyledFormContainer = styled.div`
     font-size: 22px;
   }
 `
+type LoginProps = {
+  onUser: (user: User) => void
+}
 
-export const Login = () => {
+export const Login = ({ onUser }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { authorizedUser } = useContext(AppContext);
   const { loginApi } = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     loginApi(email, password)
       .then((response) => {
+        window.localStorage.setItem('token', response.user.token);
+        setLoading(false)
+        onUser(response.user);
+      })
+      .catch(() => {
         setEmail('');
         setPassword('');
-
-        console.log(response)
+        alert('Problems with server. Try latter')
+        setLoading(false)
       })
   }
 
   return (
     <Main>
+      {Boolean(authorizedUser) && <Redirect to={'/'}/>}
       <StyledFormContainer>
         <h3 className='form-heading'>
           Log in
@@ -69,7 +84,9 @@ export const Login = () => {
               placeholder='Password:'
             />
           </label>
-          <SubmitButton label='Log in' disabled={!email || !password} />
+          <SubmitButton disabled={!email || !password || loading}>
+            {loading ? <CircularProgress size='20px' /> : 'Log in'}
+          </SubmitButton>
         </form>
         <div>
           Don’t have an account yet?
