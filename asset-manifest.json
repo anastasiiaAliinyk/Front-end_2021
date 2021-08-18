@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Front-end_2021/static/js/main.0fccb696.chunk.js",
-    "main.js.map": "/Front-end_2021/static/js/main.0fccb696.chunk.js.map",
+    "main.js": "/Front-end_2021/static/js/main.3b9ea35c.chunk.js",
+    "main.js.map": "/Front-end_2021/static/js/main.3b9ea35c.chunk.js.map",
     "runtime-main.js": "/Front-end_2021/static/js/runtime-main.2f547317.js",
     "runtime-main.js.map": "/Front-end_2021/static/js/runtime-main.2f547317.js.map",
-    "static/js/2.5a021477.chunk.js": "/Front-end_2021/static/js/2.5a021477.chunk.js",
-    "static/js/2.5a021477.chunk.js.map": "/Front-end_2021/static/js/2.5a021477.chunk.js.map",
+    "static/js/2.2a797079.chunk.js": "/Front-end_2021/static/js/2.2a797079.chunk.js",
+    "static/js/2.2a797079.chunk.js.map": "/Front-end_2021/static/js/2.2a797079.chunk.js.map",
     "index.html": "/Front-end_2021/index.html",
-    "static/js/2.5a021477.chunk.js.LICENSE.txt": "/Front-end_2021/static/js/2.5a021477.chunk.js.LICENSE.txt",
+    "static/js/2.2a797079.chunk.js.LICENSE.txt": "/Front-end_2021/static/js/2.2a797079.chunk.js.LICENSE.txt",
     "static/media/hero-dark.2810b889.jpg": "/Front-end_2021/static/media/hero-dark.2810b889.jpg",
     "static/media/hero.4abcb9a7.jpg": "/Front-end_2021/static/media/hero.4abcb9a7.jpg",
     "static/media/logo-dark.7d21a930.png": "/Front-end_2021/static/media/logo-dark.7d21a930.png",
@@ -15,7 +15,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2f547317.js",
-    "static/js/2.5a021477.chunk.js",
-    "static/js/main.0fccb696.chunk.js"
+    "static/js/2.2a797079.chunk.js",
+    "static/js/main.3b9ea35c.chunk.js"
   ]
 }
