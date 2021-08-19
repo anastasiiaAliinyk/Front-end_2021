@@ -62,10 +62,13 @@ export const Home = () => {
 
     getArticlesApi()
       .then(data => setArticles(data.articles))
-      .catch(() => enqueueSnackbar('Error loading Articles', {
-        variant: 'error',
-        persist: true,
-      }));
+      .catch(() => {
+          enqueueSnackbar('Error loading Articles', {
+            variant: 'error',
+            persist: true,
+          });
+          setArticles([]);
+      });
 
     getTagsApi()
       .then(data => setTags(data.tags))
@@ -102,6 +105,7 @@ export const Home = () => {
                   article={article}
                 />
               ))}
+              {articles !== null && !articles.length && <p>No articles yet</p>}
             </div>
           </Tabs>
         </MainContent>
@@ -110,12 +114,12 @@ export const Home = () => {
 
           {tags === null
             ? <>
-              <span><Skeleton /></span>
-              <span><Skeleton /></span>
-              <span><Skeleton /></span>
-            </>
+                <span><Skeleton /></span>
+                <span><Skeleton /></span>
+                <span><Skeleton /></span>
+              </>
             : tags.map(tag => (
-              <span>{tag}</span>
+              <span>{tag} </span>
             ))}
         </Aside>
       </StyledContainer>

@@ -16,27 +16,36 @@ import {
   Route
 } from 'react-router-dom';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "./hooks/useApi";
 
 export const App = () => {
   const [theme, toggleTheme] = useThemeMode();
-  const [authorizedUser, setAuthorizedUser] = useState<User | null>(null);
+  const {getUserApi} = useApi();
+  const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    getUserApi()
+      .then((response) => setUser(response.user))
+      .catch(() => setUser(null))
+  }, [])
+
+  console.log(user)
   return (
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyle />
       <Router>
-        <AppContext.Provider value={{authorizedUser}}>
+        <AppContext.Provider value={{user}}>
           <Header onThemeChange={toggleTheme} />
           <Switch>
             <Route path='/' exact>
               <Home />
             </Route>
             <Route path='/login'>
-              <Login onUser={setAuthorizedUser} />
+              <Login onUser={setUser} />
             </Route>
             <Route path='/signup'>
-              <SignUp onUser={setAuthorizedUser} />
+              <SignUp onUser={setUser} />
             </Route>
           </Switch>
           <Footer />

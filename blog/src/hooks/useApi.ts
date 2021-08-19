@@ -6,14 +6,15 @@ import {
   createArticle,
 } from '../api/articles';
 import { getTags } from '../api/tags';
-import { login, signUp } from '../api/user';
+import {getUser, login, signUp} from '../api/user';
 import { baseURL } from '../constants';
 
 export const useApi = () => {
+  const token = window.localStorage.getItem('token');
   const authInstance = axios.create({
     baseURL,
     headers: {
-      Authorization: `Token someToken`,
+      Authorization: `Token ${token}`,
     },
   });
 
@@ -27,6 +28,7 @@ export const useApi = () => {
     getTagsApi: getTags(baseURL),
 
     //User
+    getUserApi: getUser(authInstance),
     loginApi: login(baseURL),
     signUpApi: signUp(baseURL),
   };

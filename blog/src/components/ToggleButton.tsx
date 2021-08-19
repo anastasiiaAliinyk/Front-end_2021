@@ -48,6 +48,7 @@ const StyledButton = styled.label`
 `
 
 export type ToggleButtonProps = {
+  children: JSX.Element | string
   onChange: () => void
   checked: boolean
 }

@@ -35,7 +35,7 @@ export const Login = ({ onUser }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { authorizedUser } = useContext(AppContext);
+  const { user } = useContext(AppContext);
   const { loginApi } = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
@@ -58,7 +58,7 @@ export const Login = ({ onUser }: LoginProps) => {
 
   return (
     <Main>
-      {Boolean(authorizedUser) && <Redirect to={'/'}/>}
+      {Boolean(user) && <Redirect to={'/'}/>}
       <StyledFormContainer>
         <h3 className='form-heading'>
           Log in

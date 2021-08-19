@@ -3,6 +3,11 @@ import { Container } from './Container';
 import { animationTime, textColorOnHover } from '../constants';
 import { ToggleButton } from './ToggleButton';
 import { Link } from 'react-router-dom';
+import { CustomTheme } from '../types';
+import { useContext } from 'react';
+import { AppContext } from "../ context";
+import defaultPhotoAvatar from "../images/default-avatar.png";
+import Skeleton from "react-loading-skeleton";
 
 const StyledHeader = styled.header`
   padding: 10px 0;
@@ -46,8 +51,13 @@ const HeaderMenu = styled.ul`
   }
 `
 
-export const Header = ({ onThemeChange }) => {
-  const theme = useTheme();
+type HeaderProps = {
+  onThemeChange: () => void
+}
+
+export const Header = ({ onThemeChange }: HeaderProps) => {
+  const theme = useTheme() as CustomTheme;
+  const {user} = useContext(AppContext);
 
   return (
     <StyledHeader>
@@ -58,20 +68,32 @@ export const Header = ({ onThemeChange }) => {
         <HeaderNavigation>
           <HeaderMenu>
             <li>
-              <Link to="/">
+              <Link to='/'>
                 Home
               </Link>
             </li>
-            <li>
-              <Link to="/login">
-                Log in
-              </Link>
-            </li>
-            <li>
-              <Link to='/signup'>
-                Sign up
-              </Link>
-            </li>
+            {!user &&
+              <>
+                <li>
+                  <Link to='/login'>
+                    Log in
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/signup'>
+                    Sign up
+                  </Link>
+                </li>
+              </>
+            }
+            {user &&
+              <li>
+                <button>
+                  <img style={{ width: 25 }} height={25} src={user.image || defaultPhotoAvatar} alt="user"/>
+                  {user.username}
+                </button>
+              </li>
+            }
           </HeaderMenu>
           <ToggleButton onChange={onThemeChange} checked={theme.title === 'dark'}>
             Change

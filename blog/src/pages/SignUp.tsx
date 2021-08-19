@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 
 import { TextField } from '../components/TextField';
 import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
-import {Link, Redirect} from 'react-router-dom';
-import {AppContext} from "../ context";
-import {User} from "../types";
-import {CircularProgress} from "@material-ui/core";
+import { Link, Redirect } from 'react-router-dom';
+import { AppContext } from '../ context';
+import { User } from '../types';
+import { CircularProgress } from '@material-ui/core';
 
 const Main = styled.main`
   padding-bottom: 54px;
@@ -36,8 +36,8 @@ export const SignUp = ({ onUser }: SignUpProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { authorizedUser } = useContext(AppContext);
-  const { signUpApi } = useApi();
+  const {user} = useContext(AppContext);
+  const {signUpApi} = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ export const SignUp = ({ onUser }: SignUpProps) => {
 
   return (
     <Main>
-      {Boolean(authorizedUser) && <Redirect to={'/'}/>}
+      {Boolean(user) && <Redirect to={'/'}/>}
       <StyledFormContainer>
         <h3 className='form-heading'>
           Sign Up
