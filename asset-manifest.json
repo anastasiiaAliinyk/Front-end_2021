@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Front-end_2021/static/js/main.d36fdf31.chunk.js",
-    "main.js.map": "/Front-end_2021/static/js/main.d36fdf31.chunk.js.map",
+    "main.js": "/Front-end_2021/static/js/main.dd9a96a3.chunk.js",
+    "main.js.map": "/Front-end_2021/static/js/main.dd9a96a3.chunk.js.map",
     "runtime-main.js": "/Front-end_2021/static/js/runtime-main.2f547317.js",
     "runtime-main.js.map": "/Front-end_2021/static/js/runtime-main.2f547317.js.map",
     "static/js/2.10556041.chunk.js": "/Front-end_2021/static/js/2.10556041.chunk.js",
@@ -16,6 +16,6 @@
   "entrypoints": [
     "static/js/runtime-main.2f547317.js",
     "static/js/2.10556041.chunk.js",
-    "static/js/main.d36fdf31.chunk.js"
+    "static/js/main.dd9a96a3.chunk.js"
   ]
 }
