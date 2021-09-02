@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useContext, useState } from 'react';
 
-import { TextField } from '../components/TextField';
+import { TextField } from '../components/TextField/TextField';
 import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
 import { Link, Redirect } from 'react-router-dom';
@@ -64,26 +64,22 @@ export const Login = ({ onUser }: LoginProps) => {
           Log in
         </h3>
         <form onSubmit={handleOnSubmit}>
-          <label>
-            Email:
-            <TextField
-              type='text'
-              name='email'
-              value={email}
-              onChange={(e) => {setEmail((e.target as HTMLInputElement).value)}}
-              placeholder='Email:'
-            />
-          </label>
-          <label>
-            Password:
-            <TextField
-              type='password'
-              name='password'
-              value={password}
-              onChange={(e) => {setPassword((e.target as HTMLInputElement).value)}}
-              placeholder='Password:'
-            />
-          </label>
+          <TextField
+            labelText='Email:'
+            type='text'
+            name='email'
+            value={email}
+            onChange={(e) => {setEmail(e.target.value)}}
+            placeholder='Email:'
+          />
+          <TextField
+            labelText='Password:'
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => {setPassword(e.target.value)}}
+            placeholder='Password:'
+          />
           <SubmitButton disabled={!email || !password || loading}>
             {loading ? <CircularProgress size='20px' /> : 'Log in'}
           </SubmitButton>

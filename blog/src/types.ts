@@ -1,3 +1,4 @@
+
 export type CustomTheme = {
   title: string
   colors: {
@@ -25,6 +26,26 @@ export type Article = {
   }
   favorited: boolean
   favoritesCount: number
+}
+
+export type NewArticle = {
+  title: string
+  description: string
+  body: string
+  tagList: string[]
+}
+
+export type CommentT = {
+  id: number
+  createdAt: string
+  updatedAt: string
+  body: string
+  author: {
+    username: string
+    bio: string
+    image: string
+    following: boolean
+  }
 }
 
 export type Tag = string;

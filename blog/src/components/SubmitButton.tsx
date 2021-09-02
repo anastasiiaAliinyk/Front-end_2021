@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   }
 `
 type SubmitButtonProps = {
-  disabled: boolean
+  disabled?: boolean
   children: JSX.Element | string
 }
 export const SubmitButton = ({ disabled, children }: SubmitButtonProps) =>

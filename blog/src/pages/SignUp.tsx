@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useContext, useState } from 'react';
 
-import { TextField } from '../components/TextField';
+import { TextField } from '../components/TextField/TextField';
 import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
 import { Link, Redirect } from 'react-router-dom';
@@ -67,36 +67,30 @@ export const SignUp = ({ onUser }: SignUpProps) => {
           Sign Up
         </h3>
         <form onSubmit={handleOnSubmit}>
-          <label>
-            Username:
-            <TextField
-              type='text'
-              name='username'
-              value={username}
-              onChange={(e) => {setUsername((e.target as HTMLInputElement).value)}}
-              placeholder='Username:'
-            />
-          </label>
-          <label>
-            Email:
-            <TextField
-              type='text'
-              name='email'
-              value={email}
-              onChange={(e) => {setEmail((e.target as HTMLInputElement).value)}}
-              placeholder='Email:'
-            />
-          </label>
-          <label>
-            Password:
-            <TextField
-              type='password'
-              name='password'
-              value={password}
-              onChange={(e) => {setPassword((e.target as HTMLInputElement).value)}}
-              placeholder='Password:'
-            />
-          </label>
+          <TextField
+            labelText='Username:'
+            type='text'
+            name='username'
+            value={username}
+            onChange={(e) => {setUsername((e.target as HTMLInputElement).value)}}
+            placeholder='Username:'
+          />
+          <TextField
+            labelText='Email:'
+            type='text'
+            name='email'
+            value={email}
+            onChange={(e) => {setEmail((e.target as HTMLInputElement).value)}}
+            placeholder='Email:'
+          />
+          <TextField
+            labelText='Password:'
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => {setPassword((e.target as HTMLInputElement).value)}}
+            placeholder='Password:'
+          />
           <SubmitButton disabled={!email || !password || !username || loading}>
             {loading ? <CircularProgress size='20px' /> : 'Sign up'}
           </SubmitButton>

@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import defaultPhotoAvatar from '../images/default-avatar.png';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { animationTime, secondaryColorText } from '../constants';
-import {Article} from '../types';
+import { Article } from '../types';
+import { useApi } from '../hooks/useApi';
+import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const StyledPost = styled.div`
   margin-bottom: 15px;
@@ -70,6 +73,19 @@ type PostProps = {
 }
 
 export const Post = ({ article }: PostProps) => {
+  const { favoriteArticleApi, unFavoriteArticleApi } = useApi();
+  const [favorited, setFavorited] = useState<boolean>(article.favorited);
+  const [favoritesCount, setFavoritesCount] = useState<number>(article.favoritesCount);
+
+  const handleOnClick = (slug: string) => {
+    const apiFunction = favorited ? unFavoriteArticleApi : favoriteArticleApi;
+    apiFunction(slug)
+      .then(article => {
+        setFavoritesCount(article.favoritesCount);
+        setFavorited(article.favorited);
+      })
+  }
+
   return (
     <StyledPost>
       <PostHeader>
@@ -80,19 +96,25 @@ export const Post = ({ article }: PostProps) => {
             <p>{article.createdAt}</p>
           </div>
         </PostHeaderText>
-        <PostHeaderLikeButton>
+        <PostHeaderLikeButton onClick={() => handleOnClick(article.slug)}>
           <FavoriteIcon fontSize='small' />
-          <p>{article.favoritesCount}</p>
+          <p>{favoritesCount}</p>
         </PostHeaderLikeButton>
       </PostHeader>
       <PostBody>
         <h3>{article.title}</h3>
-        <div>{article.body}</div>
+        <div>{article.description}</div>
       </PostBody>
       <PostFooter>
-        <button>Read more...</button>
+        <Link to={`/articles/${article.slug}`}>
+          <button>Read more...</button>
+        </Link>
         <div>
-          Tags
+          {article.tagList && article.tagList.map((tag, index) => (
+            <span key={index}>
+              {`#${tag} `}
+            </span>
+          ))}
         </div>
       </PostFooter>
     </StyledPost>
