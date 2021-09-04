@@ -10,7 +10,7 @@ import {
 import 'react-tabs/style/react-tabs.css';
 import { Loader } from '../Loader';
 import { Articles } from '../Articles/Articles';
-import { Article } from '../../types';
+import { ArticleT } from '../../types';
 import { useApi } from '../../hooks/useApi';
 import { useSnackbar } from 'notistack';
 
@@ -20,7 +20,7 @@ function useQuery() {
 
 type HomeTabsProps = {
   iaLoadedByTags: boolean
-  articlesByTag: Article[]
+  articlesByTag: ArticleT[]
   selectedTag?: string
   setSelectedTag: (tag: string) => void
 }
@@ -36,9 +36,9 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
   const location = useLocation();
   const query = useQuery();
   const { user } = useContext(AppContext);
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<ArticleT[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [userFeeds, setUserFeeds] = useState<Article[]>([]);
+  const [userFeeds, setUserFeeds] = useState<ArticleT[]>([]);
   const [selectedTabIndex, setSelectedTabIndex] = useState(1);
   const {enqueueSnackbar} = useSnackbar();
   const {getFeedsApi, getArticlesApi} = useApi();

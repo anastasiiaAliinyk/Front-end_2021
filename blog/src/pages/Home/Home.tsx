@@ -4,7 +4,7 @@ import { HomeTabs } from '../../components/HomeTabs/HomeTabs';
 import { Tags } from '../../components/Tags/Tags';
 
 import { useApi } from '../../hooks/useApi';
-import { Article } from '../../types';
+import { ArticleT } from '../../types';
 import { 
   MainStyled, 
   MainContainerStyled, 
@@ -13,7 +13,7 @@ import {
 } from './Home.styled';
 
 export const Home: React.FC = () => {
-  const [articlesByTag, setArticlesByTag] = useState<Article[]>([]);
+  const [articlesByTag, setArticlesByTag] = useState<ArticleT[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>('');
   const { getArticlesByTagApi } = useApi();

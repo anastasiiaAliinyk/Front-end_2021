@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import defaultPhotoAvatar from '../images/default-avatar.png';
-import { User, CommentT } from '../types';
+import { UserT, CommentT } from '../types';
 import { useApi } from '../hooks/useApi';
+import { CommentResponse } from '../api/comments';
+import { CircularProgress } from '@material-ui/core';
+import { useRequestState } from '../hooks/useRequestState';
 
 const CommentContainerStyled = styled.div`
   display: flex;
@@ -61,22 +64,24 @@ const DivStyled = styled.div`
 `
 
 type CommentProps = {
-  user: User | null
+  user: UserT | null
   slug: string
 }
 
-export const Comment: React.FC<CommentProps> = ({user, slug}) => {
+export const Comments: React.FC<CommentProps> = ({user, slug}) => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState<CommentT[]>([]);
   const {getCommentsApi, addCommentApi} = useApi();
 
+  const [addCommentInProgress, addComment] = useRequestState<CommentResponse>(addCommentApi);
+
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    addCommentApi(slug, comment)
-      .then((data) => {
+    addComment(slug, comment)
+      .then((commentResponse) => {
         setComment('');
-        setComments(comments => [...comments, data.comment])
+        setComments(comments => [commentResponse.comment, ...comments])
       });
   }
 
@@ -97,12 +102,13 @@ export const Comment: React.FC<CommentProps> = ({user, slug}) => {
             placeholder='Write your comment'
           />
           <ButtonStyled type='submit' disabled={!comment}>
-            Post comment
+            {addCommentInProgress ? <CircularProgress size='20px' /> : 'Post comment'}
           </ButtonStyled>
         </FormStyled>
       </CommentContainerStyled>
-      {comments && comments.reverse().map(comment => (
-        <DivStyled>
+
+      {comments && comments.map(comment => (
+        <DivStyled key={comment.id}>
           <div>
             <CommentAvatarStyled src={comment.author.image} alt="User"/>
             <h4>{comment.author.username}</h4>

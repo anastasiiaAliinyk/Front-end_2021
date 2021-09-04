@@ -3,7 +3,7 @@ import { Loader } from '../Loader';
 import { ButtonStyled } from '../Button.styled';
 import { TagsListStyled, TagsListItemStyled, TagsHeadingStyled } from './Tags.styled';
 import { useHistory } from 'react-router-dom';
-import { Tag } from '../../types';
+import { TagT } from '../../types';
 import { useApi } from '../../hooks/useApi';
 import { useSnackbar } from 'notistack';
 
@@ -13,7 +13,7 @@ type TagsProps = {
 
 export const Tags: React.FC<TagsProps> = ({ onSelectTag }) => {
   const history = useHistory();
-  const [tags, setTags] = useState<Tag[]>([]);
+  const [tags, setTags] = useState<TagT[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isShowMoreTags, setIsShowMoreTags] = useState(false);
   const { enqueueSnackbar } = useSnackbar();

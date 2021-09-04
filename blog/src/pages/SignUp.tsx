@@ -6,7 +6,7 @@ import { SubmitButton } from '../components/SubmitButton';
 import { useApi } from '../hooks/useApi';
 import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from '../ context';
-import { User } from '../types';
+import { UserT } from '../types';
 import { CircularProgress } from '@material-ui/core';
 
 const Main = styled.main`
@@ -28,7 +28,7 @@ const StyledFormContainer = styled.div`
   }
 `
 type SignUpProps = {
-  onUser: (user: User) => void
+  onUser: (user: UserT) => void
 }
 
 export const SignUp = ({ onUser }: SignUpProps) => {

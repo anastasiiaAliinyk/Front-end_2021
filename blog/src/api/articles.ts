@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
-import {Article, NewArticle} from '../types';
+import {ArticleT, NewArticleT, UpdateArticleT} from '../types';
 
 export type ArticlesResponse = {
-  articles: Article[]
+  articles: ArticleT[]
   articlesCount: number
 }
 
@@ -26,25 +26,26 @@ export const getArticlesByTag = (baseUrl: string) => (tag: string): Promise<Arti
     .then(response => response.data);
 };
 
-export const getArticle = (baseUrl: string) => (slug: string): Promise<Article> =>
+export const getArticle = (baseUrl: string) => (slug: string): Promise<ArticleT> =>
   axios.get(`${baseUrl}/api/articles/${slug}`)
     .then(response => response.data.article);
 
-export const favoriteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<Article> =>
+export const favoriteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<ArticleT> =>
   authAxiosInstance.post(`/api/articles/${slug}/favorite`)
     .then(response => response.data.article);
 
-export const unFavoriteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<Article> =>
+export const unFavoriteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<ArticleT> =>
   authAxiosInstance.delete(`/api/articles/${slug}/favorite`)
     .then(response => response.data.article);
 
-// export const updateArticle = (authAxiosInstance: AxiosInstance) => (slug: string, article: string) =>
-//   authAxiosInstance.put(`/api/articles/${slug}`, article);
-
-export const createArticle = (authAxiosInstance: AxiosInstance) => (article: NewArticle): Promise<Article> =>
+export const createArticle = (authAxiosInstance: AxiosInstance) => (article: NewArticleT): Promise<ArticleT> =>
   authAxiosInstance.post('/api/articles', {article: article})
     .then(response => response.data.article);
 
-export const deleteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<Article> =>
+export const updateArticle = (authAxiosInstance: AxiosInstance) => (slug: string, article: UpdateArticleT): Promise<ArticleT> =>
+  authAxiosInstance.put(`/api/articles/${slug}`, {article})
+    .then(response => response.data.article);
+
+export const deleteArticle = (authAxiosInstance: AxiosInstance) => (slug: string): Promise<ArticleT> =>
   authAxiosInstance.delete(`/api/articles/${slug}`)
     .then(response => response.data.article);

@@ -5,7 +5,7 @@ type CommentsResponse = {
   comments: CommentT[]
 }
 
-type CommentResponse = {
+export type CommentResponse = {
   comment: CommentT
 }
 

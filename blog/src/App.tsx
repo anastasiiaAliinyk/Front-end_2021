@@ -3,7 +3,7 @@ import { GlobalStyle } from './styles/global';
 import { useThemeMode } from './hooks/useThemeMode';
 import { themes } from './constants';
 import { AppContext } from './ context';
-import { User } from './types';
+import { UserT } from './types';
 
 import { Header } from './components/Header/Header';
 import { Home } from './pages/Home/Home';
@@ -19,11 +19,12 @@ import {
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from './hooks/useApi';
+import { UserProfile } from './pages/UserProfile';
 
 export const App: React.FC = () => {
   const [theme, toggleTheme] = useThemeMode();
   const {getUserApi} = useApi();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserT | null>(null);
 
   useEffect(() => {
     getUserApi()
@@ -46,6 +47,7 @@ export const App: React.FC = () => {
               <SignUp onUser={setUser} />
             </Route>
             <Route path='/articles/:slug' component={ArticlePage} />
+            <Route path='/users/' component={UserProfile} />
           </Switch>
           <Footer />
         </AppContext.Provider>

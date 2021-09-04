@@ -1,11 +1,11 @@
 import React from 'react';
 import { Post } from '../Post';
-import { Article } from '../../types';
+import { ArticleT } from '../../types';
 import { ArticlesTextStyled } from './Articles.styled';
 
 type ArticlesProps = {
   isLoaded: boolean
-  articles: Article[]
+  articles: ArticleT[]
 }
 
 export const Articles: React.FC<ArticlesProps> = ({ isLoaded, articles }) => {

@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { Tag } from '../types';
+import { TagT } from '../types';
 
 export type TagsResponse = {
-  tags: Tag[]
+  tags: TagT[]
 }
 
 export const getTags = (baseUrl: string) => () : Promise<TagsResponse> => {

@@ -1,8 +1,8 @@
 import axios, {AxiosInstance} from 'axios';
-import { User } from '../types';
+import {ArticleT, UpdateArticleT, UserT} from '../types';
 
 export type UserResponse = {
-  user: User
+  user: UserT
 }
 
 export const getUser = (authAxiosInstance: AxiosInstance) => (): Promise<UserResponse>=>
@@ -29,3 +29,7 @@ export const signUp = (baseUrl: string) => (email: string, password: string, use
   })
     .then(response => response.data);
 };
+
+export const updateUser = (authAxiosInstance: AxiosInstance) => (user: UserT): Promise<UserT> =>
+  authAxiosInstance.put('/api/articles', {user})
+    .then(response => response.data.user);

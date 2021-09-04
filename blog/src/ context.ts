@@ -1,8 +1,8 @@
 import { createContext } from "react";
-import { User } from "./types";
+import { UserT } from "./types";
 
 type AppContextType = {
-  user: User | null
+  user: UserT | null
 }
 
 const initial: AppContextType = {

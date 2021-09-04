@@ -1,4 +1,3 @@
-
 export type CustomTheme = {
   title: string
   colors: {
@@ -10,7 +9,7 @@ export type CustomTheme = {
   hero: string
 }
 
-export type Article = {
+export type ArticleT = {
   title: string
   slug: string
   body: string
@@ -28,12 +27,16 @@ export type Article = {
   favoritesCount: number
 }
 
-export type NewArticle = {
+export type ArticleRequestT = {
   title: string
   description: string
   body: string
   tagList: string[]
 }
+
+export type NewArticleT = ArticleRequestT
+
+export type UpdateArticleT = ArticleRequestT
 
 export type CommentT = {
   id: number
@@ -48,9 +51,9 @@ export type CommentT = {
   }
 }
 
-export type Tag = string;
+export type TagT = string;
 
-export type User = {
+export type UserT = {
   id: string
   email: string
   createdAt: string

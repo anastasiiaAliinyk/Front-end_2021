@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled, { css } from 'styled-components';
 import { ArticleModal } from "../Modals/ArticleModal";
+import { useHistory } from 'react-router-dom';
 
 const FormContainerStyled = styled.div`
   position: absolute;
@@ -41,6 +42,8 @@ type DropDownProps = {
   onClose: () => void
 }
 export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) => {
+  const history = useHistory();
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(isDropdownOpen);
 
@@ -60,7 +63,7 @@ export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) =
 
   const logout = () => {
     localStorage.setItem('token', '');
-    window.location.replace('/');
+    history.push('/');
   }
 
   return (
@@ -86,7 +89,7 @@ export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) =
           </ul>
         </FormContainerStyled>
       )}
-      <ArticleModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+      <ArticleModal modalIsOpen={modalIsOpen} onCloseModal={closeModal} />
     </>
   )
 }
