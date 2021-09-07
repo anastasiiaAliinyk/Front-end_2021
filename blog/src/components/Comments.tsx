@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { CircularProgress } from '@material-ui/core';
 import defaultPhotoAvatar from '../images/default-avatar.png';
 import { UserT, CommentT } from '../types';
 import { useApi } from '../hooks/useApi';
 import { CommentResponse } from '../api/comments';
-import { CircularProgress } from '@material-ui/core';
 import { useRequestState } from '../hooks/useRequestState';
 
 const CommentContainerStyled = styled.div`
@@ -71,8 +71,8 @@ type CommentProps = {
 export const Comments: React.FC<CommentProps> = ({user, slug}) => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState<CommentT[]>([]);
-  const {getCommentsApi, addCommentApi} = useApi();
 
+  const {getCommentsApi, addCommentApi} = useApi();
   const [addCommentInProgress, addComment] = useRequestState<CommentResponse>(addCommentApi);
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
@@ -93,7 +93,7 @@ export const Comments: React.FC<CommentProps> = ({user, slug}) => {
   return (
     <>
       <CommentContainerStyled>
-        <CommentAvatarStyled src={user && user.image || defaultPhotoAvatar} alt='User'/>
+        <CommentAvatarStyled src={(user && user.image) || defaultPhotoAvatar} alt='User' />
         <FormStyled onSubmit={(e) => handleOnSubmit(e)}>
           <TextareaStyled
             value={comment}
@@ -110,7 +110,7 @@ export const Comments: React.FC<CommentProps> = ({user, slug}) => {
       {comments && comments.map(comment => (
         <DivStyled key={comment.id}>
           <div>
-            <CommentAvatarStyled src={comment.author.image} alt="User"/>
+            <CommentAvatarStyled src={comment.author.image || defaultPhotoAvatar} alt='User'/>
             <h4>{comment.author.username}</h4>
           </div>
           {comment.body}

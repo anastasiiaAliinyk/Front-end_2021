@@ -27,6 +27,16 @@ const StyledFormContainer = styled.div`
     font-size: 22px;
   }
 `
+
+const LinkStyled = styled(Link)`
+  color: #37acee;
+`
+
+const LinkContainerStyled = styled.div`
+  margin-top: 30px;
+  text-align: center;
+`
+
 type LoginProps = {
   onUser: (user: UserT) => void
 }
@@ -43,10 +53,10 @@ export const Login = ({ onUser }: LoginProps) => {
     setLoading(true);
 
     loginApi(email, password)
-      .then((response) => {
-        window.localStorage.setItem('token', response.user.token);
+      .then((user) => {
+        window.localStorage.setItem('token', user.token);
         setLoading(false)
-        onUser(response.user);
+        onUser(user);
       })
       .catch(() => {
         setEmail('');
@@ -84,10 +94,10 @@ export const Login = ({ onUser }: LoginProps) => {
             {loading ? <CircularProgress size='20px' /> : 'Log in'}
           </SubmitButton>
         </form>
-        <div>
+        <LinkContainerStyled>
           Don’t have an account yet?
-          <Link to='/signup'>Create an account</Link>
-        </div>
+          <LinkStyled to='/signup'> Create an account</LinkStyled>
+        </LinkContainerStyled>
       </StyledFormContainer>
     </Main>
   )

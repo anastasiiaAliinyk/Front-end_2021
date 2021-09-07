@@ -6,13 +6,23 @@ export type ArticlesResponse = {
   articlesCount: number
 }
 
-export const getArticles = (baseUrl: string) => (): Promise<ArticlesResponse> => {
-  return axios.get(`${baseUrl}/api/articles`)
+export const getArticles = (baseUrl: string) => (offset: number, limit: number): Promise<ArticlesResponse> => {
+  return axios.get(`${baseUrl}/api/articles?offset=${offset}&limit=${limit}`)
     .then(response => response.data);
 };
 
-export const getFeeds = (authAxiosInstance: AxiosInstance) => (): Promise<ArticlesResponse> => {
-  return authAxiosInstance.get(`/api/articles/feed`)
+export const getArticlesByAuthor = (baseUrl: string) => (username: string, offset: number, limit: number): Promise<ArticlesResponse> => {
+  return axios.get(`${baseUrl}/api/articles?author=${username}&offset=${offset}&limit=${limit}`)
+    .then(response => response.data);
+};
+
+export const getFavoriteArticlesByAuthor = (baseUrl: string) => (username: string, offset: number, limit: number): Promise<ArticlesResponse> => {
+  return axios.get(`${baseUrl}/api/articles?favorited=${username}&offset=${offset}&limit=${limit}`)
+    .then(response => response.data);
+};
+
+export const getFeeds = (authAxiosInstance: AxiosInstance) => (offset: number, limit: number): Promise<ArticlesResponse> => {
+  return authAxiosInstance.get(`/api/articles/feed?offset=${offset}&limit=${limit}`)
     .then(response => response.data);
 };
 
@@ -21,8 +31,8 @@ export const getUserArticles = (baseUrl: string) => (name: string): Promise<Arti
     .then(response => response.data);
 };
 
-export const getArticlesByTag = (baseUrl: string) => (tag: string): Promise<ArticlesResponse> => {
-  return axios.get(`${baseUrl}/api/articles?tag=${tag}`)
+export const getArticlesByTag = (baseUrl: string) => (offset: number, limit: number, tag: string): Promise<ArticlesResponse> => {
+  return axios.get(`${baseUrl}/api/articles?tag=${tag}&offset=${offset}&limit=${limit}`)
     .then(response => response.data);
 };
 

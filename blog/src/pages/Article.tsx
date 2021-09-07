@@ -6,7 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 import { Container } from '../components/Container';
-import { Loader } from '../components/Loader';
+import { Loader } from '../components/Loader/Loader';
 import { Comments } from '../components/Comments';
 import { LikeButton } from '../components/LikeButton';
 
@@ -16,6 +16,8 @@ import { useApi } from '../hooks/useApi';
 import { AppContext } from '../ context';
 import { useRequestState } from '../hooks/useRequestState';
 import { ArticleModal } from '../components/Modals/ArticleModal';
+import { Avatar } from '../components/Avatar/Avatar';
+import {Button} from "../components/Button/Button";
 
 export const MainStyled = styled.main`
   padding-bottom: 54px
@@ -28,6 +30,8 @@ const MainContainerStyled = styled(Container)`
 const ArticleBlockStyled = styled.div`
   margin-bottom: 15px;
   padding: 25px;
+
+  line-height: 1.5rem;
   border-radius: 5px;
   box-shadow: rgb(203 211 212 / 50%) 0 2px 12px 0;
 `;
@@ -45,6 +49,24 @@ const ArticleHeaderText = styled.div`
   }
 `;
 
+const TagListStyled = styled.div`
+  margin: 30px 0 0 50%;
+  text-align: right;
+`
+
+const ArticleHeaderInfo = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const LinksBlockStyled = styled.div`
+  text-align: center;
+  
+  & > a {
+    color: #0a84e5;
+  }
+`
+
 export const ArticlePage: React.FC = () => {
   const history = useHistory();
   const { slug } = useParams<{ slug: string }>();
@@ -59,7 +81,7 @@ export const ArticlePage: React.FC = () => {
 
   useEffect(() => {
     getArticleApi(slug)
-      .then(setArticle)
+      .then(setArticle);
   }, []);
 
   const handleOnDelete = (slug: string) => {
@@ -72,26 +94,32 @@ export const ArticlePage: React.FC = () => {
       setArticle(article);
     }
     setEditArticle(false);
-  }
+  };
 
   return (
     <MainStyled style={{
       pointerEvents: deleteArticleInProgress ? 'none' : 'auto',
-      opacity: deleteArticleInProgress ? .5 : 1
+      opacity: deleteArticleInProgress ? 0.5 : 1
     }}>
       <MainContainerStyled>
-        {!article && <Loader primary count={1}/>}
+        {!article && <Loader primary count={1} />}
         {article && <>
           <ArticleBlockStyled>
             <ArticleHeaderText>
-              <div>
-                <img src={article.author.image || defaultPhotoAvatar} alt="User Profile"/>
+              <ArticleHeaderInfo>
+                <Avatar
+                  src={article.author.image || defaultPhotoAvatar}
+                  alt='User Profile'
+                  size={50}
+                />
                 <div>
-                  <button>{article.author.username}</button>
+                  <Button primary>
+                    {article.author.username}
+                  </Button>
                   <p>{article.createdAt}</p>
                 </div>
-              </div>
-              {user && (
+              </ArticleHeaderInfo>
+              {typeof user === 'object' && user && (
                 article.author.username === user.username
               ) ? (
                 <div>
@@ -99,29 +127,32 @@ export const ArticlePage: React.FC = () => {
                     <EditIcon/>
                   </button>
                   <button onClick={() => handleOnDelete(article.slug)}>
-                    {deleteArticleInProgress ? <CircularProgress size="20px"/> : <DeleteForeverIcon/>}
+                    {deleteArticleInProgress ? <CircularProgress size='20px'/> : <DeleteForeverIcon/>}
                   </button>
                 </div>
               ) : (
-                <LikeButton article={article}/>
+                <LikeButton article={article} />
               )}
             </ArticleHeaderText>
             <div>
               <h3>{article.title}</h3>
               <div>{article.body}</div>
             </div>
-            <div>
+            <TagListStyled>
               {article.tagList.map(tag => (
-                <span key={tag}>#{tag}</span>
+                <span key={tag}>#{tag} </span>
               ))}
-            </div>
+            </TagListStyled>
           </ArticleBlockStyled>
           <ArticleBlockStyled>
-            {user
-              ?
+            {typeof user === 'object' && user ? (
               <Comments user={user} slug={slug}/>
-              : <div><Link to="/login">Sign in</Link> or <Link to="/signup">Sign up</Link> to add comments on this
-                article</div>
+            ) : (
+              <LinksBlockStyled>
+                <Link to='/login'>Sign in</Link> or <Link to='/signup'>
+                Sign up</Link> to add comments on this article
+              </LinksBlockStyled>
+            )
             }
           </ArticleBlockStyled>
         </>}
@@ -131,7 +162,7 @@ export const ArticlePage: React.FC = () => {
         <ArticleModal
           article={article}
           modalIsOpen={editArticle}
-          onCloseModal={handleOnCloseModal}/>
+          onCloseModal={handleOnCloseModal} />
       )}
     </MainStyled>
   );

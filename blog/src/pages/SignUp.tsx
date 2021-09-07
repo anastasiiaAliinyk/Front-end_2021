@@ -27,6 +27,16 @@ const StyledFormContainer = styled.div`
     font-size: 22px;
   }
 `
+
+const LinkStyled = styled(Link)`
+  color: #37acee;
+`
+
+const LinkContainerStyled = styled.div`
+  margin-top: 30px;
+  text-align: center;
+`
+
 type SignUpProps = {
   onUser: (user: UserT) => void
 }
@@ -44,11 +54,10 @@ export const SignUp = ({ onUser }: SignUpProps) => {
     setLoading(true);
 
     signUpApi(email, password, username)
-      .then((response) => {
-        window.localStorage.setItem('token', response.user.token);
+      .then((user) => {
+        window.localStorage.setItem('token', user.token);
         setLoading(false);
-        console.log(response.user);
-        onUser(response.user);
+        onUser(user);
       })
       .catch(() => {
         setUsername('');
@@ -95,10 +104,10 @@ export const SignUp = ({ onUser }: SignUpProps) => {
             {loading ? <CircularProgress size='20px' /> : 'Sign up'}
           </SubmitButton>
         </form>
-        <div>
+        <LinkContainerStyled>
           Already a member?
-          <Link to='/login'>Log in</Link>
-        </div>
+          <LinkStyled to='/login'> Log in</LinkStyled>
+        </LinkContainerStyled>
       </StyledFormContainer>
     </Main>
   )

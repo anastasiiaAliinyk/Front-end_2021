@@ -1,25 +1,21 @@
-import axios, {AxiosInstance} from 'axios';
-import {ArticleT, UpdateArticleT, UserT} from '../types';
+import axios, { AxiosInstance } from 'axios';
+import { UserT } from '../types';
 
-export type UserResponse = {
-  user: UserT
-}
-
-export const getUser = (authAxiosInstance: AxiosInstance) => (): Promise<UserResponse>=>
+export const getUser = (authAxiosInstance: AxiosInstance) => (): Promise<UserT> =>
   authAxiosInstance.get(`/api/user`)
-    .then(response => response.data);
+    .then(response => response.data.user);
 
-export const login = (baseUrl: string) => (email: string, password: string): Promise<UserResponse> => {
+export const login = (baseUrl: string) => (email: string, password: string): Promise<UserT> => {
   return axios.post(`${baseUrl}/api/users/login`, {
     user: {
       email,
       password
     }
   })
-    .then(response => response.data);
+    .then(response => response.data.user);
 };
 
-export const signUp = (baseUrl: string) => (email: string, password: string, username: string): Promise<UserResponse> => {
+export const signUp = (baseUrl: string) => (email: string, password: string, username: string): Promise<UserT> => {
   return axios.post(`${baseUrl}/api/users`, {
     user: {
       email,
@@ -27,9 +23,9 @@ export const signUp = (baseUrl: string) => (email: string, password: string, use
       username
     }
   })
-    .then(response => response.data);
+    .then(response => response.data.user);
 };
 
 export const updateUser = (authAxiosInstance: AxiosInstance) => (user: UserT): Promise<UserT> =>
-  authAxiosInstance.put('/api/articles', {user})
+  authAxiosInstance.put('/api/articles', { user })
     .then(response => response.data.user);

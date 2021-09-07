@@ -9,7 +9,7 @@ import {
   getArticlesByTag,
   favoriteArticle,
   unFavoriteArticle,
-  getUserArticles
+  getUserArticles, getArticlesByAuthor, getFavoriteArticlesByAuthor
 } from '../api/articles';
 import { getTags } from '../api/tags';
 import {getUser, login, signUp, updateUser} from '../api/user';
@@ -28,6 +28,8 @@ export const useApi = () => {
   return {
     //Article
     getArticlesApi: getArticles(baseURL),
+    getArticlesByAuthorApi: getArticlesByAuthor(baseURL),
+    getFavoriteArticlesByAuthorApi: getFavoriteArticlesByAuthor(baseURL),
     getFeedsApi: getFeeds(authInstance),
     getUserArticlesApi: getUserArticles(baseURL),
     getArticlesByTagApi: getArticlesByTag(baseURL),

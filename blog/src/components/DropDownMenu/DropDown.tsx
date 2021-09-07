@@ -1,24 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ArticleModal } from "../Modals/ArticleModal";
+import { ArticleModal } from '../Modals/ArticleModal';
 import { useHistory } from 'react-router-dom';
+
+const ListStyled = styled.ul`
+`;
 
 const FormContainerStyled = styled.div`
   position: absolute;
   right: 0;
   top: 30px;
-  width: ${(props: {width: string}) => props.width};
+  width: ${(props: { width: string }) => props.width};
   padding: 10px;
   box-shadow: rgb(203 211 212 / 50%) 0 2px 12px 0;
   background-color: white;
   border-radius: 5px;
-`
+`;
 
 const ListItemStyled = styled.li`
   &:nth-last-child(-n+2) {
     margin-top: 10px;
   }
-`
+`;
 
 const ListButtonStyled = styled.button`
   width: 100%;
@@ -30,18 +33,20 @@ const ListButtonStyled = styled.button`
   border-radius: 3px;
   cursor: pointer;
   
-  ${(props: { secondary?: boolean } ) => props.secondary && css`
+  ${(props: { secondary?: boolean }) => props.secondary && css`
     color: white;
     background-color: #c82525;
     border: none;
   `}
-`
+`;
 
 type DropDownProps = {
   isDropdownOpen: boolean
   onClose: () => void
+  onLogout: () => void
 }
-export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) => {
+
+export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose, onLogout }) => {
   const history = useHistory();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -55,22 +60,24 @@ export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) =
     setModalIsOpen(true);
     setIsOpen(false);
     onClose();
-  }
+  };
 
   const closeModal = () => {
     setModalIsOpen(false);
-  }
+  };
 
   const logout = () => {
-    localStorage.setItem('token', '');
     history.push('/');
-  }
+    onLogout();
+    setIsOpen(false);
+    onClose();
+  };
 
   return (
     <>
       {isOpen && (
         <FormContainerStyled width='200px'>
-          <ul>
+          <ListStyled>
             <ListItemStyled>
               <ListButtonStyled onClick={() => {}}>
                 Profile
@@ -86,10 +93,10 @@ export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose }) =
                 Log Out
               </ListButtonStyled>
             </ListItemStyled>
-          </ul>
+          </ListStyled>
         </FormContainerStyled>
       )}
       <ArticleModal modalIsOpen={modalIsOpen} onCloseModal={closeModal} />
     </>
-  )
-}
+  );
+};

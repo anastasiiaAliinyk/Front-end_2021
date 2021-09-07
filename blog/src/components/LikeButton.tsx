@@ -53,9 +53,9 @@ export const LikeButton: React.FC<LikeButtonProps> = ({ article }) => {
 
   return (
     <LikeButtonStyled onClick={() => handleOnClick(article.slug)}>
-      {toggleFavoriteInProgress ? <CircularProgress size="20px"/> : (
+      {toggleFavoriteInProgress ? <CircularProgress size='20px'/> : (
         <>
-          <FavoriteIcon fontSize="small"/>
+          <FavoriteIcon fontSize='small'/>
           <p>{favoritesCount}</p>
         </>
       )}
