@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar/Avatar';
@@ -7,7 +7,10 @@ import { Button } from '../components/Button/Button';
 import {UserTabs} from "../components/UserTabs";
 import {ArticleModal} from "../components/Modals/ArticleModal";
 import {UserModal} from "../components/Modals/UserModal";
-import {ArticleT} from "../types";
+import {ArticleT, UserT} from "../types";
+import {useApi} from "../hooks/useApi";
+import {useParams} from "react-router-dom";
+import {AppContext} from "../ context";
 
 const MainStyled = styled.main`
   padding: 50px 0 54px;
@@ -31,18 +34,18 @@ const ButtonStyled = styled(Button)`
   color: red;
 `
 
-const user = {
-  'id': '197028',
-  'email': '112333@gmail.com',
-  'createdAt': '2021-07-29T18:38:31.126Z',
-  'updatedAt': '2021-08-19T15:09:09.641Z',
-  'username': '112333',
-  'bio': 'weweewew',
-  'image': null,
-  'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTk3MDI4LCJ1c2VybmFtZSI6IjExMjMzMyIsImV4cCI6MTYzNTkxODk2MH0.ZFvgioZV7vQiZbzwIsRrnTE_zBBohH7pt4_awXp_POE'
-}
 export const User: React.FC = () => {
   const [editUser, setEditUser] = useState(true);
+  const [userProfile, setUserProfile] = useState<UserT | null>(null);
+  const { username } = useParams<{ username: string }>();
+  const { user } = useContext(AppContext);
+  const {getUserProfileApi} = useApi();
+
+  useEffect(() => {
+    getUserProfileApi(username)
+      .then(response => setUserProfile(response));
+  }, [username]);
+
   const handleOnCloseModal = () => {
     setEditUser(false);
   };
@@ -53,20 +56,20 @@ export const User: React.FC = () => {
         <UserBlockStyled>
           <HeaderTextStyled>
             <Avatar
-              src={user.image || defaultPhotoAvatar}
+              src={userProfile && userProfile.image || defaultPhotoAvatar}
               alt='User'
               size={80}
             />
             <div>
-              <h3>{user.username}</h3>
-              <p>{user.bio || 'No bio yet...'}</p>
+              <h3>{userProfile && userProfile.username}</h3>
+              <p>{userProfile && userProfile.bio || 'No bio yet...'}</p>
             </div>
           </HeaderTextStyled>
           <ButtonStyled primary>
             Follow
           </ButtonStyled>
         </UserBlockStyled>
-        <UserTabs username={user.username} />
+        <UserTabs username={username} />
         <UserModal
           user={user}
           modalIsOpen={editUser}

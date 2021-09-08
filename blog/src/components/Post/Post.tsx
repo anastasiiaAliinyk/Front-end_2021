@@ -61,7 +61,11 @@ export const Post = ({ article }: PostProps) =>
       <PostHeaderText>
         <Avatar src={article.author.image || defaultPhotoAvatar} alt='User Profile'/>
         <div>
-          <Button primary >{article.author.username}</Button>
+          <Link to={`/users/${article.author.username}`}>
+            <Button primary >
+              {article.author.username}
+            </Button>
+          </Link>
           <p>{article.createdAt}</p>
         </div>
       </PostHeaderText>

@@ -70,6 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onThemeChange, onLogout }) => {
                 isDropdownOpen={isVisibleDropDown}
                 onClose={() => setIsVisibleDropDown(false)}
                 onLogout={onLogout}
+                username={user.username}
               />
             </li>
             }

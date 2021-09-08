@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { baseURL } from '../constants';
 import {
   getArticles,
   getFeeds,
@@ -12,9 +13,17 @@ import {
   getUserArticles, getArticlesByAuthor, getFavoriteArticlesByAuthor
 } from '../api/articles';
 import { getTags } from '../api/tags';
-import {getUser, login, signUp, updateUser} from '../api/user';
-import { baseURL } from '../constants';
-import {addComment, getComments} from '../api/comments';
+import {
+  getUser,
+  getUserProfile,
+  login,
+  signUp,
+  updateUser
+} from '../api/user';
+import {
+  addComment,
+  getComments
+} from '../api/comments';
 
 export const useApi = () => {
   const token = window.localStorage.getItem('token');
@@ -47,6 +56,7 @@ export const useApi = () => {
     addCommentApi: addComment(authInstance),
     //User
     getUserApi: getUser(authInstance),
+    getUserProfileApi: getUserProfile(baseURL),
     updateUserApi: updateUser(authInstance),
     loginApi: login(baseURL),
     signUpApi: signUp(baseURL),

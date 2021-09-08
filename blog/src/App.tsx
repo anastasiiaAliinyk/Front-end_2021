@@ -54,8 +54,8 @@ export const App: React.FC = () => {
             <Route path='/signup'>
               <SignUp onUser={setUser}/>
             </Route>
-            <Route path='/articles/:slug' component={ArticlePage}/>
-            <Route path='/users/' component={User} />
+            <Route path='/articles/:slug' component={ArticlePage} />
+            <Route path='/users/:username' component={User} />
           </Switch>
           <Footer/>
         </AppContext.Provider>

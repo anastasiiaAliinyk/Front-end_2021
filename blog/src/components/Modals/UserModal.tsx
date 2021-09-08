@@ -43,17 +43,17 @@ const ArticleModalStyled = styled(Modal)`
 type UserModalProps = {
   modalIsOpen: boolean
   onCloseModal: () => void
-  user?: UserT | null
+  user?: UserT | null | boolean
 }
 
 export const UserModal: React.FC<UserModalProps> = ({ modalIsOpen, onCloseModal, user }) => {
   const history = useHistory();
   // const { createArticleApi, updateArticleApi } = useApi();
 
-  const [userName, setUserName] = useState(user ? user.username : '');
-  const [bio, setBio] = useState(user ? user.bio : '');
-  const [image, setImage] = useState(user ? user.image : '');
-  const [email, setEmail] = useState(user ? user.email : '');
+  const [userName, setUserName] = useState(typeof user === 'object' && user ? user.username : '');
+  const [bio, setBio] = useState(typeof user === 'object' && user ? user.bio : '');
+  const [image, setImage] = useState(typeof user === 'object' && user ? user.image : '');
+  const [email, setEmail] = useState(typeof user === 'object' && user ? user.email : '');
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();

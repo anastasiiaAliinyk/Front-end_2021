@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { ArticleModal } from '../Modals/ArticleModal';
 import { useHistory } from 'react-router-dom';
@@ -44,9 +45,10 @@ type DropDownProps = {
   isDropdownOpen: boolean
   onClose: () => void
   onLogout: () => void
+  username: string
 }
 
-export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose, onLogout }) => {
+export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose, onLogout, username }) => {
   const history = useHistory();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -79,9 +81,11 @@ export const DropDown: React.FC<DropDownProps> = ({ isDropdownOpen, onClose, onL
         <FormContainerStyled width='200px'>
           <ListStyled>
             <ListItemStyled>
-              <ListButtonStyled onClick={() => {}}>
-                Profile
-              </ListButtonStyled>
+              <Link to={`/users/${username}`}>
+                <ListButtonStyled onClick={() => {}}>
+                  Profile
+                </ListButtonStyled>
+              </Link>
             </ListItemStyled>
             <ListItemStyled>
               <ListButtonStyled onClick={openModal}>

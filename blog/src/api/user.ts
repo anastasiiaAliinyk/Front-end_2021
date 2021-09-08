@@ -29,3 +29,8 @@ export const signUp = (baseUrl: string) => (email: string, password: string, use
 export const updateUser = (authAxiosInstance: AxiosInstance) => (user: UserT): Promise<UserT> =>
   authAxiosInstance.put('/api/articles', { user })
     .then(response => response.data.user);
+
+export const getUserProfile = (baseUrl: string) => (username: string) => {
+  return axios.get(`${baseUrl}/api/profiles/${username}`)
+    .then(response => response.data.profile);
+};
