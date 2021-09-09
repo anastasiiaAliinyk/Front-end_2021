@@ -11,12 +11,12 @@ export const getArticles = (baseUrl: string) => (offset: number, limit: number):
     .then(response => response.data);
 };
 
-export const getArticlesByAuthor = (baseUrl: string) => (username: string, offset: number, limit: number): Promise<ArticlesResponse> => {
+export const getArticlesByAuthor = (baseUrl: string) => (offset: number, limit: number, username: string): Promise<ArticlesResponse> => {
   return axios.get(`${baseUrl}/api/articles?author=${username}&offset=${offset}&limit=${limit}`)
     .then(response => response.data);
 };
 
-export const getFavoriteArticlesByAuthor = (baseUrl: string) => (username: string, offset: number, limit: number): Promise<ArticlesResponse> => {
+export const getFavoriteArticlesByAuthor = (baseUrl: string) => (offset: number, limit: number, username: string): Promise<ArticlesResponse> => {
   return axios.get(`${baseUrl}/api/articles?favorited=${username}&offset=${offset}&limit=${limit}`)
     .then(response => response.data);
 };

@@ -121,7 +121,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ modalIsOpen, onClose
         />
         <SubmitButton disabled={!title || !body}>
           {createUpdateArticleInProgress ? (
-            <CircularProgress size="20px"/>
+            <CircularProgress size="20px" />
           ) : (
             article ? 'Update Article' : 'Publish Article'
           )}

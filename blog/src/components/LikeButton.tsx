@@ -7,6 +7,7 @@ import { secondaryColorText, animationTime } from '../constants';
 import { useApi } from '../hooks/useApi';
 import { ArticleT } from '../types';
 import { useRequestState } from '../hooks/useRequestState';
+import {useSnackbar} from "notistack";
 
 const LikeButtonStyled = styled.button`
   display: flex;
@@ -37,7 +38,7 @@ type LikeButtonProps = {
 export const LikeButton: React.FC<LikeButtonProps> = ({ article }) => {
   const [favorited, setFavorited] = useState<boolean>(article.favorited);
   const [favoritesCount, setFavoritesCount] = useState<number>(article.favoritesCount);
-
+  const { enqueueSnackbar } = useSnackbar();
   const { favoriteArticleApi, unFavoriteArticleApi } = useApi();
 
   const apiFunction = favorited ? unFavoriteArticleApi : favoriteArticleApi;
@@ -47,7 +48,13 @@ export const LikeButton: React.FC<LikeButtonProps> = ({ article }) => {
     toggleFavorite(slug)
       .then(article => {
         setFavoritesCount(article.favoritesCount);
-        setFavorited(article.favorited);
+        setFavorited(article.favorited)
+      })
+      .catch(() => {
+        enqueueSnackbar('Error...You need to login', {
+          variant: 'error',
+          persist: true
+        });
       });
   };
 

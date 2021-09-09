@@ -39,9 +39,10 @@ const LinkContainerStyled = styled.div`
 
 type SignUpProps = {
   onUser: (user: UserT) => void
+  setIsAuthorized: (isSet: boolean) => void
 }
 
-export const SignUp = ({ onUser }: SignUpProps) => {
+export const SignUp = ({ onUser, setIsAuthorized }: SignUpProps) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,6 +59,7 @@ export const SignUp = ({ onUser }: SignUpProps) => {
         window.localStorage.setItem('token', user.token);
         setLoading(false);
         onUser(user);
+        setIsAuthorized(true);
       })
       .catch(() => {
         setUsername('');

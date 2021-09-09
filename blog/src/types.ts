@@ -63,3 +63,10 @@ export type UserT = {
   image: string | null
   token: string
 }
+
+export type UserRequestT = {
+  email: string
+  username: string
+  bio: null | string
+  image: string | null
+}

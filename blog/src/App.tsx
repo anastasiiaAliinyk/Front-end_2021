@@ -22,18 +22,25 @@ import { User } from './pages/User';
 
 export const App: React.FC = () => {
   const [theme, toggleTheme] = useThemeMode();
-  // false value when user is not authorized
-  const [user, setUser] = useState<UserT | null | boolean>(null);
+
+  const [user, setUser] = useState<UserT | null>(null);
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
+
   const { getUserApi } = useApi();
 
   useEffect(() => {
     getUserApi()
-      .then(setUser)
-      .catch(() => setUser(false));
+      .then(user => {
+        setUser(user);
+        setIsAuthorized(true);
+      })
+      .catch(() => setIsAuthorized(false));
   }, []);
 
   const onLogout = () => {
-    setUser(false);
+    setIsAuthorized(false);
+    setUser(null);
+
     localStorage.setItem('token', '');
   };
 
@@ -41,7 +48,11 @@ export const App: React.FC = () => {
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyle/>
       <Router>
-        <AppContext.Provider value={{ user }}>
+        <AppContext.Provider value={{
+          user,
+          setUser,
+          isAuthorized
+        }}>
           <Header
             onThemeChange={toggleTheme}
             onLogout={onLogout}
@@ -49,10 +60,10 @@ export const App: React.FC = () => {
           <Switch>
             <Route path='/' exact component={Home}/>
             <Route path='/login'>
-              <Login onUser={setUser}/>
+              <Login onUser={setUser} setIsAuthorized={setIsAuthorized} />
             </Route>
             <Route path='/signup'>
-              <SignUp onUser={setUser}/>
+              <SignUp onUser={setUser} setIsAuthorized={setIsAuthorized} />
             </Route>
             <Route path='/articles/:slug' component={ArticlePage} />
             <Route path='/users/:username' component={User} />

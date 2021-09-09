@@ -70,7 +70,7 @@ const LinksBlockStyled = styled.div`
 export const ArticlePage: React.FC = () => {
   const history = useHistory();
   const { slug } = useParams<{ slug: string }>();
-  const { user } = useContext(AppContext);
+  const { user, isAuthorized } = useContext(AppContext);
 
   const { getArticleApi, deleteArticleApi } = useApi();
 
@@ -113,14 +113,16 @@ export const ArticlePage: React.FC = () => {
                   size={50}
                 />
                 <div>
-                  <Button primary>
-                    {article.author.username}
-                  </Button>
+                  <Link to={`/users/${article.author.username}`}>
+                    <Button primary>
+                      {article.author.username}
+                    </Button>
+                  </Link>
                   <p>{article.createdAt}</p>
                 </div>
               </ArticleHeaderInfo>
-              {typeof user === 'object' && user && (
-                article.author.username === user.username
+              {isAuthorized && (
+                article.author.username === user!.username
               ) ? (
                 <div>
                   <button onClick={() => setEditArticle(true)}>
@@ -145,7 +147,7 @@ export const ArticlePage: React.FC = () => {
             </TagListStyled>
           </ArticleBlockStyled>
           <ArticleBlockStyled>
-            {typeof user === 'object' && user ? (
+            {isAuthorized ? (
               <Comments user={user} slug={slug}/>
             ) : (
               <LinksBlockStyled>

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { UserT } from '../types';
+import {UserRequestT, UserT} from '../types';
 
 export const getUser = (authAxiosInstance: AxiosInstance) => (): Promise<UserT> =>
   authAxiosInstance.get(`/api/user`)
@@ -26,8 +26,8 @@ export const signUp = (baseUrl: string) => (email: string, password: string, use
     .then(response => response.data.user);
 };
 
-export const updateUser = (authAxiosInstance: AxiosInstance) => (user: UserT): Promise<UserT> =>
-  authAxiosInstance.put('/api/articles', { user })
+export const updateUser = (authAxiosInstance: AxiosInstance) => (user: UserRequestT): Promise<UserT> =>
+  authAxiosInstance.put('/api/user', { user: user })
     .then(response => response.data.user);
 
 export const getUserProfile = (baseUrl: string) => (username: string) => {

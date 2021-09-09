@@ -2,12 +2,15 @@ import { createContext } from 'react';
 import { UserT } from './types';
 
 type AppContextType = {
-  // false value when user is not authorized
-  user: UserT | null | boolean
+  user: UserT | null
+  isAuthorized: boolean | null,
+  setUser: ((user: UserT) => void) | null
 }
 
 const initial: AppContextType = {
-  user: null
+  user: null,
+  isAuthorized: null,
+  setUser: null
 }
 
 export const AppContext = createContext(initial);

@@ -39,9 +39,10 @@ const LinkContainerStyled = styled.div`
 
 type LoginProps = {
   onUser: (user: UserT) => void
+  setIsAuthorized: (isSet: boolean) => void
 }
 
-export const Login = ({ onUser }: LoginProps) => {
+export const Login = ({ onUser, setIsAuthorized }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -57,6 +58,7 @@ export const Login = ({ onUser }: LoginProps) => {
         window.localStorage.setItem('token', user.token);
         setLoading(false)
         onUser(user);
+        setIsAuthorized(true);
       })
       .catch(() => {
         setEmail('');

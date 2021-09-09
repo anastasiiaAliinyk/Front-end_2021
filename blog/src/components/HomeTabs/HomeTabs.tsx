@@ -38,7 +38,7 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
   const query = useQuery();
   const { enqueueSnackbar } = useSnackbar();
 
-  const { user } = useContext(AppContext);
+  const { isAuthorized } = useContext(AppContext);
   const [articles, setArticles] = useState<ArticleT[]>([]);
   const [feeds, setFeeds] = useState<ArticleT[]>([]);
   const [selectedTabIndex, setSelectedTabIndex] = useState<number | null>(null);
@@ -70,18 +70,17 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
   } = usePaginatedRequest<ArticlesResponse>(getArticlesByTag, 'articlesCount');
 
   useEffect(() => {
-    if (user === null || selectedTabIndex === null || selectedTabIndex !== 0) {
+    if (isAuthorized === null || selectedTabIndex === null || selectedTabIndex !== 0) {
       return;
     }
-    if (!user) {
-      // when a user is not authorized
+    if (!isAuthorized) {
       history.push('/login');
       return;
     }
     getPaginatedFeeds()
       .then(({ articles }) => setFeeds(articles));
 
-  }, [user, selectedTabIndex, feedsPage]);
+  }, [isAuthorized, selectedTabIndex, feedsPage]);
 
   useEffect(() => {
     if (selectedTabIndex === null || selectedTabIndex !== 1) {
@@ -107,20 +106,15 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
   }, [selectedTabIndex, selectedTag, articlesByTagPage]);
 
   useEffect(() => {
-    if (user === null) {
-      // a user was not loaded yet
-      return;
-    }
     let rawActiveTab = query.get('active-tab');
     const activeTab = rawActiveTab ? +rawActiveTab : 1;
     setSelectedTabIndex(activeTab);
 
     const tag = query.get('tag');
     setSelectedTag(tag || '');
-  }, [user, location]);
+  }, [location]);
 
   if (selectedTabIndex === null) {
-    // user loading in progress
     return <Loader primary />;
   }
 
@@ -145,7 +139,7 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
       <TabPanel>
         {(
           getFeedsInProgress === null || getFeedsInProgress
-        ) ? <Loader primary/> : (
+        ) ? <Loader primary /> : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Articles articles={feeds} />
             <Pagination
@@ -162,17 +156,17 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
       <TabPanel>
         {(
           getArticlesInProgress === null || getArticlesInProgress
-        ) ? <Loader primary/> : (
+        ) ? <Loader primary /> : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Articles articles={articles}/>
-            <Pagination
+            {articles.length > 0 && <Pagination
               page={articlesPage}
               count={articlesCountPages}
               onChange={(e, page) => setArticlesPage(page)}
               variant='outlined'
               shape='rounded'
               style={{ alignSelf: 'center' }}
-            />
+            />}
           </div>
         )}
       </TabPanel>
@@ -181,15 +175,15 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
           getArticlesByTagInProgress === null || getArticlesByTagInProgress
         ) ? <Loader primary/> : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Articles articles={articlesByTag}/>
-            <Pagination
+            <Articles articles={articlesByTag} />
+            {articlesByTag.length > 0 && <Pagination
               page={articlesByTagPage}
               count={articlesByTagCountPages}
               onChange={(e, page) => setArticlesByTagPage(page)}
               variant='outlined'
               shape='rounded'
               style={{ alignSelf: 'center' }}
-            />
+            />}
           </div>
         )}
       </TabPanel>
