@@ -8,6 +8,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from '../ context';
 import { UserT } from '../types';
 import { CircularProgress } from '@material-ui/core';
+import {useSnackbar} from "notistack";
 
 const Main = styled.main`
   padding-bottom: 54px;
@@ -48,6 +49,7 @@ export const SignUp = ({ onUser, setIsAuthorized }: SignUpProps) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const {user} = useContext(AppContext);
+  const { enqueueSnackbar } = useSnackbar();
   const {signUpApi} = useApi();
 
   const handleOnSubmit = (e: React.SyntheticEvent) => {
@@ -65,8 +67,11 @@ export const SignUp = ({ onUser, setIsAuthorized }: SignUpProps) => {
         setUsername('');
         setEmail('');
         setPassword('');
-        alert('Problems with server. Try latter')
-        setLoading(false)
+        setLoading(false);
+        enqueueSnackbar('Error...Problems with network', {
+          variant: 'error',
+          persist: true
+        });
       })
   }
 

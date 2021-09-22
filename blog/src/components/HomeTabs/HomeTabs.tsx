@@ -8,8 +8,8 @@ import {
   TabPanel
 } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Pagination } from '@material-ui/lab';
 import { AppContext } from '../../ context';
+import { Pagination } from '@material-ui/lab';
 import { Loader } from '../Loader/Loader';
 import { Articles } from '../Articles/Articles';
 import { ArticleT } from '../../types';
@@ -142,14 +142,14 @@ export const HomeTabs: React.FC<HomeTabsProps> = (
         ) ? <Loader primary /> : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Articles articles={feeds} />
-            <Pagination
+            {feeds.length > 0 && <Pagination
               page={feedsPage}
               count={feedsCountPages}
               onChange={(e, page) => setFeedsPage(page)}
               variant='outlined'
               shape='rounded'
               style={{ alignSelf: 'center' }}
-            />
+            />}
           </div>
         )}
       </TabPanel>

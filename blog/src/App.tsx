@@ -18,7 +18,7 @@ import { SignUp } from './pages/SignUp';
 import { ArticlePage } from './pages/Article';
 
 import { useApi } from './hooks/useApi';
-import { User } from './pages/User';
+import { User } from './pages/User/User';
 
 export const App: React.FC = () => {
   const [theme, toggleTheme] = useThemeMode();
